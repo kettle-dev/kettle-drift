@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "kettle/drift"
+
+exit(Kettle::Drift::CLI.new.run(ARGV))

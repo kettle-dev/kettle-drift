@@ -84,7 +84,7 @@ Gem::Specification.new do |spec|
   ]
   spec.bindir = "exe"
   # Listed files are the relative paths from bindir above.
-  spec.executables = []
+  spec.executables = ["kettle-drift"]
   spec.require_paths = ["lib"]
 
   # Utilities
