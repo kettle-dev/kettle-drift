@@ -71,7 +71,7 @@ require "rubocop/rake_task"
 
 RuboCop::RakeTask.new
 
-task default: %i[spec rubocop]
+Rake::Task[:default].enhance(%i[spec rubocop])
 
 # External gems that define tasks - add here!
 require "kettle/dev"
@@ -85,6 +85,7 @@ rescue LoadError
   task("kettle:drift:validate") do
     warn("NOTE: kettle-drift isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
   end
+  desc("(stub) kettle:drift is unavailable")
   task("kettle:drift" => "kettle:drift:validate")
 end
 
