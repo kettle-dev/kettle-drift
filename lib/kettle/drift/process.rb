@@ -6,6 +6,8 @@ require_relative "process/printer"
 module Kettle
   module Drift
     class Process
+      Result = Struct.new(:diff, :exit_code, keyword_init: true)
+
       attr_reader :project_root, :lock_file, :old_results, :new_results, :mode, :printer_class
 
       def initialize(project_root:, results:, lock_path:, mode: :update, printer_class: Kettle::Drift::Process::Printer)
@@ -18,12 +20,16 @@ module Kettle
       end
 
       def call
+        run.exit_code
+      end
+
+      def run
         diff = Kettle::Drift::Process::CalculateDiff.call(new_results, old_results)
         printer_class&.new(diff: diff, lock_path: lock_file.path)&.print_results
 
         exit_code = error_code(diff)
         sync_lock_file(diff) if exit_code.zero?
-        exit_code
+        Result.new(diff: diff, exit_code: exit_code)
       end
 
       private

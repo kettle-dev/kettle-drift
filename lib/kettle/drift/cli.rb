@@ -6,46 +6,28 @@ require "set"
 module Kettle
   module Drift
     class CLI
-      DEFAULT_LOCKFILE = ".kettle-drift.lock"
-      EXCLUDED_PATH_SEGMENTS = Set.new(%w[
-        .bundle
-        .git
-        .idea
-        coverage
-        docs
-        node_modules
-        pkg
-        tmp
-        vendor
-      ]).freeze
-
       def run(argv = ARGV)
         options = parse(argv)
+        return options if options.is_a?(Integer)
+
         project_root = File.expand_path(options.fetch(:project_root))
-        template_dir = expand_optional_path(options[:template_dir], project_root)
-        lock_path = File.expand_path(options.fetch(:lock_path), project_root)
-        json_path = options[:json_path] && File.expand_path(options[:json_path], project_root)
+        outcome = Kettle::Drift.run(
+          project_root: project_root,
+          template_dir: options[:template_dir],
+          min_chars: options.fetch(:min_chars),
+          json_path: options[:json_path],
+          lock_path: options[:lock_path],
+          mode: options.fetch(:mode),
+        )
 
-        files = target_files(project_root: project_root, template_dir: template_dir)
-        baseline_set = template_dir ? Kettle::Drift::DuplicateLineValidator.baseline(template_dir: template_dir, min_chars: options.fetch(:min_chars)) : Set.new
-        results = Kettle::Drift::DuplicateLineValidator.scan(files: files, min_chars: options.fetch(:min_chars))
-        results = Kettle::Drift::DuplicateLineValidator.subtract_baseline(results, baseline_set: baseline_set)
-
-        if results.empty?
-          puts "[kettle-drift] ✅  No duplicate drift detected (min_chars=#{options[:min_chars]}, files=#{files.size}, baseline=#{baseline_set.size})"
+        if outcome.clean?
+          puts "[kettle-drift] ✅  No duplicate drift detected (min_chars=#{options[:min_chars]}, files=#{outcome.files.size}, baseline=#{outcome.baseline_set.size})"
         else
-          puts "[kettle-drift] ⚠️  #{Kettle::Drift::DuplicateLineValidator.warning_count(results)} drift warning(s) across #{results.size} unique chunk(s) (files=#{files.size}, baseline=#{baseline_set.size})"
-          json_path ||= File.join(project_root, "tmp", "kettle-drift", "duplicate-lines-#{Time.now.utc.strftime("%Y%m%d-%H%M%S")}.json")
-          Kettle::Drift::DuplicateLineValidator.write_json(results, json_path)
-          puts "[kettle-drift] 📄  Report: #{Kettle::Drift.display_path(json_path)}"
+          puts "[kettle-drift] ⚠️  #{outcome.warning_count} drift warning(s) across #{outcome.results.size} unique chunk(s) (files=#{outcome.files.size}, baseline=#{outcome.baseline_set.size})"
+          puts "[kettle-drift] 📄  Report: #{Kettle::Drift.display_path(outcome.json_path)}" if outcome.json_path
         end
 
-        Kettle::Drift::Process.new(
-          project_root: project_root,
-          lock_path: lock_path,
-          mode: options.fetch(:mode),
-          results: results,
-        ).call
+        outcome.exit_code
       end
 
       private
@@ -53,7 +35,7 @@ module Kettle
       def parse(argv)
         options = {
           min_chars: Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS,
-          lock_path: DEFAULT_LOCKFILE,
+          lock_path: Kettle::Drift::DEFAULT_LOCKFILE,
           mode: :update,
           project_root: Dir.pwd,
         }
@@ -70,6 +52,9 @@ module Kettle
 
         remaining = parser.parse(argv.dup)
         options[:project_root] = remaining.first if remaining.first
+        options[:template_dir] = expand_optional_path(options[:template_dir], File.expand_path(options[:project_root]))
+        options[:lock_path] = File.expand_path(options.fetch(:lock_path), File.expand_path(options[:project_root]))
+        options[:json_path] = options[:json_path] && File.expand_path(options[:json_path], File.expand_path(options[:project_root]))
         options
       rescue OptionParser::ParseError => e
         warn("[kettle-drift] #{e.message}")
@@ -80,18 +65,6 @@ module Kettle
         return if path.to_s.strip.empty?
 
         File.expand_path(path, project_root)
-      end
-
-      def target_files(project_root:, template_dir:)
-        return Kettle::Drift::DuplicateLineValidator.template_managed_files(project_root: project_root, template_dir: template_dir) if template_dir
-
-        Dir.glob(File.join(project_root, "**", "*"), File::FNM_DOTMATCH).select do |path|
-          next false unless File.file?(path)
-
-          relative = path.delete_prefix("#{project_root}/")
-          segments = relative.split("/")
-          segments.none? { |segment| segment.start_with?(".") || EXCLUDED_PATH_SEGMENTS.include?(segment) }
-        end
       end
     end
   end
