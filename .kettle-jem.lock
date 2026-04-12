@@ -1,0 +1,21 @@
+{
+  "# Local overrides belong in .env.local (loaded via dotenvy through mise).\n# Shared development environment for this gem.": [
+    {
+      "file": "mise.toml",
+      "lines": [
+        2,
+        4
+      ]
+    }
+  ],
+  "# Shared development environment for this gem.\n# Local overrides belong in .env.local (loaded via dotenvy through mise).": [
+    {
+      "file": "mise.toml",
+      "lines": [
+        1,
+        3,
+        5
+      ]
+    }
+  ]
+}
