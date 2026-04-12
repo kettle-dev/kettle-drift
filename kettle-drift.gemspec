@@ -12,8 +12,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling"]
   spec.email = ["peter.boling@gmail.com"]
 
-  spec.summary = "⚓️ TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "⚓️ TODO: Write a longer description or delete this line."
+  spec.summary = "🍲 TODO: Write a short summary, because RubyGems requires one."
+  spec.description = "🍲 TODO: Write a longer description or delete this line."
   spec.homepage = "https://github.com/kettle-rb/kettle-drift"
   spec.licenses = ["MIT"]
   spec.required_ruby_version = ">= 3.2.0"
