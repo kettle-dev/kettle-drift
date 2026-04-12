@@ -33,6 +33,35 @@ RSpec.describe Kettle::Drift::CLI do
     end
   end
 
+  it "uses the explicit template dir to limit scanning to template-managed files" do
+    Dir.mktmpdir do |dir|
+      FileUtils.mkdir_p(File.join(dir, "template", "lib"))
+      FileUtils.mkdir_p(File.join(dir, "lib"))
+      File.write(File.join(dir, "template", "lib", "demo.rb.example"), "# template\n")
+      File.write(File.join(dir, "lib", "demo.rb"), <<~RUBY)
+        alpha_line
+        beta_line
+        alpha_line
+        beta_line
+      RUBY
+      File.binwrite(File.join(dir, "demo-0.1.0.gem"), "bad\xFFbytes".b)
+
+      stdout, stderr, status = Open3.capture3(
+        RbConfig.ruby,
+        exe_path,
+        dir,
+        "--template-dir=template",
+        "--lockfile=.kettle-jem.lock",
+      )
+
+      expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"
+      expect(stderr).to eq("")
+      expect(stdout).to include("drift warning")
+      expect(File).to exist(File.join(dir, ".kettle-jem.lock"))
+      expect(File).not_to exist(File.join(dir, ".kettle-drift.lock"))
+    end
+  end
+
   it "fails in check mode when new drift appears beyond the lockfile" do
     Dir.mktmpdir do |dir|
       FileUtils.mkdir_p(File.join(dir, "lib"))
