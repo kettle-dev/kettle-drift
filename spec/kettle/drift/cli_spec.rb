@@ -51,14 +51,13 @@ RSpec.describe Kettle::Drift::CLI do
         exe_path,
         dir,
         "--template-dir=template",
-        "--lockfile=.kettle-jem.lock",
+        "--lockfile=.kettle-drift.lock",
       )
 
       expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"
       expect(stderr).to eq("")
       expect(stdout).to include("drift warning")
-      expect(File).to exist(File.join(dir, ".kettle-jem.lock"))
-      expect(File).not_to exist(File.join(dir, ".kettle-drift.lock"))
+      expect(File).to exist(File.join(dir, ".kettle-drift.lock"))
     end
   end
 
