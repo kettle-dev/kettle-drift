@@ -109,6 +109,35 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
         )
       end
     end
+
+    it "skips binary package artifacts instead of crashing" do
+      Dir.mktmpdir do |dir|
+        binary_path = File.join(dir, "example-0.1.0.gem")
+        File.binwrite(binary_path, "\x1F\x8B\x08binary payload".b)
+
+        text_path = File.join(dir, "duped.rb")
+        File.write(text_path, <<~RUBY)
+          require "foo"
+          require "bar"
+          require "foo"
+          require "bar"
+        RUBY
+
+        results = described_class.scan(files: [binary_path, text_path])
+        expect(results).to have_key("require \"foo\"\nrequire \"bar\"")
+      end
+    end
+
+    it "scrubs malformed utf-8 bytes in text files instead of crashing" do
+      Dir.mktmpdir do |dir|
+        path = File.join(dir, "notes.txt")
+        File.binwrite(path, "alpha value\xFF\nbeta line text\nalpha value\xFF\nbeta line text\n".b)
+
+        results = described_class.scan(files: [path])
+        expect(results).to have_key("alpha value\ufffd\nbeta line text")
+        expect(results["alpha value\ufffd\nbeta line text"].first).to eq(file: path, lines: [1, 3])
+      end
+    end
   end
 
   describe ".scan_template_results" do

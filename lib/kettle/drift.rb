@@ -32,6 +32,30 @@ module Kettle
       tmp
       vendor
     ]).freeze
+    EXCLUDED_FILE_EXTENSIONS = Set.new(%w[
+      .7z
+      .bz2
+      .class
+      .dll
+      .exe
+      .gem
+      .gif
+      .gz
+      .ico
+      .jar
+      .jpeg
+      .jpg
+      .pdf
+      .png
+      .so
+      .tar
+      .tgz
+      .ttf
+      .woff
+      .woff2
+      .xz
+      .zip
+    ]).freeze
 
     class << self
       VAR_HOME_PREFIX = %r{\A/var/home(?=/|\z)}
@@ -62,6 +86,7 @@ module Kettle
 
         Dir.glob(File.join(project_root, "**", "*"), File::FNM_DOTMATCH).select do |path|
           next false unless File.file?(path)
+          next false if EXCLUDED_FILE_EXTENSIONS.include?(File.extname(path).downcase)
 
           relative = path.delete_prefix("#{project_root}/")
           segments = relative.split("/")

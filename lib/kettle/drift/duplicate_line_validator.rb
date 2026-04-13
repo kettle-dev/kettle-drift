@@ -12,6 +12,30 @@ module Kettle
       module_function
 
       DEFAULT_MIN_CHARS = 6
+      BINARY_EXTENSIONS = Set.new(%w[
+        .7z
+        .bz2
+        .class
+        .dll
+        .exe
+        .gem
+        .gif
+        .gz
+        .ico
+        .jar
+        .jpeg
+        .jpg
+        .pdf
+        .png
+        .so
+        .tar
+        .tgz
+        .ttf
+        .woff
+        .woff2
+        .xz
+        .zip
+      ]).freeze
       APPRAISALS_DEP_LINE_RE = /\A(?:eval_gemfile|gem)\s+["']/
       CHANGELOG_METRIC_RE = /\A-\s+(?:(?:(?:line|branch)\s+)?coverage:|\d+\.\d+%\s+documented)/i
       EXCLUDED_FILENAMES = Set.new(["CODE_OF_CONDUCT.md", ".gitlab-ci.yml"]).freeze
@@ -35,11 +59,8 @@ module Kettle
           next unless File.file?(path)
           next if EXCLUDED_FILENAMES.include?(File.basename(path.to_s))
 
-          begin
-            content = File.read(path)
-          rescue StandardError
-            next
-          end
+          content = read_text_content(path)
+          next unless content
 
           fence_lines = (File.extname(path.to_s) == ".md") ? compute_fence_lines(content) : Set.new
           indexed = content.each_line.map.with_index(1) { |raw, n| [n, raw.strip] }
@@ -186,6 +207,31 @@ module Kettle
 
         lines << ""
         lines.join("\n")
+      end
+
+      def read_text_content(path)
+        raw = File.binread(path)
+        return nil if binary_content?(path, raw)
+
+        content = raw.dup.force_encoding(Encoding::UTF_8)
+        return content if content.valid_encoding?
+
+        content.scrub
+      rescue StandardError
+        nil
+      end
+
+      def binary_content?(path, raw)
+        return true if BINARY_EXTENSIONS.include?(File.extname(path.to_s).downcase)
+
+        sample = raw.byteslice(0, 4096) || "".b
+        return true if sample.include?("\x00")
+        return false if sample.empty?
+
+        control_bytes = sample.bytes.count do |byte|
+          (0..8).cover?(byte) || byte == 11 || byte == 12 || (14..31).cover?(byte)
+        end
+        control_bytes.fdiv(sample.bytesize) > 0.1
       end
     end
   end
