@@ -150,18 +150,28 @@ NOTE: Be prepared to track down certs for signed gems and add them the same way 
 
 ## ⚙️ Configuration
 
-The standalone `kettle-drift` CLI and the injected rake tasks serve different
-defaults:
+The injected rake tasks and the standalone CLI expose the same three operating
+modes, but they differ in default scan scope:
 
-- `bin/rake kettle:drift` / `bin/rake kettle:drift:validate` use
-  `Kettle::Jem::DuplicateLineValidator.kettle_template_dir` when
-  `kettle-jem` is available, so the scan is scoped to template-managed files.
-- `bin/rake kettle:drift:update` is the force-update form of that same
-  template-scoped validation and is equivalent to
-  `FORCE_UPDATE=true bin/rake kettle:drift:validate`.
-- The standalone `kettle-drift` executable scans the repo-wide target set by
-  default. Pass `--template-dir=PATH` when you want the CLI to use a specific
-  template-managed scope and baseline instead.
+| Entry point                          | Scope default                                                | Mode           | Writes lockfile?                         | Fails when                                                       |
+|--------------------------------------|--------------------------------------------------------------|----------------|------------------------------------------|------------------------------------------------------------------|
+| `bin/rake kettle:drift`              | Template-managed files via `kettle-jem` when available       | `update`       | Yes, unless new untracked drift appeared | any new untracked drift appeared                                 |
+| `bin/rake kettle:drift:update`       | Template-managed files via `kettle-jem` when available       | `update`       | Yes, unless new untracked drift appeared | any new untracked drift appeared                                 |
+| `bin/rake kettle:drift:check`        | Template-managed files via `kettle-jem` when available       | `check`        | No                                       | any lockfile difference                                          |
+| `bin/rake kettle:drift:force_update` | Template-managed files via `kettle-jem` when available       | `force-update` | Yes                                      | never, for drift-state reasons                                   |
+| `kettle-drift --update`              | Whole repo target set unless `--template-dir=PATH` is passed | `update`       | Yes, unless new untracked drift appeared | any new untracked drift appeared                                 |
+| `kettle-drift --check`               | Whole repo target set unless `--template-dir=PATH` is passed | `check`        | No                                       | any lockfile difference except the already-clean `complete` case |
+| `kettle-drift --force-update`        | Whole repo target set unless `--template-dir=PATH` is passed | `force-update` | Yes                                      | never, for drift-state reasons                                   |
+
+Behavior notes:
+
+| Term                  | Meaning                                                                                                                                                                                              |
+|-----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `acknowledged drift`  | Drift already recorded in the lockfile                                                                                                                                                               |
+| `new untracked drift` | Drift present in the current scan but not yet recorded in the lockfile                                                                                                                               |
+| `update` mode         | Writes the current results when establishing the first baseline, when acknowledged drift was reduced, or when drift is gone entirely; fails instead of writing whenever new untracked drift appeared |
+| `check` mode          | Never writes; fails whenever current results differ from the lockfile, except for the already-clean `complete`-with-no-lock case                                                                     |
+| `force-update` mode   | Always writes the current results (or deletes the lockfile for `complete`) and does not fail just because new untracked drift appeared                                                               |
 
 ## 🔧 Basic Usage
 
@@ -169,8 +179,9 @@ For `kettle-jem`-managed repos, prefer the injected rake tasks:
 
 ```bash
 bin/rake kettle:drift
-bin/rake kettle:drift:validate
 bin/rake kettle:drift:update
+bin/rake kettle:drift:check
+bin/rake kettle:drift:force_update
 ```
 
 Use the standalone CLI when you intentionally want a broader or explicitly
@@ -178,6 +189,9 @@ configured scan:
 
 ```bash
 kettle-drift
+kettle-drift --update
+kettle-drift --check
+kettle-drift --force-update
 kettle-drift --template-dir=template
 ```
 

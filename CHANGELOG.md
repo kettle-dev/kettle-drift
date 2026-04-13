@@ -20,17 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- `kettle:drift:update`, an explicit rake task alias for the force-update flow
-  previously reached via `FORCE_UPDATE=true rake kettle:drift:validate`
+- `kettle:drift:check` and `kettle:drift:force_update`, giving the rake task
+  surface explicit parity with the CLI mode names
+- `--update`, an explicit CLI flag for the default lockfile-update mode so the
+  standalone command line surface mirrors the rake task vocabulary better
 
 ### Changed
 
 - The README now documents the behavior split between the `kettle-jem`-injected
   rake tasks (template-managed scope) and the standalone `kettle-drift` CLI
-
-### Deprecated
+- The README now documents the standalone CLI mode flags, including
+  `--check` and `--force-update`
+- `kettle:drift:update` now maps to normal update mode, and bare
+  `kettle:drift` now aliases `kettle:drift:update`
 
 ### Removed
+
+- The redundant `kettle:drift:validate` rake alias; use `kettle:drift:check`
+  instead
+### Deprecated
 
 ### Fixed
 

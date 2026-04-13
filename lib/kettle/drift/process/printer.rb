@@ -4,9 +4,10 @@ module Kettle
   module Drift
     class Process
       class Printer
-        def initialize(diff:, lock_path:)
+        def initialize(diff:, lock_path:, mode: :update)
           @diff = diff
           @lock_path = lock_path
+          @mode = mode
         end
 
         def print_results
@@ -15,7 +16,7 @@ module Kettle
 
         private
 
-        attr_reader :diff, :lock_path
+        attr_reader :diff, :lock_path, :mode
 
         def print_complete
           puts "Kettle Drift is complete!"
@@ -23,7 +24,11 @@ module Kettle
         end
 
         def print_updated
-          puts "Kettle Drift updated its acknowledged drift results."
+          if mode == :force_update
+            puts "Kettle Drift found both fixed drift and new untracked drift, and is force-updating the lockfile."
+          else
+            puts "Kettle Drift found both fixed drift and new untracked drift."
+          end
         end
 
         def print_no_changes
@@ -40,7 +45,11 @@ module Kettle
         end
 
         def print_worse
-          puts "Uh oh, Kettle Drift got worse:"
+          if mode == :force_update
+            puts "Kettle Drift found new untracked drift and is force-updating the lockfile:"
+          else
+            puts "Uh oh, Kettle Drift got worse:"
+          end
           diff.files.each do |file, entries|
             puts "-> #{Kettle::Drift.display_path(file)} (#{entries.size} new drift item(s))"
             entries.each do |entry|

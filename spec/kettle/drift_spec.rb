@@ -27,8 +27,10 @@ RSpec.describe Kettle::Drift do
     it "defines kettle:drift:update" do
       load File.expand_path("../../lib/kettle/drift/rakelib/drift.rake", __dir__)
 
-      expect(Rake::Task.task_defined?("kettle:drift:validate")).to be(true)
+      expect(Rake::Task.task_defined?("kettle:drift:check")).to be(true)
+      expect(Rake::Task.task_defined?("kettle:drift:validate")).to be(false)
       expect(Rake::Task.task_defined?("kettle:drift:update")).to be(true)
+      expect(Rake::Task.task_defined?("kettle:drift:force_update")).to be(true)
       expect(Rake::Task.task_defined?("kettle:drift")).to be(true)
     end
   end

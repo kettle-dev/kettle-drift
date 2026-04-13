@@ -25,7 +25,7 @@ module Kettle
 
       def run
         diff = Kettle::Drift::Process::CalculateDiff.call(new_results, old_results)
-        printer_class&.new(diff: diff, lock_path: lock_file.path)&.print_results
+        printer_class&.new(diff: diff, lock_path: lock_file.path, mode: mode)&.print_results
 
         exit_code = error_code(diff)
         sync_lock_file(diff) if exit_code.zero?
@@ -41,6 +41,12 @@ module Kettle
         diff.state != :no_changes
       end
 
+      def new_untracked_drift?(diff)
+        return false if old_results.nil?
+
+        diff.new_entries.any?
+      end
+
       def sync_lock_file(diff)
         return lock_file.delete if diff.state == :complete
 
@@ -49,7 +55,7 @@ module Kettle
 
       def error_code(diff)
         return 1 if fail_with_outdated_lock?(diff)
-        return 1 if diff.state == :worse && mode != :force_update
+        return 1 if new_untracked_drift?(diff) && mode != :force_update
 
         0
       end

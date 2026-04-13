@@ -2,8 +2,7 @@
 
 namespace :kettle do
   namespace :drift do
-    desc "Validate duplicate drift and sync the lockfile"
-    task :validate do
+    run_drift = lambda do |default_mode|
       require "kettle/drift"
       begin
         require "kettle/jem"
@@ -20,8 +19,10 @@ namespace :kettle do
         :force_update
       elsif ENV["CHECK"].to_s == "true"
         :check
-      else
+      elsif ENV["UPDATE"].to_s == "true"
         :update
+      else
+        default_mode
       end
 
       outcome = Kettle::Drift.run(
@@ -43,20 +44,22 @@ namespace :kettle do
       exit(outcome.exit_code)
     end
 
-    desc "Force-update duplicate drift and rewrite the lockfile"
+    desc "Check duplicate drift against the current lockfile without writing"
+    task :check do
+      run_drift.call(:check)
+    end
+
+    desc "Update duplicate drift lockfile when no new untracked drift appeared"
     task :update do
-      previous_force_update = ENV["FORCE_UPDATE"]
-      ENV["FORCE_UPDATE"] = "true"
-      Rake::Task["kettle:drift:validate"].invoke
-    ensure
-      if previous_force_update.nil?
-        ENV.delete("FORCE_UPDATE")
-      else
-        ENV["FORCE_UPDATE"] = previous_force_update
-      end
+      run_drift.call(:update)
+    end
+
+    desc "Force-update duplicate drift and rewrite the lockfile even when new drift appeared"
+    task :force_update do
+      run_drift.call(:force_update)
     end
   end
 
-  desc "Alias for kettle:drift:validate"
-  task drift: "drift:validate"
+  desc "Alias for kettle:drift:update"
+  task drift: "drift:update"
 end

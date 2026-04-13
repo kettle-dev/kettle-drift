@@ -46,6 +46,7 @@ module Kettle
           opts.on("--json=PATH", "Write JSON report to PATH") { |value| options[:json_path] = value }
           opts.on("--lockfile=PATH", "Use PATH for the lockfile") { |value| options[:lock_path] = value }
           opts.on("--template-dir=PATH", "Use template-managed files and template baseline from PATH") { |value| options[:template_dir] = value }
+          opts.on("--update", "Update the lockfile when drift is new, reduced, or otherwise changed (default)") { options[:mode] = :update }
           opts.on("--check", "Fail if current drift differs from the lockfile") { options[:mode] = :check }
           opts.on("--force-update", "Update the lockfile even when drift gets worse") { options[:mode] = :force_update }
         end
