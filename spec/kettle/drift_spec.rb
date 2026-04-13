@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require "rake"
 require "tmpdir"
 require "fileutils"
 
@@ -11,6 +12,24 @@ RSpec.describe Kettle::Drift do
   describe ".install_tasks" do
     it "loads kettle/drift/tasks.rb without error" do
       expect { described_class.install_tasks }.not_to raise_error
+    end
+  end
+
+  describe "rake tasks" do
+    around do |example|
+      original = Rake.application
+      Rake.application = Rake::Application.new
+      example.run
+    ensure
+      Rake.application = original
+    end
+
+    it "defines kettle:drift:update" do
+      load File.expand_path("../../lib/kettle/drift/rakelib/drift.rake", __dir__)
+
+      expect(Rake::Task.task_defined?("kettle:drift:validate")).to be(true)
+      expect(Rake::Task.task_defined?("kettle:drift:update")).to be(true)
+      expect(Rake::Task.task_defined?("kettle:drift")).to be(true)
     end
   end
 

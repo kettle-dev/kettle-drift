@@ -42,6 +42,19 @@ namespace :kettle do
 
       exit(outcome.exit_code)
     end
+
+    desc "Force-update duplicate drift and rewrite the lockfile"
+    task :update do
+      previous_force_update = ENV["FORCE_UPDATE"]
+      ENV["FORCE_UPDATE"] = "true"
+      Rake::Task["kettle:drift:validate"].invoke
+    ensure
+      if previous_force_update.nil?
+        ENV.delete("FORCE_UPDATE")
+      else
+        ENV["FORCE_UPDATE"] = previous_force_update
+      end
+    end
   end
 
   desc "Alias for kettle:drift:validate"

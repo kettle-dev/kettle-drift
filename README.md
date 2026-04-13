@@ -30,6 +30,12 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 
 ## 🌻 Synopsis
 
+`kettle-drift` tracks repeated adjacent-line chunks that usually signal
+template drift or copy/paste corruption. When it is injected into a project by
+the `kettle-jem` plugin, the rake tasks default to the `kettle-jem` template
+surface and baseline, so they validate only template-managed files instead of
+the whole repository.
+
 ## 💡 Info you can shake a stick at
 
 | Tokens to Remember      | [![Gem name][⛳️name-img]][⛳️gem-name] [![Gem namespace][⛳️namespace-img]][⛳️gem-namespace]                                                                                                                                                                                                                                                                          |
@@ -144,9 +150,36 @@ NOTE: Be prepared to track down certs for signed gems and add them the same way 
 
 ## ⚙️ Configuration
 
+The standalone `kettle-drift` CLI and the injected rake tasks serve different
+defaults:
+
+- `bin/rake kettle:drift` / `bin/rake kettle:drift:validate` use
+  `Kettle::Jem::DuplicateLineValidator.kettle_template_dir` when
+  `kettle-jem` is available, so the scan is scoped to template-managed files.
+- `bin/rake kettle:drift:update` is the force-update form of that same
+  template-scoped validation and is equivalent to
+  `FORCE_UPDATE=true bin/rake kettle:drift:validate`.
+- The standalone `kettle-drift` executable scans the repo-wide target set by
+  default. Pass `--template-dir=PATH` when you want the CLI to use a specific
+  template-managed scope and baseline instead.
+
 ## 🔧 Basic Usage
 
-TODO: Write usage instructions here
+For `kettle-jem`-managed repos, prefer the injected rake tasks:
+
+```bash
+bin/rake kettle:drift
+bin/rake kettle:drift:validate
+bin/rake kettle:drift:update
+```
+
+Use the standalone CLI when you intentionally want a broader or explicitly
+configured scan:
+
+```bash
+kettle-drift
+kettle-drift --template-dir=template
+```
 
 ## 🦷 FLOSS Funding
 

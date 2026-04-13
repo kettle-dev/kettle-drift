@@ -20,7 +20,13 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+- `kettle:drift:update`, an explicit rake task alias for the force-update flow
+  previously reached via `FORCE_UPDATE=true rake kettle:drift:validate`
+
 ### Changed
+
+- The README now documents the behavior split between the `kettle-jem`-injected
+  rake tasks (template-managed scope) and the standalone `kettle-drift` CLI
 
 ### Deprecated
 

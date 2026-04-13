@@ -19,6 +19,10 @@ module Kettle
           task("kettle:drift:validate") do
             warn("NOTE: kettle-drift isn't installed, or is disabled for \#{RUBY_VERSION} in the current environment")
           end
+          desc("(stub) kettle:drift:update is unavailable")
+          task("kettle:drift:update") do
+            warn("NOTE: kettle-drift isn't installed, or is disabled for \#{RUBY_VERSION} in the current environment")
+          end
           desc("(stub) kettle:drift is unavailable")
           task("kettle:drift" => "kettle:drift:validate")
         end
