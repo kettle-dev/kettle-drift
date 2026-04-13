@@ -28,6 +28,11 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Default duplicate-drift target discovery now skips package and binary
+  artifacts such as built `.gem` files
+- Duplicate line scanning now tolerates malformed UTF-8 text and skips
+  binary-ish inputs instead of crashing on raw encoding errors
+
 ### Security
 
 ## [0.1.0] - 2026-04-11
