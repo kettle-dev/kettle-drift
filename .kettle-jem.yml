@@ -97,6 +97,7 @@ engines:
   - ruby
   - jruby
   - truffleruby
+
 # Framework matrix workflows.
 # When your gem tests against multiple versions of a framework (Rails,
 # ActiveRecord, ActiveSupport, etc.), this section configures how
@@ -192,7 +193,8 @@ readme:
 #   - When MIT (or AGPL), a PolyForm variant, AND LicenseRef-Big-Time-Public-License
 #     are all present, a use-case guide table is added to README and LICENSE.md.
 licenses:
-  - MIT
+  - AGPL-3.0-only
+
 # Machine / automation accounts to exclude from generated copyright output.
 #
 # When kettle-jem collects copyright information via `git blame`, it filters
@@ -206,6 +208,7 @@ licenses:
 # Default (when key is absent or empty): ["autobolt"]
 machine_users:
   - autobolt
+
 # Self-test / templating CI threshold.
 # Set to a number from 0 to 100 to fail `rake kettle:jem:selftest` once
 # divergence exceeds that percent. Leave blank to report only.
@@ -213,6 +216,7 @@ machine_users:
 # change or be added during templating (100 - unchanged-file score).
 # ENV override: KJ_MIN_DIVERGENCE_THRESHOLD
 min_divergence_threshold: 5
+
 # Optional kettle-jem plugins.
 # Each entry is a gem name. During bootstrap, kettle-jem ensures each plugin is
 # added as a development dependency so it is available after bin/setup.
@@ -242,11 +246,13 @@ min_divergence_threshold: 5
 #   - `duplicate_check` runs last, after all template writes are complete.
 plugins:
   - kettle-drift
+
 # Default merge options
 defaults:
   preference: "template"
   add_template_only_nodes: true
   freeze_token: "kettle-jem"
+
 # Token replacement values.
 #
 # General rules:
@@ -291,6 +297,7 @@ tokens:
 patterns:
   - path: "certs/**"
     strategy: raw_copy
+
 # Per-file configuration (nested directory structure)
 # Only files that need overrides belong here. Everything else defaults to merge.
 files:
@@ -305,6 +312,7 @@ files:
         strategy: accept_template
       templating_local.gemfile:
         strategy: accept_template
+
 # To override specific files, add entries like:
 #
 # files:
