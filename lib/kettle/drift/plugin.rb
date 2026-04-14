@@ -43,21 +43,30 @@ module Kettle
         return unless File.exist?(rakefile_path)
 
         existing = File.read(rakefile_path)
-        result = Kettle::Jem::SnippetInjector.inject(
+        result = Kettle::Jem::Crispr::Move.call(
           content: existing,
-          snippet: RAKEFILE_SNIPPET,
-          anchor_finder: method(:find_rakefile_injection_point),
-          replace_existing: true,
+          source_target: Kettle::Jem::Crispr::Selectors.comment_region_owned_owner(
+            marker: SNIPPET_MARKER,
+            limit: {at_least: 0},
+          ),
+          destination: ->(crispr_context) { find_rakefile_injection_point(crispr_context) },
+          replacement: RAKEFILE_SNIPPET,
+          if_missing: :append,
+          source_label: "Rakefile",
         )
-        return if result.content == existing
+        return if result.updated_content == existing
 
-        File.write(rakefile_path, result.content)
+        File.write(rakefile_path, result.updated_content)
         context.helpers.record_template_result(rakefile_path, :replace)
-        context.out.warning("[kettle-drift] #{result.warning}") if result.warning
         context.out.report_detail("[kettle-drift] Injected Rakefile tasks")
       end
 
-      def find_rakefile_injection_point(existing)
+      def find_rakefile_injection_point(existing_or_context)
+        existing = if existing_or_context.respond_to?(:content)
+          existing_or_context.content
+        else
+          existing_or_context
+        end
         analysis = Prism::Merge::FileAnalysis.new(
           existing,
           signature_generator: Kettle::Jem::Signatures.rakefile,
