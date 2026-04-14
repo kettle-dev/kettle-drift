@@ -15,7 +15,7 @@ Gem::Specification.new do |spec|
   spec.summary = "🍲 TODO: Write a short summary, because RubyGems requires one."
   spec.description = "🍲 TODO: Write a longer description or delete this line."
   spec.homepage = "https://github.com/kettle-rb/kettle-drift"
-  spec.licenses = ["MIT"]
+  spec.licenses = ["AGPL-3.0-only"]
   spec.required_ruby_version = ">= 3.2.0"
 
   # Linux distros often package gems and securely certify them independent
