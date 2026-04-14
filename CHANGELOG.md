@@ -34,11 +34,12 @@ Please file a bug if you notice a violation of semantic versioning.
 - `kettle:drift:update` now maps to normal update mode, and bare
   `kettle:drift` now aliases `kettle:drift:update`
 
+### Deprecated
+
 ### Removed
 
 - The redundant `kettle:drift:validate` rake alias; use `kettle:drift:check`
   instead
-### Deprecated
 
 ### Fixed
 
