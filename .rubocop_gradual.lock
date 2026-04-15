@@ -1,0 +1,5 @@
+{
+  "lib/kettle/drift/duplicate_line_validator.rb:2748091318": [
+    [231, 32, 11, "Performance/StringBytesize: Use `String#bytesize` instead of calculating the size of the bytes array.", 4156894321]
+  ]
+}
