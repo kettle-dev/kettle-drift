@@ -211,7 +211,7 @@ module Kettle
 
       def read_text_content(path)
         raw = File.binread(path)
-        return nil if binary_content?(path, raw)
+        return if binary_content?(path, raw)
 
         content = raw.dup.force_encoding(Encoding::UTF_8)
         return content if content.valid_encoding?
