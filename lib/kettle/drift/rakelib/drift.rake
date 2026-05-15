@@ -14,7 +14,7 @@ namespace :kettle do
       min_chars = ENV.fetch("MIN_CHARS", Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS).to_i
       lock_path = ENV.fetch("LOCKFILE", File.join(project_root, Kettle::Drift::DEFAULT_LOCKFILE))
       template_dir = ENV["TEMPLATE_DIR"]
-      template_dir = Kettle::Jem::DuplicateLineValidator.kettle_template_dir if template_dir.to_s.strip.empty? && defined?(Kettle::Jem::DuplicateLineValidator)
+      template_dir = Kettle::Jem.template_root_path(project_root) if template_dir.to_s.strip.empty? && defined?(Kettle::Jem) && Kettle::Jem.respond_to?(:template_root_path)
       mode = if ENV["FORCE_UPDATE"].to_s == "true"
         :force_update
       elsif ENV["CHECK"].to_s == "true"

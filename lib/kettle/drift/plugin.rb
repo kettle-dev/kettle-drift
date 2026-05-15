@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require "prism/merge"
-
 module Kettle
   module Drift
     module Plugin
@@ -43,49 +41,39 @@ module Kettle
         return unless File.exist?(rakefile_path)
 
         existing = File.read(rakefile_path)
-        result = Kettle::Jem::Crispr::Move.call(
-          content: existing,
-          source_target: Kettle::Jem::Crispr::Selectors.comment_region_owned_owner(
-            marker: SNIPPET_MARKER,
-            limit: {at_least: 0},
-          ),
-          destination: ->(crispr_context) { find_rakefile_injection_point(crispr_context) },
-          replacement: RAKEFILE_SNIPPET,
-          if_missing: :append,
-          source_label: "Rakefile",
-        )
-        return if result.updated_content == existing
+        updated = upsert_rakefile_snippet(existing)
+        return if updated == existing
 
-        File.write(rakefile_path, result.updated_content)
+        File.write(rakefile_path, updated)
         context.helpers.record_template_result(rakefile_path, :replace)
         context.out.report_detail("[kettle-drift] Injected Rakefile tasks")
       end
 
-      def find_rakefile_injection_point(existing_or_context)
-        existing = if existing_or_context.respond_to?(:content)
-          existing_or_context.content
-        else
-          existing_or_context
+      def upsert_rakefile_snippet(content)
+        if content.include?(SNIPPET_MARKER)
+          return replace_existing_snippet(content)
         end
-        analysis = Prism::Merge::FileAnalysis.new(
-          existing,
-          signature_generator: Kettle::Jem::Signatures.rakefile,
-          source_label: "Rakefile",
-        )
-        return unless analysis.valid?
 
-        statements = Ast::Merge::Navigable::Statement.build_list(analysis.statements)
-        Ast::Merge::Navigable::InjectionPointFinder.new(statements).find(position: :after) do |statement|
-          rakefile_signature(analysis, statement.node) == [:call, :require, "kettle/dev"]
-        end
-      rescue StandardError
-        nil
+        insert_snippet(content)
       end
 
-      def rakefile_signature(analysis, node)
-        analysis.generate_signature(node)
-      rescue StandardError
-        nil
+      def replace_existing_snippet(content)
+        marker_index = content.index(SNIPPET_MARKER)
+        next_section_index = content.index(/\n### [A-Z][^\n]*\n/, marker_index + SNIPPET_MARKER.length)
+        prefix = content[0...marker_index].rstrip
+        suffix = next_section_index ? content[next_section_index..].lstrip : ""
+        [prefix, RAKEFILE_SNIPPET.rstrip, suffix].reject(&:empty?).join("\n\n") + "\n"
+      end
+
+      def insert_snippet(content)
+        lines = content.lines
+        require_index = lines.rindex { |line| line.match?(/^\s*require\s+["']kettle\/dev["']/) }
+        if require_index
+          lines.insert(require_index + 1, "\n", RAKEFILE_SNIPPET, "\n")
+          lines.join
+        else
+          [content.rstrip, "", RAKEFILE_SNIPPET.rstrip, ""].join("\n")
+        end
       end
     end
   end

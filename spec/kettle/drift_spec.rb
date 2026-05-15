@@ -52,4 +52,39 @@ RSpec.describe Kettle::Drift do
       end
     end
   end
+
+  describe Kettle::Drift::Plugin do
+    it "inserts drift tasks after kettle-dev rake tasks without Kettle/Jem internals" do
+      rakefile = <<~RUBY
+        require "bundler/gem_tasks"
+        require "kettle/dev"
+
+        task :default
+      RUBY
+
+      updated = described_class.upsert_rakefile_snippet(rakefile)
+
+      expect(updated).to include(Kettle::Drift::Plugin::SNIPPET_MARKER)
+      expect(updated.index('require "kettle/dev"')).to be < updated.index(Kettle::Drift::Plugin::SNIPPET_MARKER)
+      expect(updated).to include('task("kettle:drift:check")')
+    end
+
+    it "replaces an existing drift task snippet" do
+      rakefile = <<~RUBY
+        require "kettle/dev"
+
+        ### DUPLICATE DRIFT TASKS
+        old
+
+        ### TEMPLATING TASKS
+        require "kettle/jem"
+      RUBY
+
+      updated = described_class.upsert_rakefile_snippet(rakefile)
+
+      expect(updated).not_to include("old")
+      expect(updated.scan(Kettle::Drift::Plugin::SNIPPET_MARKER).size).to eq(1)
+      expect(updated).to include("### TEMPLATING TASKS")
+    end
+  end
 end
