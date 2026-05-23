@@ -1,20 +1,12 @@
-/.bundle/
-/.yardoc
-/_yardoc/
-/coverage/
-/doc/
-/pkg/
-/spec/reports/
-/tmp/
-
-# rspec failure tracking
-.rspec_status
 # Build Artifacts
+/pkg/
 /tmp/*
 !/tmp/.gitignore
 *.gem
+
 # Bundler
 /vendor/bundle/
+/.bundle/
 /gemfiles/*.lock
 /gemfiles/.bundle/
 /gemfiles/.bundle/config
@@ -22,12 +14,17 @@
 Appraisal.*.gemfile.lock
 
 # Specs
+.rspec_status
+/coverage/
+/spec/reports/
 /results/
 .output.txt
 
 # Documentation
 /.yardoc/
+/_yardoc/
 /rdoc/
+/doc/
 
 # Ruby Version Managers (RVM, rbenv, etc)
 # Ignored because we currently use mise.toml
