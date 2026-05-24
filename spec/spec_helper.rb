@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
+# Start coverage as early as possible for deterministic results
+begin
+  require "kettle-soup-cover"
+  require "simplecov" if Kettle::Soup::Cover::DO_COV # `.simplecov` is run here!
+rescue LoadError => error
+  # check the error message, and re-raise if not what is expected
+  raise error unless error.message.include?("kettle")
+end
+
+require "kettle/test/rspec"
 require "kettle/drift"
 
 RSpec.configure do |config|
