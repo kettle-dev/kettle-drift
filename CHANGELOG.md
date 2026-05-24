@@ -20,50 +20,14 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-### Changed
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
-
-## [0.2.0] - 2026-05-24
-
-### Added
-
-- `kettle:drift:check` and `kettle:drift:force_update`, giving the rake task
-  surface explicit parity with the CLI mode names
-- `--update`, an explicit CLI flag for the default lockfile-update mode so the
-  standalone command line surface mirrors the rake task vocabulary better
-
-### Changed
-
-- The README now documents the behavior split between the `kettle-jem`-injected
-  rake tasks (template-managed scope) and the standalone `kettle-drift` CLI
-- The README now documents the standalone CLI mode flags, including
-  `--check` and `--force-update`
-- `kettle:drift:update` now maps to normal update mode, and bare
-  `kettle:drift` now aliases `kettle:drift:update`
-
-### Deprecated
-
-### Removed
-
-- The redundant `kettle:drift:validate` rake alias; use `kettle:drift:check`
-  instead
-
-### Fixed
-
-- Default duplicate-drift target discovery now skips package and binary
-  artifacts such as built `.gem` files
-- Duplicate line scanning now tolerates malformed UTF-8 text and skips
-  binary-ish inputs instead of crashing on raw encoding errors
-
-### Security
-
-## [0.1.0] - 2026-04-11
-
 - Initial release
+
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security

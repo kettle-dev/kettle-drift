@@ -225,7 +225,7 @@ For most applications, prefer the [Pessimistic Version Constraint][📌pvc] with
 For example:
 
 ```ruby
-spec.add_dependency("kettle-drift", "~> 0.0")
+spec.add_dependency("kettle-drift", "~> 1.0")
 ```
 
 <details markdown="1">
