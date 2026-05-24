@@ -20,6 +20,20 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [0.2.0] - 2026-05-24
+
+### Added
+
 - `kettle:drift:check` and `kettle:drift:force_update`, giving the rake task
   surface explicit parity with the CLI mode names
 - `--update`, an explicit CLI flag for the default lockfile-update mode so the
