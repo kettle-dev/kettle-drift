@@ -471,7 +471,7 @@ Thanks for RTFM. ☺️
 | Package | kettle-drift |
 | Description | 🔮 Kettle::Drift tracks repeated adjacent-line chunks that usually signal template drift or copy/paste corruption. |
 | Homepage | https://github.com/kettle-rb/kettle-drift |
-| Source | https://github.com/kettle-rb/kettle-drift/tree/v0.2.0 |
+| Source | https://github.com/kettle-rb/kettle-drift/tree/v1.0.0 |
 | License | `AGPL-3.0-only` |
 | Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-rb, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-drift, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
