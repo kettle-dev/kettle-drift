@@ -228,7 +228,7 @@ module Kettle
         return true if sample.include?("\x00")
         return false if sample.empty?
 
-        control_bytes = sample.bytes.count do |byte|
+        control_bytes = sample.each_byte.count do |byte|
           (0..8).cover?(byte) || byte == 11 || byte == 12 || (14..31).cover?(byte)
         end
         control_bytes.fdiv(sample.bytesize) > 0.1
