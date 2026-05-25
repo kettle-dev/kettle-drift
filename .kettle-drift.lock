@@ -1,0 +1,159 @@
+{
+  "#                       \"ar-{version}.x\"      → gemfiles/ar-7.0.x\n#                       \"rails_{version}\"      → gemfiles/rails_7_0.gemfile": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        137,
+        167
+      ]
+    }
+  ],
+  "#                       \"rails_{version}\"      → gemfiles/rails_7_0.gemfile\n#   Use this when you need a simple 2D matrix: Ruby × one framework gem/version axis.": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        138,
+        168
+      ]
+    }
+  ],
+  "#                     Examples:\n#                       \"ar-{version}.x\"      → gemfiles/ar-7.0.x": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        136,
+        166
+      ]
+    }
+  ],
+  "#   For deeper or more complex matrices that are better modeled as Appraisals entries,\n#   prefer kettle-jem-appraisals instead.": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        140,
+        170
+      ]
+    }
+  ],
+  "#   Use this when you need a simple 2D matrix: Ruby × one framework gem/version axis.\n#   For deeper or more complex matrices that are better modeled as Appraisals entries,": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        139,
+        169
+      ]
+    }
+  ],
+  "#   dimension   — framework name used in the matrix key and display\n#                 (e.g. activerecord, rails, actionmailer)": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        122,
+        159
+      ]
+    }
+  ],
+  "#   framework    — Ruby × framework-version matrix\n#   legacy-compat — supported / unsupported / ancient workflow split": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        118,
+        155
+      ]
+    }
+  ],
+  "#   modern       — Ruby-only matrix (default when absent)\n#   framework    — Ruby × framework-version matrix": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        117,
+        154
+      ]
+    }
+  ],
+  "# ActiveRecord, ActiveSupport, etc.), this section configures how\n# kettle-jem generates the CI matrix strategy and gemfile references.": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        113,
+        150
+      ]
+    }
+  ],
+  "# Framework matrix workflows.\n# When your gem tests against multiple versions of a framework (Rails,": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        111,
+        148
+      ]
+    }
+  ],
+  "# When your gem tests against multiple versions of a framework (Rails,\n# ActiveRecord, ActiveSupport, etc.), this section configures how": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        112,
+        149
+      ]
+    }
+  ],
+  "# framework_matrix (only used when preset: framework):\n#   dimension   — framework name used in the matrix key and display": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        121,
+        158
+      ]
+    }
+  ],
+  "# preset: controls overall workflow strategy\n#   modern       — Ruby-only matrix (default when absent)": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        116,
+        153
+      ]
+    }
+  ],
+  "appraisal: \"dep-heads\"\nexec_cmd: \"rake spec\"": [
+    {
+      "file": ".github/workflows/dep-heads.yml",
+      "lines": [
+        44,
+        52,
+        60
+      ]
+    }
+  ],
+  "appraisal: \"head\"\nexec_cmd: \"rake test\"": [
+    {
+      "file": ".github/workflows/heads.yml",
+      "lines": [
+        43,
+        51,
+        59
+      ]
+    }
+  ],
+  "exec_cmd: \"rake spec\"\ngemfile: \"Appraisal.root\"": [
+    {
+      "file": ".github/workflows/dep-heads.yml",
+      "lines": [
+        45,
+        53,
+        61
+      ]
+    }
+  ],
+  "exec_cmd: \"rake test\"\ngemfile: \"Appraisal.root\"": [
+    {
+      "file": ".github/workflows/heads.yml",
+      "lines": [
+        44,
+        52,
+        60
+      ]
+    }
+  ]
+}

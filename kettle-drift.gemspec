@@ -13,8 +13,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Peter H. Boling"]
   spec.email = ["peter.boling@gmail.com"]
 
-  spec.summary = "🔮 Detect duplicated adjacent lines introduced by template drift."
-  spec.description = "🔮 Kettle::Drift tracks repeated adjacent-line chunks that usually signal template drift or copy/paste corruption."
+  spec.summary = "🍲 Detect duplicated adjacent lines introduced by template drift."
+  spec.description = "🍲 Kettle::Drift tracks repeated adjacent-line chunks that usually signal template drift or copy/paste corruption."
   spec.homepage = "https://github.com/kettle-rb/kettle-drift"
   spec.licenses = ["AGPL-3.0-only"]
   spec.required_ruby_version = ">= 3.2.0"

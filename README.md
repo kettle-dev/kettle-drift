@@ -9,7 +9,7 @@
 [🖼️kettle-rb-kettle-drift-i]: https://logos.galtzo.com/assets/images/kettle-rb/kettle-drift/avatar-128px.svg
 [🖼️kettle-rb-kettle-drift]: https://github.com/kettle-rb/kettle-drift
 
-# 🔮 Kettle::Drift
+# 🍲 Kettle::Drift
 
 [![Version][👽versioni]][👽version] [![GitHub tag (latest SemVer)][⛳️tag-img]][⛳️tag] [![License: AGPL-3.0-only][📄license-img]][📄license] [![Downloads Rank][👽dl-ranki]][👽dl-rank] [![CodeCov Test Coverage][🏀codecovi]][🏀codecov] [![Coveralls Test Coverage][🏀coveralls-img]][🏀coveralls] [![QLTY Test Coverage][🏀qlty-covi]][🏀qlty-cov] [![QLTY Maintainability][🏀qlty-mnti]][🏀qlty-mnt] [![CI Heads][🚎3-hd-wfi]][🚎3-hd-wf] [![CI Runtime Dependencies @ HEAD][🚎12-crh-wfi]][🚎12-crh-wf] [![CI Current][🚎11-c-wfi]][🚎11-c-wf] [![CI Truffle Ruby][🚎9-t-wfi]][🚎9-t-wf] [![CI JRuby][🚎10-j-wfi]][🚎10-j-wf] [![Deps Locked][🚎13-🔒️-wfi]][🚎13-🔒️-wf] [![Deps Unlocked][🚎14-🔓️-wfi]][🚎14-🔓️-wf] [![CI Test Coverage][🚎2-cov-wfi]][🚎2-cov-wf] [![CI Style][🚎5-st-wfi]][🚎5-st-wf] [![CodeQL][🖐codeQL-img]][🖐codeQL]
 
@@ -452,7 +452,7 @@ Thanks for RTFM. ☺️
 [📄license-ref]: AGPL-3.0-only.md
 [📄license-img]: https://img.shields.io/badge/License-AGPL--3.0--only-259D6C.svg
 [📄license-compat]: https://www.apache.org/legal/resolved.html#category-x
-[📄license-compat-img]: https://img.shields.io/badge/Apache_Incompatible:_Category_X-%E2%9C%97-C0392B.svg?style=flat&logo=Apache
+[📄license-compat-img]: https://img.shields.io/badge/Apache_Incompatible:_Category_X-✗-C0392B.svg?style=flat&logo=Apache
 [📄ilo-declaration]: https://www.ilo.org/declaration/lang--en/index.htm
 [📄ilo-declaration-img]: https://img.shields.io/badge/ILO_Fundamental_Principles-✓-259D6C.svg?style=flat
 [🚎yard-current]: http://rubydoc.info/gems/kettle-drift

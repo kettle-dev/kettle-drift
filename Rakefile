@@ -115,3 +115,4 @@ begin
 rescue LoadError
   warn("NOTE: kettle-dev isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
 end
+
