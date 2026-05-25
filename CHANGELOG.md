@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Prevented the Rakefile template hook from adding a second trailing newline
+  when refreshing the kettle-drift task block.
+
 ### Security
 
 ## [1.0.0] - 2026-05-24

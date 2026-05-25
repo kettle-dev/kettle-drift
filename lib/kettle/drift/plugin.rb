@@ -62,7 +62,7 @@ module Kettle
         next_section_index = content.index(/\n### [A-Z][^\n]*\n/, marker_index + SNIPPET_MARKER.length)
         prefix = content[0...marker_index].rstrip
         suffix = next_section_index ? content[next_section_index..].lstrip : ""
-        [prefix, RAKEFILE_SNIPPET.rstrip, suffix].reject(&:empty?).join("\n\n") + "\n"
+        "#{[prefix, RAKEFILE_SNIPPET.rstrip, suffix].reject(&:empty?).join("\n\n").rstrip}\n"
       end
 
       def insert_snippet(content)

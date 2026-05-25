@@ -85,6 +85,7 @@ RSpec.describe Kettle::Drift do
       expect(updated).not_to include("old")
       expect(updated.scan(Kettle::Drift::Plugin::SNIPPET_MARKER).size).to eq(1)
       expect(updated).to include("### TEMPLATING TASKS")
+      expect(updated).not_to end_with("\n\n")
     end
   end
 end
