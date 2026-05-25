@@ -20,8 +20,6 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- Initial release
-
 ### Changed
 
 ### Deprecated
@@ -32,3 +30,17 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Security
 
+## [1.0.0] - 2026-05-24
+
+- TAG: [v1.0.0][1.0.0t]
+- COVERAGE: 81.57% -- 394/483 lines in 13 files
+- BRANCH COVERAGE: 60.11% -- 107/178 branches in 13 files
+- 30.93% documented
+
+### Added
+
+- Initial release
+
+[Unreleased]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/kettle-rb/kettle-drift/compare/bd038cd14dc083203b58f8fee359e63d6feeaaca...v1.0.0
+[1.0.0t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.0
