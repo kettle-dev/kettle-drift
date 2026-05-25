@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  Module: Kettle::Drift
+  
+    &mdash; Documentation by YARD 0.9.43
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css">
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css">
+
+<script type="text/javascript">
+  pathId = "Kettle::Drift";
+  relpath = '../';
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="main_progress" aria-hidden="true"></div>
+
+    <div class="nav_wrap">
+      <iframe id="nav" src="../class_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+  
+    <a href="../_index.html">Index (D)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span>
+     &raquo; 
+    <span class="title">Drift</span>
+  
+</div>
+
+        <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+  
+</div>
+        <div class="clear"></div>
+      </div>
+
+      <div id="content"><h1>Module: Kettle::Drift
+  
+  
+  
+</h1>
+<div class="box_info">
+  
+
+  
+  
+  
+  
+  
+
+  
+
+  
+  <dl>
+    <dt>Defined in:</dt>
+    <dd>lib/kettle/drift.rb<span class="defines">,<br>
+  lib/kettle/drift/cli.rb,<br> lib/kettle/drift/diff.rb,<br> lib/kettle/drift/plugin.rb,<br> lib/kettle/drift/outcome.rb,<br> lib/kettle/drift/process.rb,<br> lib/kettle/drift/version.rb,<br> lib/kettle/drift/lock_file.rb,<br> lib/kettle/drift/serializer.rb,<br> lib/kettle/drift/process/printer.rb,<br> lib/kettle/drift/process/calculate_diff.rb,<br> lib/kettle/drift/duplicate_line_validator.rb</span>
+
+</dd>
+  </dl>
+  
+</div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span>, <span class='object_link'><a href="Drift/Plugin.html" title="Kettle::Drift::Plugin (module)">Plugin</a></span>, <span class='object_link'><a href="Drift/Serializer.html" title="Kettle::Drift::Serializer (module)">Serializer</a></span>, <span class='object_link'><a href="Drift/Version.html" title="Kettle::Drift::Version (module)">Version</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Drift/CLI.html" title="Kettle::Drift::CLI (class)">CLI</a></span>, <span class='object_link'><a href="Drift/Diff.html" title="Kettle::Drift::Diff (class)">Diff</a></span>, <span class='object_link'><a href="Drift/Error.html" title="Kettle::Drift::Error (class)">Error</a></span>, <span class='object_link'><a href="Drift/LockFile.html" title="Kettle::Drift::LockFile (class)">LockFile</a></span>, <span class='object_link'><a href="Drift/Outcome.html" title="Kettle::Drift::Outcome (class)">Outcome</a></span>, <span class='object_link'><a href="Drift/Process.html" title="Kettle::Drift::Process (class)">Process</a></span>
+    
+  
+</p>
+
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="DEFAULT_LOCKFILE-constant" class="">DEFAULT_LOCKFILE =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.kettle-drift.lock</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+        <dt id="EXCLUDED_PATH_SEGMENTS-constant" class="">EXCLUDED_PATH_SEGMENTS =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='qwords_beg'>%w[</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.bundle</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.git</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.idea</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>coverage</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>docs</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>node_modules</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>pkg</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>tmp</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>vendor</span><span class='words_sep'>
+</span><span class='tstring_end'>]</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="EXCLUDED_FILE_EXTENSIONS-constant" class="">EXCLUDED_FILE_EXTENSIONS =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='qwords_beg'>%w[</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.7z</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.bz2</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.class</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.dll</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.exe</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.gem</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.gif</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.gz</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.ico</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.jar</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.jpeg</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.jpg</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.pdf</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.png</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.so</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.tar</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.tgz</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.ttf</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.woff</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.woff2</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.xz</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>.zip</span><span class='words_sep'>
+</span><span class='tstring_end'>]</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+        <dt id="VAR_HOME_PREFIX-constant" class="">VAR_HOME_PREFIX =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>\A/var/home(?=/|\z)</span><span class='regexp_end'>}</span></span></pre></dd>
+      
+        <dt id="VAR_HOME_TEXT-constant" class="">VAR_HOME_TEXT =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='regexp_beg'>%r{</span><span class='tstring_content'>/var/home(?=/|\z)</span><span class='regexp_end'>}</span></span></pre></dd>
+      
+        <dt id="VERSION-constant" class="">VERSION =
+          <div class="docstring">
+  <div class="discussion">
+    <p>Traditional Constant Location</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'><span class='object_link'><a href="Drift/Version.html" title="Kettle::Drift::Version (module)">Version</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/Version.html#VERSION-constant" title="Kettle::Drift::Version::VERSION (constant)">VERSION</a></span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small><a href="#" class="summary_toggle">collapse</a></small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#display_path-class_method" title="display_path (class method)">.<strong>display_path</strong>(path)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#display_text-class_method" title="display_text (class method)">.<strong>display_text</strong>(text)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#install_tasks-class_method" title="install_tasks (class method)">.<strong>install_tasks</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register_kettle_jem_plugin-class_method" title="register_kettle_jem_plugin (class method)">.<strong>register_kettle_jem_plugin</strong>(registrar)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-class_method" title="run (class method)">.<strong>run</strong>(project_root:, files: nil, template_dir: nil, min_chars: Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS, json_path: nil, lock_path: DEFAULT_LOCKFILE, mode: :update, printer_class: Kettle::Drift::Process::Printer)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#target_files-class_method" title="target_files (class method)">.<strong>target_files</strong>(project_root:, template_dir: nil)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+    
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="display_path-class_method">
+  
+    .<strong>display_path</strong>(path)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_display_path'>display_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_path'>path</span> <span class='kw'>if</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#VAR_HOME_PREFIX-constant" title="Kettle::Drift::VAR_HOME_PREFIX (constant)">VAR_HOME_PREFIX</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/home</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="display_text-class_method">
+  
+    .<strong>display_text</strong>(text)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_display_text'>display_text</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_text'>text</span> <span class='kw'>if</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+
+  <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='const'><span class='object_link'><a href="#VAR_HOME_TEXT-constant" title="Kettle::Drift::VAR_HOME_TEXT (constant)">VAR_HOME_TEXT</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/home</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="install_tasks-class_method">
+  
+    .<strong>install_tasks</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 76</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_install_tasks'>install_tasks</span>
+  <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kettle/drift/tasks.rb</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="register_kettle_jem_plugin-class_method">
+  
+    .<strong>register_kettle_jem_plugin</strong>(registrar)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_register_kettle_jem_plugin'>register_kettle_jem_plugin</span><span class='lparen'>(</span><span class='id identifier rubyid_registrar'>registrar</span><span class='rparen'>)</span>
+  <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/Plugin.html" title="Kettle::Drift::Plugin (module)">Plugin</a></span></span><span class='period'>.</span><span class='id identifier rubyid_register!'><span class='object_link'><a href="Drift/Plugin.html#register!-class_method" title="Kettle::Drift::Plugin.register! (method)">register!</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_registrar'>registrar</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run-class_method">
+  
+    .<strong>run</strong>(project_root:, files: nil, template_dir: nil, min_chars: Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS, json_path: nil, lock_path: DEFAULT_LOCKFILE, mode: :update, printer_class: Kettle::Drift::Process::Printer)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span>
+  <span class='label'>project_root:</span><span class='comma'>,</span>
+  <span class='label'>files:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>template_dir:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>min_chars:</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#DEFAULT_MIN_CHARS-constant" title="Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS (constant)">DEFAULT_MIN_CHARS</a></span></span><span class='comma'>,</span>
+  <span class='label'>json_path:</span> <span class='kw'>nil</span><span class='comma'>,</span>
+  <span class='label'>lock_path:</span> <span class='const'><span class='object_link'><a href="#DEFAULT_LOCKFILE-constant" title="Kettle::Drift::DEFAULT_LOCKFILE (constant)">DEFAULT_LOCKFILE</a></span></span><span class='comma'>,</span>
+  <span class='label'>mode:</span> <span class='symbol'>:update</span><span class='comma'>,</span>
+  <span class='label'>printer_class:</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/Process.html" title="Kettle::Drift::Process (class)">Process</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/Process/Printer.html" title="Kettle::Drift::Process::Printer (class)">Printer</a></span></span>
+<span class='rparen'>)</span>
+  <span class='id identifier rubyid_expanded_project_root'>expanded_project_root</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_project_root'>project_root</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_expanded_template_dir'>expanded_template_dir</span> <span class='op'>=</span> <span class='id identifier rubyid_template_dir'>template_dir</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='kw'>nil</span> <span class='op'>:</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_template_dir'>template_dir</span><span class='comma'>,</span> <span class='id identifier rubyid_expanded_project_root'>expanded_project_root</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_expanded_lock_path'>expanded_lock_path</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_lock_path'>lock_path</span><span class='comma'>,</span> <span class='id identifier rubyid_expanded_project_root'>expanded_project_root</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_selected_files'>selected_files</span> <span class='op'>=</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_files'>files</span> <span class='op'>||</span> <span class='id identifier rubyid_target_files'>target_files</span><span class='lparen'>(</span><span class='label'>project_root:</span> <span class='id identifier rubyid_expanded_project_root'>expanded_project_root</span><span class='comma'>,</span> <span class='label'>template_dir:</span> <span class='id identifier rubyid_expanded_template_dir'>expanded_template_dir</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_baseline_set'>baseline_set</span> <span class='op'>=</span> <span class='id identifier rubyid_expanded_template_dir'>expanded_template_dir</span> <span class='op'>?</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_baseline'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#baseline-class_method" title="Kettle::Drift::DuplicateLineValidator.baseline (method)">baseline</a></span></span><span class='lparen'>(</span><span class='label'>template_dir:</span> <span class='id identifier rubyid_expanded_template_dir'>expanded_template_dir</span><span class='comma'>,</span> <span class='label'>min_chars:</span> <span class='id identifier rubyid_min_chars'>min_chars</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_scan'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#scan-class_method" title="Kettle::Drift::DuplicateLineValidator.scan (method)">scan</a></span></span><span class='lparen'>(</span><span class='label'>files:</span> <span class='id identifier rubyid_selected_files'>selected_files</span><span class='comma'>,</span> <span class='label'>min_chars:</span> <span class='id identifier rubyid_min_chars'>min_chars</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_results'>results</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_subtract_baseline'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#subtract_baseline-class_method" title="Kettle::Drift::DuplicateLineValidator.subtract_baseline (method)">subtract_baseline</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='comma'>,</span> <span class='label'>baseline_set:</span> <span class='id identifier rubyid_baseline_set'>baseline_set</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_warning_count'>warning_count</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_warning_count'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#warning_count-class_method" title="Kettle::Drift::DuplicateLineValidator.warning_count (method)">warning_count</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_expanded_json_path'>expanded_json_path</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_expanded_json_path'>expanded_json_path</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_json_path'>json_path</span>
+      <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_json_path'>json_path</span><span class='comma'>,</span> <span class='id identifier rubyid_expanded_project_root'>expanded_project_root</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_expanded_project_root'>expanded_project_root</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>tmp</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kettle-drift</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>duplicate-lines-</span><span class='embexpr_beg'>#{</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span><span class='period'>.</span><span class='id identifier rubyid_utc'>utc</span><span class='period'>.</span><span class='id identifier rubyid_strftime'>strftime</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%Y%m%d-%H%M%S</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>.json</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_write_json'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#write_json-class_method" title="Kettle::Drift::DuplicateLineValidator.write_json (method)">write_json</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='comma'>,</span> <span class='id identifier rubyid_expanded_json_path'>expanded_json_path</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_process_result'>process_result</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/Process.html" title="Kettle::Drift::Process (class)">Process</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Drift/Process.html#initialize-instance_method" title="Kettle::Drift::Process#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>project_root:</span> <span class='id identifier rubyid_expanded_project_root'>expanded_project_root</span><span class='comma'>,</span>
+    <span class='label'>lock_path:</span> <span class='id identifier rubyid_expanded_lock_path'>expanded_lock_path</span><span class='comma'>,</span>
+    <span class='label'>mode:</span> <span class='id identifier rubyid_mode'>mode</span><span class='comma'>,</span>
+    <span class='label'>results:</span> <span class='id identifier rubyid_results'>results</span><span class='comma'>,</span>
+    <span class='label'>printer_class:</span> <span class='id identifier rubyid_printer_class'>printer_class</span><span class='comma'>,</span>
+  <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_run'><span class='object_link'><a href="Drift/Process.html#run-instance_method" title="Kettle::Drift::Process#run (method)">run</a></span></span>
+
+  <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/Outcome.html" title="Kettle::Drift::Outcome (class)">Outcome</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Drift/Outcome.html#initialize-instance_method" title="Kettle::Drift::Outcome#initialize (method)">new</a></span></span><span class='lparen'>(</span>
+    <span class='label'>project_root:</span> <span class='id identifier rubyid_expanded_project_root'>expanded_project_root</span><span class='comma'>,</span>
+    <span class='label'>files:</span> <span class='id identifier rubyid_selected_files'>selected_files</span><span class='comma'>,</span>
+    <span class='label'>template_dir:</span> <span class='id identifier rubyid_expanded_template_dir'>expanded_template_dir</span><span class='comma'>,</span>
+    <span class='label'>baseline_set:</span> <span class='id identifier rubyid_baseline_set'>baseline_set</span><span class='comma'>,</span>
+    <span class='label'>results:</span> <span class='id identifier rubyid_results'>results</span><span class='comma'>,</span>
+    <span class='label'>warning_count:</span> <span class='id identifier rubyid_warning_count'>warning_count</span><span class='comma'>,</span>
+    <span class='label'>json_path:</span> <span class='id identifier rubyid_expanded_json_path'>expanded_json_path</span><span class='comma'>,</span>
+    <span class='label'>lock_path:</span> <span class='id identifier rubyid_expanded_lock_path'>expanded_lock_path</span><span class='comma'>,</span>
+    <span class='label'>mode:</span> <span class='id identifier rubyid_mode'>mode</span><span class='comma'>,</span>
+    <span class='label'>diff:</span> <span class='id identifier rubyid_process_result'>process_result</span><span class='period'>.</span><span class='id identifier rubyid_diff'>diff</span><span class='comma'>,</span>
+    <span class='label'>exit_code:</span> <span class='id identifier rubyid_process_result'>process_result</span><span class='period'>.</span><span class='id identifier rubyid_exit_code'>exit_code</span><span class='comma'>,</span>
+  <span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="target_files-class_method">
+  
+    .<strong>target_files</strong>(project_root:, template_dir: nil)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_target_files'>target_files</span><span class='lparen'>(</span><span class='label'>project_root:</span><span class='comma'>,</span> <span class='label'>template_dir:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_template_managed_files'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#template_managed_files-class_method" title="Kettle::Drift::DuplicateLineValidator.template_managed_files (method)">template_managed_files</a></span></span><span class='lparen'>(</span><span class='label'>project_root:</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='comma'>,</span> <span class='label'>template_dir:</span> <span class='id identifier rubyid_template_dir'>template_dir</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_template_dir'>template_dir</span>
+
+  <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_project_root'>project_root</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>FNM_DOTMATCH</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='op'>|</span>
+    <span class='kw'>next</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_file?'>file?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="#EXCLUDED_FILE_EXTENSIONS-constant" title="Kettle::Drift::EXCLUDED_FILE_EXTENSIONS (constant)">EXCLUDED_FILE_EXTENSIONS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_relative'>relative</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_delete_prefix'>delete_prefix</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project_root'>project_root</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_segments'>segments</span> <span class='op'>=</span> <span class='id identifier rubyid_relative'>relative</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_segments'>segments</span><span class='period'>.</span><span class='id identifier rubyid_none?'>none?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_segment'>segment</span><span class='op'>|</span> <span class='id identifier rubyid_segment'>segment</span><span class='period'>.</span><span class='id identifier rubyid_start_with?'>start_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'><span class='object_link'><a href="#EXCLUDED_PATH_SEGMENTS-constant" title="Kettle::Drift::EXCLUDED_PATH_SEGMENTS (constant)">EXCLUDED_PATH_SEGMENTS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_segment'>segment</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+      <div id="footer">
+  Generated on Sun May 24 23:03:21 2026 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.43 (ruby-4.0.5).
+</div>
+
+    </div>
+  </body>
+</html>
