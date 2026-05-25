@@ -39,8 +39,7 @@ smorg_rb_local_gems = %w[
   ast-crispr-ruby-prism
 ]
 
-kettle_rb_local_gems =                        %w[
-                       ]
+kettle_rb_local_gems = %w[]
 
 # export VENDORED_GEMS=
 platform :mri do
