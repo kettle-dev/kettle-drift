@@ -30,6 +30,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Prevented the Rakefile template hook from adding a second trailing newline
   when refreshing the kettle-drift task block.
+- Inserted the kettle-drift Rakefile task block after the complete guarded
+  `kettle-dev` block so templating does not corrupt destination Rakefiles.
 
 ### Security
 

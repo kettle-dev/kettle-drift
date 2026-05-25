@@ -67,13 +67,51 @@ module Kettle
 
       def insert_snippet(content)
         lines = content.lines
-        require_index = lines.rindex { |line| line.match?(/^\s*require\s+["']kettle\/dev["']/) }
-        if require_index
-          lines.insert(require_index + 1, "\n", RAKEFILE_SNIPPET, "\n")
+        insert_after_line = kettle_dev_anchor_end_line(content)
+        if insert_after_line
+          lines.insert(insert_after_line, "\n", RAKEFILE_SNIPPET, "\n")
           lines.join
         else
           [content.rstrip, "", RAKEFILE_SNIPPET.rstrip, ""].join("\n")
         end
+      end
+
+      def kettle_dev_anchor_end_line(content)
+        prism_kettle_dev_anchor_end_line(content) || require_kettle_dev_line(content)
+      end
+
+      def prism_kettle_dev_anchor_end_line(content)
+        require "prism"
+        result = Prism.parse(content.to_s)
+        return unless result.success?
+
+        top_level_nodes = result.value.statements&.body.to_a
+        anchor_node = top_level_nodes.reverse.find { |node| contains_kettle_dev_require?(node) }
+        anchor_node&.location&.end_line
+      rescue LoadError
+        nil
+      end
+
+      def contains_kettle_dev_require?(node)
+        return false unless node.respond_to?(:child_nodes)
+        return true if kettle_dev_require_call?(node)
+
+        node.child_nodes.compact.any? { |child| contains_kettle_dev_require?(child) }
+      end
+
+      def kettle_dev_require_call?(node)
+        return false unless node.is_a?(Prism::CallNode)
+        return false unless node.name == :require
+
+        node.arguments&.arguments.to_a.any? do |argument|
+          argument.is_a?(Prism::StringNode) && argument.unescaped == "kettle/dev"
+        end
+      end
+
+      # This fallback is intentionally line-based because it is only used when
+      # Prism is unavailable in the templating runtime.
+      def require_kettle_dev_line(content)
+        content.lines.rindex { |line| line.match?(/^\s*require\s+["']kettle\/dev["']/) }&.+(1)
       end
     end
   end

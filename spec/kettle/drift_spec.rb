@@ -69,6 +69,32 @@ RSpec.describe Kettle::Drift do
       expect(updated).to include('task("kettle:drift:check")')
     end
 
+    it "inserts drift tasks after the full kettle-dev guarded block" do
+      rakefile = <<~RUBY
+        begin
+          require "kettle/dev"
+          Kettle::Dev.install_tasks unless Kettle::Dev::RUNNING_AS == "rake"
+        rescue LoadError
+          warn("NOTE: kettle-dev isn't installed")
+        end
+
+        ### TEMPLATING TASKS
+        begin
+          require "kettle/jem"
+          Kettle::Jem.install_tasks
+        rescue LoadError
+          warn("NOTE: kettle-jem isn't installed")
+        end
+      RUBY
+
+      updated = described_class.upsert_rakefile_snippet(rakefile)
+
+      expect(updated).to include("Kettle::Dev.install_tasks")
+      expect(updated.index("Kettle::Dev.install_tasks")).to be < updated.index(Kettle::Drift::Plugin::SNIPPET_MARKER)
+      expect(updated.index(Kettle::Drift::Plugin::SNIPPET_MARKER)).to be < updated.index("### TEMPLATING TASKS")
+      expect { RubyVM::InstructionSequence.compile(updated) }.not_to raise_error
+    end
+
     it "replaces an existing drift task snippet" do
       rakefile = <<~RUBY
         require "kettle/dev"
