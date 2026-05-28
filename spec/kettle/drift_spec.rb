@@ -3,6 +3,8 @@
 require "rake"
 require "tmpdir"
 require "fileutils"
+require "open3"
+require "rbconfig"
 
 RSpec.describe Kettle::Drift do
   it "has a version number" do
@@ -106,7 +108,13 @@ RSpec.describe Kettle::Drift do
       expect(updated).to include("Kettle::Dev.install_tasks")
       expect(updated.index("Kettle::Dev.install_tasks")).to be < updated.index(Kettle::Drift::Plugin::SNIPPET_MARKER)
       expect(updated.index(Kettle::Drift::Plugin::SNIPPET_MARKER)).to be < updated.index("### TEMPLATING TASKS")
-      expect { RubyVM::InstructionSequence.compile(updated) }.not_to raise_error
+      Dir.mktmpdir do |dir|
+        rakefile = File.join(dir, "Rakefile")
+        File.write(rakefile, updated)
+        stdout, stderr, status = Open3.capture3(RbConfig.ruby, "-c", rakefile)
+
+        expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"
+      end
     end
 
     it "replaces an existing drift task snippet" do
