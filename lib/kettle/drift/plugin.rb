@@ -111,7 +111,15 @@ module Kettle
       # This fallback is intentionally line-based because it is only used when
       # Prism is unavailable in the templating runtime.
       def require_kettle_dev_line(content)
-        content.lines.rindex { |line| line.match?(/^\s*require\s+["']kettle\/dev["']/) }&.+(1)
+        lines = content.lines
+        require_index = lines.rindex { |line| line.strip == 'require "kettle/dev"' || line.strip == "require 'kettle/dev'" }
+        return unless require_index
+
+        block_start = lines[0..require_index].rindex { |line| line.strip == "begin" }
+        return require_index + 1 unless block_start
+
+        block_end = lines[block_start..].to_a.index { |line| line.strip == "end" }
+        block_end ? block_start + block_end + 1 : require_index + 1
       end
     end
   end
