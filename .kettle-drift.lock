@@ -3,8 +3,8 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        137,
-        167
+        149,
+        182
       ]
     }
   ],
@@ -12,8 +12,8 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        138,
-        168
+        150,
+        183
       ]
     }
   ],
@@ -21,8 +21,35 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        136,
-        166
+        148,
+        181
+      ]
+    }
+  ],
+  "#   - \"note:*\"\n#   - \"setup*\"": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        235,
+        276
+      ]
+    }
+  ],
+  "#   - basic usage\n#   - usage": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        227,
+        268
+      ]
+    }
+  ],
+  "#   - usage\n#   - summary": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        228,
+        269
       ]
     }
   ],
@@ -30,8 +57,8 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        140,
-        170
+        152,
+        185
       ]
     }
   ],
@@ -39,8 +66,8 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        139,
-        169
+        151,
+        184
       ]
     }
   ],
@@ -48,8 +75,8 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        122,
-        159
+        134,
+        174
       ]
     }
   ],
@@ -57,8 +84,17 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        118,
-        155
+        130,
+        170
+      ]
+    }
+  ],
+  "#   howto: basic usage\n#   options: configuration": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        242,
+        283
       ]
     }
   ],
@@ -66,8 +102,17 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        117,
-        154
+        129,
+        169
+      ]
+    }
+  ],
+  "#   summary → synopsis, usage → basic usage,\n#   configuration options → configuration, setup → basic usage": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        221,
+        262
       ]
     }
   ],
@@ -75,8 +120,26 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        113,
-        150
+        125,
+        165
+      ]
+    }
+  ],
+  "# Built-in aliases (destination → template):\n#   summary → synopsis, usage → basic usage,": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        220,
+        261
+      ]
+    }
+  ],
+  "# Custom section aliases (destination heading → canonical template heading).\n# Merged with built-in aliases above.": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        238,
+        279
       ]
     }
   ],
@@ -84,8 +147,35 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        111,
-        148
+        123,
+        163
+      ]
+    }
+  ],
+  "# Glob patterns for additional sections to preserve (e.g. Note:* headings).\n# Default when absent: [\"note:*\"]": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        231,
+        272
+      ]
+    }
+  ],
+  "# Sections to preserve from the destination README during template merging.\n# These section headings (case-insensitive) will keep the destination body": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        213,
+        254
+      ]
+    }
+  ],
+  "# These section headings (case-insensitive) will keep the destination body\n# instead of being overwritten by the template. Default when absent:": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        214,
+        255
       ]
     }
   ],
@@ -93,8 +183,8 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        112,
-        149
+        124,
+        164
       ]
     }
   ],
@@ -102,8 +192,35 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        121,
-        158
+        133,
+        173
+      ]
+    }
+  ],
+  "# instead of being overwritten by the template. Default when absent:\n#   - synopsis": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        215,
+        256
+      ]
+    }
+  ],
+  "# preserve_patterns:\n#   - \"note:*\"": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        234,
+        275
+      ]
+    }
+  ],
+  "# preserve_sections:\n#   - synopsis": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        224,
+        265
       ]
     }
   ],
@@ -111,8 +228,17 @@
     {
       "file": ".kettle-jem.yml",
       "lines": [
-        116,
-        153
+        128,
+        168
+      ]
+    }
+  ],
+  "# section_aliases:\n#   howto: basic usage": [
+    {
+      "file": ".kettle-jem.yml",
+      "lines": [
+        241,
+        282
       ]
     }
   ],

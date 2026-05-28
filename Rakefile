@@ -6,7 +6,7 @@
 # kettle-drift will then preserve content between those markers across template runs.
 # kettle-jem:unfreeze
 
-# kettle-drift Rakefile v1.0.0 - 2026-04-11
+# kettle-drift Rakefile v7.0.0 - 2026-05-27
 # Ruby 2.3 (Safe Navigation) or higher required
 #
 # See LICENSE.md for license information.
@@ -31,9 +31,9 @@
 # rake default                                # Default tasks aggregator
 # rake install                                # Build and install kettle-drift-1.0.0.gem in...
 # rake install:local                          # Build and install kettle-drift-1.0.0.gem in...
-# rake kettle:jem:install                     # Install kettle-drift GitHub automation and ...
+# rake kettle:jem:install                     # Internal target used by `kettle-jem install`
 # rake kettle:jem:selftest                    # Self-test: template kettle-drift against itse...
-# rake kettle:jem:template                    # Template kettle-drift files into the curren...
+# rake kettle:jem:template                    # Internal target used by scoped `kettle-jem template --only`
 # rake reek                                   # Check for code smells
 # rake reek:update                            # Run reek and store the output into the RE...
 # rake release[remote]                        # Create tag v1.0.0 and build and push kett...
@@ -62,9 +62,13 @@ task :default do
   puts "Default task complete."
 end
 
-Rake::Task[:default].enhance(%i[spec rubocop])
-
 # External gems that define tasks - add here!
+begin
+  require "kettle/dev"
+  Kettle::Dev.install_tasks unless Kettle::Dev::RUNNING_AS == "rake"
+rescue LoadError
+  warn("NOTE: kettle-dev isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+end
 
 ### DUPLICATE DRIFT TASKS
 begin
@@ -87,14 +91,28 @@ rescue LoadError
   task("kettle:drift" => "kettle:drift:update")
 end
 
+
 ### TEMPLATING TASKS
+# These tasks are installed for the `kettle-jem` executable. Run full templating
+# through `kettle-jem install`; use `kettle-jem template --only PATH` only for
+# scoped file updates. The executable prepares the environment and then
+# delegates here when rake orchestration is needed.
+kettle_jem_selftest_unavailable_note = nil
 begin
   require "kettle/jem"
-  Kettle::Jem.install_tasks
+  if Kettle::Jem.respond_to?(:install_tasks)
+    Kettle::Jem.install_tasks
+  else
+    kettle_jem_selftest_unavailable_note = "NOTE: kettle-jem #{Kettle::Jem::Version::VERSION} does not provide rake tasks in this environment"
+  end
 rescue LoadError
+  kettle_jem_selftest_unavailable_note = "NOTE: kettle-jem isn't installed, or is disabled for #{RUBY_VERSION} in the current environment"
+end
+
+if kettle_jem_selftest_unavailable_note
   desc("(stub) kettle:jem:selftest is unavailable")
   task("kettle:jem:selftest") do
-    warn("NOTE: kettle-jem isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
+    warn(kettle_jem_selftest_unavailable_note)
   end
 end
 
@@ -107,11 +125,4 @@ rescue LoadError
   task("build:generate_checksums") do
     warn("NOTE: stone_checksums isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
   end
-end
-
-begin
-  require "kettle/dev"
-  Kettle::Dev.install_tasks unless Kettle::Dev::RUNNING_AS == "rake"
-rescue LoadError
-  warn("NOTE: kettle-dev isn't installed, or is disabled for #{RUBY_VERSION} in the current environment")
 end
