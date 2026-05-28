@@ -51,6 +51,20 @@ RSpec.describe Kettle::Drift do
         expect(described_class.target_files(project_root: dir)).to eq([kept])
       end
     end
+
+    it "delegates to template-managed files when a template dir is configured" do
+      Dir.mktmpdir do |dir|
+        template_dir = File.join(dir, "template")
+        FileUtils.mkdir_p(File.join(template_dir, "lib"))
+        FileUtils.mkdir_p(File.join(dir, "lib"))
+        managed = File.join(dir, "lib", "managed.rb")
+        File.write(File.join(template_dir, "lib", "managed.rb.example"), "# template\n")
+        File.write(managed, "puts :managed\n")
+        File.write(File.join(dir, "lib", "ignored.rb"), "puts :ignored\n")
+
+        expect(described_class.target_files(project_root: dir, template_dir: template_dir)).to eq([managed])
+      end
+    end
   end
 
   describe Kettle::Drift::Plugin do
@@ -112,6 +126,98 @@ RSpec.describe Kettle::Drift do
       expect(updated.scan(Kettle::Drift::Plugin::SNIPPET_MARKER).size).to eq(1)
       expect(updated).to include("### TEMPLATING TASKS")
       expect(updated).not_to end_with("\n\n")
+    end
+
+    it "locates the end of a guarded kettle-dev block without Prism" do
+      rakefile = <<~RUBY
+        begin
+          require "kettle/dev"
+          Kettle::Dev.install_tasks unless Kettle::Dev::RUNNING_AS == "rake"
+        rescue LoadError
+          warn("NOTE")
+        end
+
+        task :custom
+      RUBY
+
+      expect(described_class.require_kettle_dev_line(rakefile)).to eq(6)
+    end
+
+    it "falls back to the require line when the guarded block is incomplete" do
+      rakefile = <<~RUBY
+        task :setup
+        require "kettle/dev"
+      RUBY
+
+      expect(described_class.require_kettle_dev_line(rakefile)).to eq(2)
+      expect(described_class.require_kettle_dev_line("task :setup\n")).to be_nil
+    end
+
+    it "injects Rakefile tasks through the plugin context" do
+      helpers = Class.new do
+        attr_reader :changes
+
+        def initialize
+          @changes = []
+        end
+
+        def record_template_result(path, action)
+          @changes << [path, action]
+        end
+      end.new
+      output = Class.new do
+        attr_reader :details
+
+        def initialize
+          @details = []
+        end
+
+        def report_detail(message)
+          @details << message
+        end
+      end.new
+
+      Dir.mktmpdir do |dir|
+        rakefile = File.join(dir, "Rakefile")
+        File.write(rakefile, "task :default\n")
+        context = Struct.new(:project_root, :helpers, :out).new(dir, helpers, output)
+
+        described_class.inject_rakefile_tasks(context)
+
+        expect(File.read(rakefile)).to include(Kettle::Drift::Plugin::SNIPPET_MARKER)
+        expect(helpers.changes).to eq([[rakefile, :replace]])
+        expect(output.details).to eq(["[kettle-drift] Injected Rakefile tasks"])
+
+        described_class.inject_rakefile_tasks(context)
+
+        expect(helpers.changes.size).to eq(1)
+      end
+    end
+
+    it "does not report plugin changes when the Rakefile is absent" do
+      helpers = Class.new do
+        attr_reader :changes
+
+        def initialize
+          @changes = []
+        end
+
+        def record_template_result(path, action)
+          @changes << [path, action]
+        end
+      end.new
+      output = Class.new do
+        def report_detail(message)
+        end
+      end.new
+
+      Dir.mktmpdir do |dir|
+        context = Struct.new(:project_root, :helpers, :out).new(dir, helpers, output)
+
+        described_class.inject_rakefile_tasks(context)
+
+        expect(helpers.changes).to eq([])
+      end
     end
   end
 end
