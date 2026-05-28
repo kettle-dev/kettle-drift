@@ -28,12 +28,21 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [1.0.1] - 2026-05-28
+
+- TAG: [v1.0.1][1.0.1t]
+- COVERAGE: 84.12% -- 429/510 lines in 13 files
+- BRANCH COVERAGE: 65.84% -- 133/202 branches in 13 files
+- 32.35% documented
+
+### Fixed
+
 - Prevented the Rakefile template hook from adding a second trailing newline
   when refreshing the kettle-drift task block.
 - Inserted the kettle-drift Rakefile task block after the complete guarded
   `kettle-dev` block so templating does not corrupt destination Rakefiles.
-
-### Security
 
 ## [1.0.0] - 2026-05-24
 
@@ -46,6 +55,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.0...v1.0.1
+[1.0.1t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.1
 [1.0.0]: https://github.com/kettle-rb/kettle-drift/compare/bd038cd14dc083203b58f8fee359e63d6feeaaca...v1.0.0
 [1.0.0t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.0

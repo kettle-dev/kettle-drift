@@ -6,7 +6,7 @@
 <title>
   Module: Kettle::Drift::Plugin
   
-    &mdash; Documentation by YARD 0.9.43
+    &mdash; Documentation by YARD 0.9.44
   
 </title>
 
@@ -146,6 +146,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#contains_kettle_dev_require%3F-class_method" title="contains_kettle_dev_require? (class method)">.<strong>contains_kettle_dev_require?</strong>(node)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#inject_rakefile_tasks-class_method" title="inject_rakefile_tasks (class method)">.<strong>inject_rakefile_tasks</strong>(context)  &#x21d2; Object </a>
     
 
@@ -170,6 +193,75 @@
   <span class="summary_signature">
     
       <a href="#insert_snippet-class_method" title="insert_snippet (class method)">.<strong>insert_snippet</strong>(content)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#kettle_dev_anchor_end_line-class_method" title="kettle_dev_anchor_end_line (class method)">.<strong>kettle_dev_anchor_end_line</strong>(content)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#kettle_dev_require_call%3F-class_method" title="kettle_dev_require_call? (class method)">.<strong>kettle_dev_require_call?</strong>(node)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prism_kettle_dev_anchor_end_line-class_method" title="prism_kettle_dev_anchor_end_line (class method)">.<strong>prism_kettle_dev_anchor_end_line</strong>(content)  &#x21d2; Object </a>
     
 
     
@@ -238,6 +330,29 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#require_kettle_dev_line-class_method" title="require_kettle_dev_line (class method)">.<strong>require_kettle_dev_line</strong>(content)  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>This fallback is intentionally line-based because it is only used when Prism is unavailable in the templating runtime.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#upsert_rakefile_snippet-class_method" title="upsert_rakefile_snippet (class method)">.<strong>upsert_rakefile_snippet</strong>(content)  &#x21d2; Object </a>
     
 
@@ -269,7 +384,66 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="inject_rakefile_tasks-class_method">
+  <h3 class="signature first" id="contains_kettle_dev_require?-class_method">
+  
+    .<strong>contains_kettle_dev_require?</strong>(node)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97
+98
+99
+100</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/plugin.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_contains_kettle_dev_require?'>contains_kettle_dev_require?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:child_nodes</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_kettle_dev_require_call?'>kettle_dev_require_call?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_child_nodes'>child_nodes</span><span class='period'>.</span><span class='id identifier rubyid_compact'>compact</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_child'>child</span><span class='op'>|</span> <span class='id identifier rubyid_contains_kettle_dev_require?'>contains_kettle_dev_require?</span><span class='lparen'>(</span><span class='id identifier rubyid_child'>child</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inject_rakefile_tasks-class_method">
   
     .<strong>inject_rakefile_tasks</strong>(context)  &#x21d2; <tt>Object</tt> 
   
@@ -347,13 +521,152 @@
 
 <span class='kw'>def</span> <span class='id identifier rubyid_insert_snippet'>insert_snippet</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_lines'>lines</span> <span class='op'>=</span> <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_lines'>lines</span>
-  <span class='id identifier rubyid_require_index'>require_index</span> <span class='op'>=</span> <span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_rindex'>rindex</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_match?'>match?</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\s*require\s+[&quot;&#39;]kettle\/dev[&quot;&#39;]</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='kw'>if</span> <span class='id identifier rubyid_require_index'>require_index</span>
-    <span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='id identifier rubyid_require_index'>require_index</span> <span class='op'>+</span> <span class='int'>1</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#RAKEFILE_SNIPPET-constant" title="Kettle::Drift::Plugin::RAKEFILE_SNIPPET (constant)">RAKEFILE_SNIPPET</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_insert_after_line'>insert_after_line</span> <span class='op'>=</span> <span class='id identifier rubyid_kettle_dev_anchor_end_line'>kettle_dev_anchor_end_line</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_insert_after_line'>insert_after_line</span>
+    <span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_insert'>insert</span><span class='lparen'>(</span><span class='id identifier rubyid_insert_after_line'>insert_after_line</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#RAKEFILE_SNIPPET-constant" title="Kettle::Drift::Plugin::RAKEFILE_SNIPPET (constant)">RAKEFILE_SNIPPET</a></span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span>
   <span class='kw'>else</span>
     <span class='lbracket'>[</span><span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_rstrip'>rstrip</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#RAKEFILE_SNIPPET-constant" title="Kettle::Drift::Plugin::RAKEFILE_SNIPPET (constant)">RAKEFILE_SNIPPET</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rstrip'>rstrip</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="kettle_dev_anchor_end_line-class_method">
+  
+    .<strong>kettle_dev_anchor_end_line</strong>(content)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/plugin.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_kettle_dev_anchor_end_line'>kettle_dev_anchor_end_line</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_prism_kettle_dev_anchor_end_line'>prism_kettle_dev_anchor_end_line</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_require_kettle_dev_line'>require_kettle_dev_line</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="kettle_dev_require_call?-class_method">
+  
+    .<strong>kettle_dev_require_call?</strong>(node)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/plugin.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_kettle_dev_require_call?'>kettle_dev_require_call?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Prism</span><span class='op'>::</span><span class='const'>CallNode</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span> <span class='op'>==</span> <span class='symbol'>:require</span>
+
+  <span class='id identifier rubyid_node'>node</span><span class='period'>.</span><span class='id identifier rubyid_arguments'>arguments</span><span class='op'>&amp;.</span><span class='id identifier rubyid_arguments'>arguments</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_argument'>argument</span><span class='op'>|</span>
+    <span class='id identifier rubyid_argument'>argument</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Prism</span><span class='op'>::</span><span class='const'>StringNode</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_argument'>argument</span><span class='period'>.</span><span class='id identifier rubyid_unescaped'>unescaped</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kettle/dev</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="prism_kettle_dev_anchor_end_line-class_method">
+  
+    .<strong>prism_kettle_dev_anchor_end_line</strong>(content)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/plugin.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_prism_kettle_dev_anchor_end_line'>prism_kettle_dev_anchor_end_line</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>prism</span><span class='tstring_end'>&quot;</span></span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='const'>Prism</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_success?'>success?</span>
+
+  <span class='id identifier rubyid_top_level_nodes'>top_level_nodes</span> <span class='op'>=</span> <span class='id identifier rubyid_result'>result</span><span class='period'>.</span><span class='id identifier rubyid_value'>value</span><span class='period'>.</span><span class='id identifier rubyid_statements'>statements</span><span class='op'>&amp;.</span><span class='id identifier rubyid_body'>body</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span>
+  <span class='id identifier rubyid_anchor_node'>anchor_node</span> <span class='op'>=</span> <span class='id identifier rubyid_top_level_nodes'>top_level_nodes</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_node'>node</span><span class='op'>|</span> <span class='id identifier rubyid_contains_kettle_dev_require?'>contains_kettle_dev_require?</span><span class='lparen'>(</span><span class='id identifier rubyid_node'>node</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_anchor_node'>anchor_node</span><span class='op'>&amp;.</span><span class='id identifier rubyid_location'>location</span><span class='op'>&amp;.</span><span class='id identifier rubyid_end_line'>end_line</span>
+<span class='kw'>rescue</span> <span class='const'>LoadError</span>
+  <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -425,7 +738,64 @@
   <span class='id identifier rubyid_next_section_index'>next_section_index</span> <span class='op'>=</span> <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\n### [A-Z][^\n]*\n</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='id identifier rubyid_marker_index'>marker_index</span> <span class='op'>+</span> <span class='const'><span class='object_link'><a href="#SNIPPET_MARKER-constant" title="Kettle::Drift::Plugin::SNIPPET_MARKER (constant)">SNIPPET_MARKER</a></span></span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_prefix'>prefix</span> <span class='op'>=</span> <span class='id identifier rubyid_content'>content</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>...</span><span class='id identifier rubyid_marker_index'>marker_index</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_rstrip'>rstrip</span>
   <span class='id identifier rubyid_suffix'>suffix</span> <span class='op'>=</span> <span class='id identifier rubyid_next_section_index'>next_section_index</span> <span class='op'>?</span> <span class='id identifier rubyid_content'>content</span><span class='lbracket'>[</span><span class='id identifier rubyid_next_section_index'>next_section_index</span><span class='op'>..</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_lstrip'>lstrip</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span>
-  <span class='lbracket'>[</span><span class='id identifier rubyid_prefix'>prefix</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#RAKEFILE_SNIPPET-constant" title="Kettle::Drift::Plugin::RAKEFILE_SNIPPET (constant)">RAKEFILE_SNIPPET</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rstrip'>rstrip</span><span class='comma'>,</span> <span class='id identifier rubyid_suffix'>suffix</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:empty?</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='lbracket'>[</span><span class='id identifier rubyid_prefix'>prefix</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#RAKEFILE_SNIPPET-constant" title="Kettle::Drift::Plugin::RAKEFILE_SNIPPET (constant)">RAKEFILE_SNIPPET</a></span></span><span class='period'>.</span><span class='id identifier rubyid_rstrip'>rstrip</span><span class='comma'>,</span> <span class='id identifier rubyid_suffix'>suffix</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:empty?</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_rstrip'>rstrip</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="require_kettle_dev_line-class_method">
+  
+    .<strong>require_kettle_dev_line</strong>(content)  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>This fallback is intentionally line-based because it is only used when<br />
+Prism is unavailable in the templating runtime.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/plugin.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_require_kettle_dev_line'>require_kettle_dev_line</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_lines'>lines</span> <span class='op'>=</span> <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_lines'>lines</span>
+  <span class='id identifier rubyid_require_index'>require_index</span> <span class='op'>=</span> <span class='id identifier rubyid_lines'>lines</span><span class='period'>.</span><span class='id identifier rubyid_rindex'>rindex</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>require &quot;kettle/dev&quot;</span><span class='tstring_end'>&#39;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>require &#39;kettle/dev&#39;</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_require_index'>require_index</span>
+
+  <span class='id identifier rubyid_block_start'>block_start</span> <span class='op'>=</span> <span class='id identifier rubyid_lines'>lines</span><span class='lbracket'>[</span><span class='int'>0</span><span class='op'>..</span><span class='id identifier rubyid_require_index'>require_index</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_rindex'>rindex</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>begin</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='kw'>return</span> <span class='id identifier rubyid_require_index'>require_index</span> <span class='op'>+</span> <span class='int'>1</span> <span class='kw'>unless</span> <span class='id identifier rubyid_block_start'>block_start</span>
+
+  <span class='id identifier rubyid_block_end'>block_end</span> <span class='op'>=</span> <span class='id identifier rubyid_lines'>lines</span><span class='lbracket'>[</span><span class='id identifier rubyid_block_start'>block_start</span><span class='op'>..</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_to_a'>to_a</span><span class='period'>.</span><span class='id identifier rubyid_index'>index</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>end</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_block_end'>block_end</span> <span class='op'>?</span> <span class='id identifier rubyid_block_start'>block_start</span> <span class='op'>+</span> <span class='id identifier rubyid_block_end'>block_end</span> <span class='op'>+</span> <span class='int'>1</span> <span class='op'>:</span> <span class='id identifier rubyid_require_index'>require_index</span> <span class='op'>+</span> <span class='int'>1</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -475,9 +845,9 @@
 </div>
 
       <div id="footer">
-  Generated on Sun May 24 23:47:44 2026 by
+  Generated on Thu May 28 00:32:52 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.43 (ruby-4.0.5).
+  0.9.44 (ruby-4.0.5).
 </div>
 
     </div>
