@@ -94,6 +94,29 @@ RSpec.describe Kettle::Drift::CLI do
     end
   end
 
+  it "does not warn or write a report when current drift matches the lockfile" do
+    Dir.mktmpdir do |dir|
+      FileUtils.mkdir_p(File.join(dir, "lib"))
+      File.write(File.join(dir, "lib", "demo.rb"), "alpha_line\nbeta_line\nalpha_line\nbeta_line\n")
+
+      first_stdout, first_stderr, first_status = Open3.capture3(RbConfig.ruby, exe_path, dir)
+      expect(first_status.success?).to be(true), "stdout=#{first_stdout}\nstderr=#{first_stderr}"
+      FileUtils.rm_rf(File.join(dir, "tmp", "kettle-drift"))
+
+      stdout, stderr, status = Open3.capture3(
+        RbConfig.ruby,
+        exe_path,
+        dir,
+      )
+
+      expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"
+      expect(stderr).to eq("")
+      expect(stdout).to include("No new duplicate drift detected")
+      expect(stdout).not_to include("drift warning")
+      expect(Dir.glob(File.join(dir, "tmp", "kettle-drift", "*.json"))).to be_empty
+    end
+  end
+
   it "accepts explicit update mode" do
     Dir.mktmpdir do |dir|
       FileUtils.mkdir_p(File.join(dir, "lib"))

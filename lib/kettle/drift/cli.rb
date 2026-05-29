@@ -20,8 +20,8 @@ module Kettle
           mode: options.fetch(:mode),
         )
 
-        if outcome.clean?
-          puts "[kettle-drift] ✅  No duplicate drift detected (min_chars=#{options[:min_chars]}, files=#{outcome.files.size}, baseline=#{outcome.baseline_set.size})"
+        if outcome.clean? || outcome.diff.state == :no_changes
+          puts "[kettle-drift] ✅  No new duplicate drift detected (min_chars=#{options[:min_chars]}, files=#{outcome.files.size}, baseline=#{outcome.baseline_set.size})"
         else
           puts "[kettle-drift] ⚠️  #{outcome.warning_count} drift warning(s) across #{outcome.results.size} unique chunk(s) (files=#{outcome.files.size}, baseline=#{outcome.baseline_set.size})"
           puts "[kettle-drift] 📄  Report: #{Kettle::Drift.display_path(outcome.json_path)}" if outcome.json_path

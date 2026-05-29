@@ -113,16 +113,6 @@ module Kettle
         results = Kettle::Drift::DuplicateLineValidator.subtract_baseline(results, baseline_set: baseline_set)
         warning_count = Kettle::Drift::DuplicateLineValidator.warning_count(results)
 
-        expanded_json_path = nil
-        unless results.empty?
-          expanded_json_path = if json_path
-            File.expand_path(json_path, expanded_project_root)
-          else
-            File.join(expanded_project_root, "tmp", "kettle-drift", "duplicate-lines-#{Time.now.utc.strftime("%Y%m%d-%H%M%S")}.json")
-          end
-          Kettle::Drift::DuplicateLineValidator.write_json(results, expanded_json_path)
-        end
-
         process_result = Kettle::Drift::Process.new(
           project_root: expanded_project_root,
           lock_path: expanded_lock_path,
@@ -130,6 +120,15 @@ module Kettle
           results: results,
           printer_class: printer_class,
         ).run
+        expanded_json_path = nil
+        if write_json_report?(results, process_result.diff)
+          expanded_json_path = if json_path
+            File.expand_path(json_path, expanded_project_root)
+          else
+            File.join(expanded_project_root, "tmp", "kettle-drift", "duplicate-lines-#{Time.now.utc.strftime("%Y%m%d-%H%M%S")}.json")
+          end
+          Kettle::Drift::DuplicateLineValidator.write_json(results, expanded_json_path)
+        end
 
         Kettle::Drift::Outcome.new(
           project_root: expanded_project_root,
@@ -144,6 +143,10 @@ module Kettle
           diff: process_result.diff,
           exit_code: process_result.exit_code,
         )
+      end
+
+      def write_json_report?(results, diff)
+        !results.empty? && diff.state != :no_changes
       end
     end
   end

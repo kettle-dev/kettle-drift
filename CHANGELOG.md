@@ -28,6 +28,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Suppressed warning/report output when current duplicate drift exactly matches
+  the checked-in lockfile baseline.
+
 ### Security
 
 ## [1.0.1] - 2026-05-28
