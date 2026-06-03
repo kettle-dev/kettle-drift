@@ -1,19 +1,10 @@
-[![Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0][🖼️galtzo-floss-i]][🖼️galtzo-floss] [![ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5][🖼️ruby-lang-i]][🖼️ruby-lang] [![kettle-rb Logo by Aboling0, CC BY-SA 4.0][🖼️kettle-rb-i]][🖼️kettle-rb] [![kettle-drift Logo by Aboling0, CC BY-SA 4.0][🖼️kettle-rb-kettle-drift-i]][🖼️kettle-rb-kettle-drift]
-
-[🖼️galtzo-floss-i]: https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg
-[🖼️galtzo-floss]: https://discord.gg/3qme4XHNKN
-[🖼️ruby-lang-i]: https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg
-[🖼️ruby-lang]: https://www.ruby-lang.org/
-[🖼️kettle-rb-i]: https://logos.galtzo.com/assets/images/kettle-rb/avatar-128px.svg
-[🖼️kettle-rb]: https://github.com/kettle-rb
-[🖼️kettle-rb-kettle-drift-i]: https://logos.galtzo.com/assets/images/kettle-rb/kettle-drift/avatar-128px.svg
-[🖼️kettle-rb-kettle-drift]: https://github.com/kettle-rb/kettle-drift
+<a href="https://github.com/kettle-rb"><img alt="kettle-rb Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/kettle-rb/avatar-128px.svg" width="12%" align="right"/></a> <a href="https://github.com/kettle-rb/kettle-drift"><img alt="kettle-drift Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/kettle-rb/kettle-drift/avatar-128px.svg" width="12%" align="right"/></a>
 
 # 🍲 Kettle::Drift
 
-[![Version][👽versioni]][👽version] [![GitHub tag (latest SemVer)][⛳️tag-img]][⛳️tag] [![License: AGPL-3.0-only][📄license-img]][📄license] [![Downloads Rank][👽dl-ranki]][👽dl-rank] [![CodeCov Test Coverage][🏀codecovi]][🏀codecov] [![Coveralls Test Coverage][🏀coveralls-img]][🏀coveralls] [![QLTY Test Coverage][🏀qlty-covi]][🏀qlty-cov] [![QLTY Maintainability][🏀qlty-mnti]][🏀qlty-mnt] [![CI Heads][🚎3-hd-wfi]][🚎3-hd-wf] [![CI Runtime Dependencies @ HEAD][🚎12-crh-wfi]][🚎12-crh-wf] [![CI Current][🚎11-c-wfi]][🚎11-c-wf] [![CI Truffle Ruby][🚎9-t-wfi]][🚎9-t-wf] [![CI JRuby][🚎10-j-wfi]][🚎10-j-wf] [![Deps Locked][🚎13-🔒️-wfi]][🚎13-🔒️-wf] [![Deps Unlocked][🚎14-🔓️-wfi]][🚎14-🔓️-wf] [![CI Test Coverage][🚎2-cov-wfi]][🚎2-cov-wf] [![CI Style][🚎5-st-wfi]][🚎5-st-wf] [![CodeQL][🖐codeQL-img]][🖐codeQL]
+[![Version][👽versioni]][👽version] [![GitHub tag (latest SemVer)][⛳️tag-img]][⛳️tag] [![License: AGPL-3.0-only][📄license-img]][📄license] [![Downloads Rank][👽dl-ranki]][👽dl-rank] [![CodeCov Test Coverage][🏀codecovi]][🏀codecov] [![Coveralls Test Coverage][🏀coveralls-img]][🏀coveralls] [![QLTY Test Coverage][🏀qlty-covi]][🏀qlty-cov] [![QLTY Maintainability][🏀qlty-mnti]][🏀qlty-mnt] [![CI Heads][🚎3-hd-wfi]][🚎3-hd-wf] [![CI Runtime Dependencies @ HEAD][🚎12-crh-wfi]][🚎12-crh-wf] [![CI Current][🚎11-c-wfi]][🚎11-c-wf] [![CI Truffle Ruby][🚎9-t-wfi]][🚎9-t-wf] [![CI JRuby][🚎10-j-wfi]][🚎10-j-wf] [![Deps Locked][🚎13-🔒️-wfi]][🚎13-🔒️-wf] [![Deps Unlocked][🚎14-🔓️-wfi]][🚎14-🔓️-wf] [![CI Test Coverage][🚎2-cov-wfi]][🚎2-cov-wf] [![CI Style][🚎5-st-wfi]][🚎5-st-wf]
 
-`if ci_badges.map(&:color).detect { it != "green"}` ☝️ [let me know][🖼️galtzo-floss], as I may have missed the [discord notification][🖼️galtzo-floss].
+`if ci_badges.map(&:color).detect { it != "green"}` ☝️ [let me know][✉️discord-invite], as I may have missed the [discord notification][✉️discord-invite].
 
 ---
 
@@ -28,7 +19,7 @@ I've summarized my thoughts in [this blog post](https://dev.to/galtzo/hostile-ta
 
 </details>
 
-## 🌻 Synopsis
+## 🌻 Synopsis <a href="https://discord.gg/3qme4XHNKN"><img alt="Galtzo FLOSS Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/galtzo-floss/avatar-128px.svg" width="8%" align="right"/></a> <a href="https://ruby-toolbox.com"><img alt="ruby-lang Logo, Yukihiro Matsumoto, Ruby Visual Identity Team, CC BY-SA 2.5" src="https://logos.galtzo.com/assets/images/ruby-lang/avatar-128px.svg" width="8%" align="right"/></a>
 
 `kettle-drift` tracks repeated adjacent-line chunks that usually signal
 template drift or copy/paste corruption. When it is injected into a project by
@@ -284,6 +275,8 @@ To say "thanks!" ☝️ Join the Discord or 👇️ send money.
 
 ### Please give the project a star ⭐ ♥.
 
+Many parts of this project are actively managed by a [kettle-jem](https://github.com/structuredmerge/structuredmerge-ruby/tree/main/gems/kettle-jem) smart template utilizing [StructuredMerge.org](https://structuredmerge.org) merge contracts.
+
 Thanks for RTFM. ☺️
 
 [⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&color=a51611&style=flat
@@ -386,8 +379,6 @@ Thanks for RTFM. ☺️
 [🏀codecovi]: https://codecov.io/gh/kettle-rb/kettle-drift/graph/badge.svg
 [🏀coveralls]: https://coveralls.io/github/kettle-rb/kettle-drift?branch=main
 [🏀coveralls-img]: https://coveralls.io/repos/github/kettle-rb/kettle-drift/badge.svg?branch=main
-[🖐codeQL]: https://github.com/kettle-rb/kettle-drift/security/code-scanning
-[🖐codeQL-img]: https://github.com/kettle-rb/kettle-drift/actions/workflows/codeql-analysis.yml/badge.svg
 [🚎ruby-3.2-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/ruby-3.2.yml
 [🚎ruby-3.3-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/ruby-3.3.yml
 [🚎ruby-3.4-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/ruby-3.4.yml
@@ -474,9 +465,9 @@ Thanks for RTFM. ☺️
 | Field | Value |
 |---|---|
 | Package | kettle-drift |
-| Description | 🔮 Kettle::Drift tracks repeated adjacent-line chunks that usually signal template drift or copy/paste corruption. |
+| Description | 🍲 Kettle::Drift tracks repeated adjacent-line chunks that usually signal template drift or copy/paste corruption. |
 | Homepage | https://github.com/kettle-rb/kettle-drift |
-| Source | https://github.com/kettle-rb/kettle-drift/tree/v1.0.0 |
+| Source | https://github.com/kettle-rb/kettle-drift/tree/v1.0.1 |
 | License | `AGPL-3.0-only` |
 | Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-rb, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-drift, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
