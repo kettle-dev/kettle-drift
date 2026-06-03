@@ -28,10 +28,19 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [1.0.2] - 2026-06-03
+
+- TAG: [v1.0.2][1.0.2t]
+- COVERAGE: 83.98% -- 430/512 lines in 13 files
+- BRANCH COVERAGE: 65.84% -- 133/202 branches in 13 files
+- 33.01% documented
+
+### Fixed
+
 - Suppressed warning/report output when current duplicate drift exactly matches
   the checked-in lockfile baseline.
-
-### Security
 
 ## [1.0.1] - 2026-05-28
 
@@ -58,7 +67,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.2...HEAD
+[1.0.2]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.1...v1.0.2
+[1.0.2t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.2
 [1.0.1]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.0...v1.0.1
 [1.0.1t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.1
 [1.0.0]: https://github.com/kettle-rb/kettle-drift/compare/bd038cd14dc083203b58f8fee359e63d6feeaaca...v1.0.0
