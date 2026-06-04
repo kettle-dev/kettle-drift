@@ -17,7 +17,7 @@ RSpec.describe Kettle::Drift::Process do
       process = described_class.new(
         project_root: dir,
         lock_path: File.join(dir, ".kettle-drift.lock"),
-        results: sample_results(dir, [["alpha\nbeta", "lib/a.rb", [1, 3]]]),
+        results: sample_results(dir, [["alpha\nbeta", "lib/a.rb", [1, 3]]])
       )
 
       expect { expect(process.call).to eq(0) }.to output(/results for the first time/).to_stdout
@@ -29,13 +29,13 @@ RSpec.describe Kettle::Drift::Process do
     Dir.mktmpdir do |dir|
       lock_path = File.join(dir, ".kettle-drift.lock")
       Kettle::Drift::LockFile.new(lock_path).write_results(
-        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]},
+        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]}
       )
 
       process = described_class.new(
         project_root: dir,
         lock_path: lock_path,
-        results: sample_results(dir, [["alpha\nbeta", "lib/a.rb", [1, 3]]]),
+        results: sample_results(dir, [["alpha\nbeta", "lib/a.rb", [1, 3]]])
       )
 
       expect { expect(process.call).to eq(0) }.to output(/got no changes/).to_stdout
@@ -46,7 +46,7 @@ RSpec.describe Kettle::Drift::Process do
     Dir.mktmpdir do |dir|
       lock_path = File.join(dir, ".kettle-drift.lock")
       Kettle::Drift::LockFile.new(lock_path).write_results(
-        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]},
+        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]}
       )
 
       process = described_class.new(
@@ -56,9 +56,9 @@ RSpec.describe Kettle::Drift::Process do
           dir,
           [
             ["alpha\nbeta", "lib/a.rb", [1, 3]],
-            ["gamma\ndelta", "lib/b.rb", [4, 8]],
-          ],
-        ),
+            ["gamma\ndelta", "lib/b.rb", [4, 8]]
+          ]
+        )
       )
 
       expect { expect(process.call).to eq(1) }.to output(/Kettle Drift got worse/).to_stdout
@@ -72,8 +72,8 @@ RSpec.describe Kettle::Drift::Process do
       Kettle::Drift::LockFile.new(lock_path).write_results(
         {
           "alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}],
-          "legacy\nchunk" => [{file: "lib/old.rb", lines: [2, 6]}],
-        },
+          "legacy\nchunk" => [{file: "lib/old.rb", lines: [2, 6]}]
+        }
       )
 
       process = described_class.new(
@@ -83,9 +83,9 @@ RSpec.describe Kettle::Drift::Process do
           dir,
           [
             ["alpha\nbeta", "lib/a.rb", [1, 3]],
-            ["gamma\ndelta", "lib/b.rb", [4, 8]],
-          ],
-        ),
+            ["gamma\ndelta", "lib/b.rb", [4, 8]]
+          ]
+        )
       )
 
       expect { expect(process.call).to eq(1) }.to output(/both fixed drift and new untracked drift/).to_stdout
@@ -100,14 +100,14 @@ RSpec.describe Kettle::Drift::Process do
       Kettle::Drift::LockFile.new(lock_path).write_results(
         {
           "alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}],
-          "gamma\ndelta" => [{file: "lib/b.rb", lines: [4, 8]}],
-        },
+          "gamma\ndelta" => [{file: "lib/b.rb", lines: [4, 8]}]
+        }
       )
 
       process = described_class.new(
         project_root: dir,
         lock_path: lock_path,
-        results: sample_results(dir, [["alpha\nbeta", "lib/a.rb", [1, 3]]]),
+        results: sample_results(dir, [["alpha\nbeta", "lib/a.rb", [1, 3]]])
       )
 
       expect { expect(process.call).to eq(0) }.to output(/1 drift item\(s\) fixed, 1 left/).to_stdout
@@ -119,13 +119,13 @@ RSpec.describe Kettle::Drift::Process do
     Dir.mktmpdir do |dir|
       lock_path = File.join(dir, ".kettle-drift.lock")
       Kettle::Drift::LockFile.new(lock_path).write_results(
-        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]},
+        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]}
       )
 
       process = described_class.new(
         project_root: dir,
         lock_path: lock_path,
-        results: {},
+        results: {}
       )
 
       expect { expect(process.call).to eq(0) }.to output(/Kettle Drift is complete!/).to_stdout
@@ -137,7 +137,7 @@ RSpec.describe Kettle::Drift::Process do
     Dir.mktmpdir do |dir|
       lock_path = File.join(dir, ".kettle-drift.lock")
       Kettle::Drift::LockFile.new(lock_path).write_results(
-        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]},
+        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]}
       )
 
       process = described_class.new(
@@ -148,9 +148,9 @@ RSpec.describe Kettle::Drift::Process do
           dir,
           [
             ["alpha\nbeta", "lib/a.rb", [1, 3]],
-            ["gamma\ndelta", "lib/b.rb", [4, 8]],
-          ],
-        ),
+            ["gamma\ndelta", "lib/b.rb", [4, 8]]
+          ]
+        )
       )
 
       expect(process.call).to eq(1)
@@ -162,7 +162,7 @@ RSpec.describe Kettle::Drift::Process do
     Dir.mktmpdir do |dir|
       lock_path = File.join(dir, ".kettle-drift.lock")
       Kettle::Drift::LockFile.new(lock_path).write_results(
-        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]},
+        {"alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}]}
       )
 
       process = described_class.new(
@@ -173,9 +173,9 @@ RSpec.describe Kettle::Drift::Process do
           dir,
           [
             ["alpha\nbeta", "lib/a.rb", [1, 3]],
-            ["gamma\ndelta", "lib/b.rb", [4, 8]],
-          ],
-        ),
+            ["gamma\ndelta", "lib/b.rb", [4, 8]]
+          ]
+        )
       )
 
       expect(process.call).to eq(0)
@@ -189,8 +189,8 @@ RSpec.describe Kettle::Drift::Process do
       Kettle::Drift::LockFile.new(lock_path).write_results(
         {
           "alpha\nbeta" => [{file: "lib/a.rb", lines: [1, 3]}],
-          "legacy\nchunk" => [{file: "lib/old.rb", lines: [2, 6]}],
-        },
+          "legacy\nchunk" => [{file: "lib/old.rb", lines: [2, 6]}]
+        }
       )
 
       process = described_class.new(
@@ -201,9 +201,9 @@ RSpec.describe Kettle::Drift::Process do
           dir,
           [
             ["alpha\nbeta", "lib/a.rb", [1, 3]],
-            ["gamma\ndelta", "lib/b.rb", [4, 8]],
-          ],
-        ),
+            ["gamma\ndelta", "lib/b.rb", [4, 8]]
+          ]
+        )
       )
 
       expect(process.call).to eq(0)

@@ -17,7 +17,7 @@ module Kettle
           left: unchanged_entries.size + new_entries.size,
           fixed: fixed_entries.size,
           new: new_entries.size,
-          unchanged: unchanged_entries.size,
+          unchanged: unchanged_entries.size
         }
       end
 

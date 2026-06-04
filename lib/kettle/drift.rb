@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "set"
 require "version_gem"
 require_relative "drift/version"
 
@@ -118,7 +117,7 @@ module Kettle
           lock_path: expanded_lock_path,
           mode: mode,
           results: results,
-          printer_class: printer_class,
+          printer_class: printer_class
         ).run
         expanded_json_path = nil
         if write_json_report?(results, process_result.diff)
@@ -141,7 +140,7 @@ module Kettle
           lock_path: expanded_lock_path,
           mode: mode,
           diff: process_result.diff,
-          exit_code: process_result.exit_code,
+          exit_code: process_result.exit_code
         )
       end
 

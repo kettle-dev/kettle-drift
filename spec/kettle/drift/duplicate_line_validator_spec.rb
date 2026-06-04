@@ -105,7 +105,7 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
         RUBY
 
         expect(described_class.scan(files: [path])).to have_key(
-          "eval_gemfile \"modular/rspec.gemfile\"\neval_gemfile \"modular/style.gemfile\"",
+          "eval_gemfile \"modular/rspec.gemfile\"\neval_gemfile \"modular/style.gemfile\""
         )
       end
     end
@@ -151,8 +151,8 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
         results = described_class.scan_template_results(
           template_results: {
             written => {action: :replace},
-            skipped => {action: :skip},
-          },
+            skipped => {action: :skip}
+          }
         )
 
         expect(results).to have_key("gem \"foo\"\ngem \"bar\"")
@@ -165,7 +165,7 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
     it "returns total duplicate entries" do
       results = {
         "line_a\nline_b" => [{file: "a.rb", lines: [1, 5]}, {file: "b.rb", lines: [2, 3]}],
-        "line_c\nline_d" => [{file: "c.rb", lines: [10, 20]}],
+        "line_c\nline_d" => [{file: "c.rb", lines: [10, 20]}]
       }
 
       expect(described_class.warning_count(results)).to eq(3)
@@ -176,8 +176,8 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
     it "produces valid JSON with normalized file paths" do
       json = described_class.to_json(
         "dup" => [
-          {file: "/var/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md", lines: [10, 20]},
-        ],
+          {file: "/var/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md", lines: [10, 20]}
+        ]
       )
 
       parsed = JSON.parse(json)
@@ -199,7 +199,7 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
     it "renders a markdown summary" do
       summary = described_class.report_summary(
         {"gem \"foo\"\ngem \"bar\"" => [{file: "/project/a.rb", lines: [1, 3]}]},
-        project_root: "/project",
+        project_root: "/project"
       )
 
       expect(summary).to include("Duplicate Line Report")
@@ -211,9 +211,9 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
       summary = described_class.report_summary(
         {
           "alpha\nbeta" => [
-            {file: "/var/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md", lines: [782, 785]},
-          ],
-        },
+            {file: "/var/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md", lines: [782, 785]}
+          ]
+        }
       )
 
       expect(summary).to include("/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md")
@@ -242,12 +242,12 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
     it "removes entries found in the baseline set" do
       results = {
         "gem \"foo\"\ngem \"bar\"" => [{file: "a.rb", lines: [1, 3]}],
-        "unique_problem\nline_here_ok" => [{file: "c.rb", lines: [5, 10]}],
+        "unique_problem\nline_here_ok" => [{file: "c.rb", lines: [5, 10]}]
       }
 
       filtered = described_class.subtract_baseline(
         results,
-        baseline_set: Set.new(["gem \"foo\"\ngem \"bar\""]),
+        baseline_set: Set.new(["gem \"foo\"\ngem \"bar\""])
       )
 
       expect(filtered).to have_key("unique_problem\nline_here_ok")

@@ -10,14 +10,14 @@ RSpec.describe Kettle::Drift::Serializer do
       json = described_class.serialize(
         {
           "beta\nalpha" => [
-            {file: "/workspace/demo/lib/b.rb", lines: [7, 9]},
+            {file: "/workspace/demo/lib/b.rb", lines: [7, 9]}
           ],
           "alpha\nbeta" => [
             {file: "/workspace/demo/lib/a.rb", lines: [4, 8]},
-            {file: "/workspace/demo/lib/c.rb", lines: [1, 3]},
-          ],
+            {file: "/workspace/demo/lib/c.rb", lines: [1, 3]}
+          ]
         },
-        project_root: "/workspace/demo",
+        project_root: "/workspace/demo"
       )
 
       parsed = JSON.parse(json)
@@ -38,8 +38,8 @@ RSpec.describe Kettle::Drift::Serializer do
 
       expect(result).to eq(
         "alpha\nbeta" => [
-          {file: "lib/a.rb", lines: [1, 3]},
-        ],
+          {file: "lib/a.rb", lines: [1, 3]}
+        ]
       )
     end
 

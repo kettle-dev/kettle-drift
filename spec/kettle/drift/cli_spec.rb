@@ -21,7 +21,7 @@ RSpec.describe Kettle::Drift::CLI do
       stdout, stderr, status = Open3.capture3(
         RbConfig.ruby,
         exe_path,
-        dir,
+        dir
       )
 
       expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"
@@ -51,7 +51,7 @@ RSpec.describe Kettle::Drift::CLI do
         exe_path,
         dir,
         "--template-dir=template",
-        "--lockfile=.kettle-drift.lock",
+        "--lockfile=.kettle-drift.lock"
       )
 
       expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"
@@ -85,7 +85,7 @@ RSpec.describe Kettle::Drift::CLI do
         RbConfig.ruby,
         exe_path,
         dir,
-        "--check",
+        "--check"
       )
 
       expect(status.success?).to be(false), "stdout=#{stdout}\nstderr=#{stderr}"
@@ -106,7 +106,7 @@ RSpec.describe Kettle::Drift::CLI do
       stdout, stderr, status = Open3.capture3(
         RbConfig.ruby,
         exe_path,
-        dir,
+        dir
       )
 
       expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"
@@ -126,7 +126,7 @@ RSpec.describe Kettle::Drift::CLI do
         RbConfig.ruby,
         exe_path,
         dir,
-        "--update",
+        "--update"
       )
 
       expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"
@@ -160,7 +160,7 @@ RSpec.describe Kettle::Drift::CLI do
         RbConfig.ruby,
         exe_path,
         dir,
-        "--force-update",
+        "--force-update"
       )
 
       expect(status.success?).to be(true), "stdout=#{stdout}\nstderr=#{stderr}"

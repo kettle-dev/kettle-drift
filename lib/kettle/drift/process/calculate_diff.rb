@@ -34,7 +34,7 @@ module Kettle
               state: state,
               new_entries: added,
               fixed_entries: fixed,
-              unchanged_entries: unchanged,
+              unchanged_entries: unchanged
             )
           end
 
@@ -46,7 +46,7 @@ module Kettle
                 {
                   chunk: chunk,
                   file: entry.fetch(:file),
-                  lines: entry.fetch(:lines),
+                  lines: entry.fetch(:lines)
                 }
               end
             end

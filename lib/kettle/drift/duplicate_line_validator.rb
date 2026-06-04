@@ -2,7 +2,6 @@
 
 require "json"
 require "fileutils"
-require "set"
 
 module Kettle
   module Drift
@@ -49,7 +48,7 @@ module Kettle
         "### Deprecated",
         "### Removed",
         "### Fixed",
-        "### Security",
+        "### Security"
       ]).freeze
 
       def scan(files:, min_chars: DEFAULT_MIN_CHARS)
@@ -82,7 +81,7 @@ module Kettle
             duplicates[chunk_content] ||= []
             duplicates[chunk_content] << {
               file: path,
-              lines: start_lines,
+              lines: start_lines
             }
           end
         end
@@ -140,7 +139,7 @@ module Kettle
 
         template_files = Dir.glob(
           File.join(template_dir, "**", "*"),
-          File::FNM_DOTMATCH,
+          File::FNM_DOTMATCH
         ).select { |f| File.file?(f) }
 
         Set.new(scan(files: template_files, min_chars: min_chars).keys)
@@ -217,7 +216,7 @@ module Kettle
         return content if content.valid_encoding?
 
         content.scrub
-      rescue StandardError
+      rescue
         nil
       end
 

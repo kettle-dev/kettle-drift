@@ -31,7 +31,7 @@ namespace :kettle do
         min_chars: min_chars,
         json_path: ENV["JSON"],
         lock_path: lock_path,
-        mode: mode,
+        mode: mode
       )
 
       if outcome.clean?

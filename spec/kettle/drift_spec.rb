@@ -224,7 +224,7 @@ RSpec.describe Kettle::Drift do
 
         described_class.inject_rakefile_tasks(context)
 
-        expect(helpers.changes).to eq([])
+        expect(helpers.changes).to be_empty
       end
     end
   end

@@ -50,7 +50,7 @@ module Kettle
 
           {
             "file" => relative_path(file, project_root: project_root),
-            "lines" => lines.map { |line| Integer(line) },
+            "lines" => lines.map { |line| Integer(line) }
           }
         end
 
@@ -66,7 +66,7 @@ module Kettle
 
           {
             file: file,
-            lines: lines.map { |line| Integer(line) },
+            lines: lines.map { |line| Integer(line) }
           }
         end
 

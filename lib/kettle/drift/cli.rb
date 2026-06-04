@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require "optparse"
-require "set"
 
 module Kettle
   module Drift
@@ -17,7 +16,7 @@ module Kettle
           min_chars: options.fetch(:min_chars),
           json_path: options[:json_path],
           lock_path: options[:lock_path],
-          mode: options.fetch(:mode),
+          mode: options.fetch(:mode)
         )
 
         if outcome.clean? || outcome.diff.state == :no_changes
@@ -37,7 +36,7 @@ module Kettle
           min_chars: Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS,
           lock_path: Kettle::Drift::DEFAULT_LOCKFILE,
           mode: :update,
-          project_root: Dir.pwd,
+          project_root: Dir.pwd
         }
 
         parser = OptionParser.new do |opts|
