@@ -12,9 +12,9 @@ authors:
     orcid: 'https://orcid.org/0009-0008-8519-441X'
 identifiers:
   - type: url
-    value: 'https://github.com/kettle-rb/kettle-drift'
+    value: 'https://github.com/kettle-dev/kettle-drift'
     description: "kettle-drift"
-repository-code: 'https://github.com/kettle-rb/kettle-drift'
+repository-code: 'https://github.com/kettle-dev/kettle-drift'
 abstract: >-
   kettle-drift
 license: See license file

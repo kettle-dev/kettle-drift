@@ -198,7 +198,7 @@ Your picture could be here!
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/kettle-rb/kettle-drift/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/kettle-dev/kettle-drift/-/graphs/main][🚎contributors-gl]
 
 ## For Maintainers
 
@@ -249,15 +249,15 @@ NOTE: To build without signing the gem set `SKIP_GEM_SIGNING` to any value in th
 14. Run `bundle exec rake release` which will create a git tag for the version,
     push git commits and tags, and push the `.gem` file to the gem host configured in the gemspec.
 
-[📜src-gl]: https://gitlab.com/kettle-rb/kettle-drift
-[📜src-cb]: https://codeberg.org/kettle-rb/kettle-drift
-[📜src-gh]: https://github.com/kettle-rb/kettle-drift
-[🧪build]: https://github.com/kettle-rb/kettle-drift/actions
-[🤝conduct]: https://github.com/kettle-rb/kettle-drift/blob/main/CODE_OF_CONDUCT.md
+[📜src-gl]: https://gitlab.com/kettle-dev/kettle-drift
+[📜src-cb]: https://codeberg.org/kettle-dev/kettle-drift
+[📜src-gh]: https://github.com/kettle-dev/kettle-drift
+[🧪build]: https://github.com/kettle-dev/kettle-drift/actions
+[🤝conduct]: https://github.com/kettle-dev/kettle-drift/blob/main/CODE_OF_CONDUCT.md
 [🖐contrib-rocks]: https://contrib.rocks
-[🖐contributors]: https://github.com/kettle-rb/kettle-drift/graphs/contributors
-[🚎contributors-gl]: https://gitlab.com/kettle-rb/kettle-drift/-/graphs/main
-[🖐contributors-img]: https://contrib.rocks/image?repo=kettle-rb/kettle-drift
+[🖐contributors]: https://github.com/kettle-dev/kettle-drift/graphs/contributors
+[🚎contributors-gl]: https://gitlab.com/kettle-dev/kettle-drift/-/graphs/main
+[🖐contributors-img]: https://contrib.rocks/image?repo=kettle-dev/kettle-drift
 [💎gem-coop]: https://gem.coop
 [🔒️rubygems-security-guide]: https://guides.rubygems.org/security/#building-gems
 [🔒️rubygems-checksums-pr]: https://github.com/rubygems/rubygems/pull/6022

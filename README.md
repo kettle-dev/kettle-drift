@@ -1,4 +1,4 @@
-<a href="https://github.com/kettle-rb"><img alt="kettle-rb Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/kettle-rb/avatar-128px.svg" width="12%" align="right"/></a> <a href="https://github.com/kettle-rb/kettle-drift"><img alt="kettle-drift Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/kettle-rb/kettle-drift/avatar-128px.svg" width="12%" align="right"/></a>
+<a href="https://github.com/kettle-dev"><img alt="kettle-dev Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/kettle-dev/avatar-128px.svg" width="12%" align="right"/></a> <a href="https://github.com/kettle-dev/kettle-drift"><img alt="kettle-drift Logo by Aboling0, CC BY-SA 4.0" src="https://logos.galtzo.com/assets/images/kettle-dev/kettle-drift/avatar-128px.svg" width="12%" align="right"/></a>
 
 # 🍲 Kettle::Drift
 
@@ -62,14 +62,14 @@ not practical for the current toolchain.
 
 | Federated [DVCS][💎d-in-dvcs] Repository | Status | Issues | PRs | Wiki | CI | Discussions |
 |-------------------------------------------------|-----------------------------------------------------------------------|---------------------------|--------------------------|---------------------------|--------------------------|------------------------------|
-| 🧪 [kettle-rb/kettle-drift on GitLab][📜src-gl] | The Truth | [💚][🤝gl-issues] | [💚][🤝gl-pulls] | [💚][📜gl-wiki] | 🐭 Tiny Matrix | ➖ |
-| 🧊 [kettle-rb/kettle-drift on CodeBerg][📜src-cb] | An Ethical Mirror ([Donate][🤝cb-donate]) | [💚][🤝cb-issues] | [💚][🤝cb-pulls] | ➖ | ⭕️ No Matrix | ➖ |
-| 🐙 [kettle-rb/kettle-drift on GitHub][📜src-gh] | Another Mirror | [💚][🤝gh-issues] | [💚][🤝gh-pulls] | [💚][📜gh-wiki] | 💯 Full Matrix | [💚][gh-discussions] |
+| 🧪 [kettle-dev/kettle-drift on GitLab][📜src-gl] | The Truth | [💚][🤝gl-issues] | [💚][🤝gl-pulls] | [💚][📜gl-wiki] | 🐭 Tiny Matrix | ➖ |
+| 🧊 [kettle-dev/kettle-drift on CodeBerg][📜src-cb] | An Ethical Mirror ([Donate][🤝cb-donate]) | [💚][🤝cb-issues] | [💚][🤝cb-pulls] | ➖ | ⭕️ No Matrix | ➖ |
+| 🐙 [kettle-dev/kettle-drift on GitHub][📜src-gh] | Another Mirror | [💚][🤝gh-issues] | [💚][🤝gh-pulls] | [💚][📜gh-wiki] | 💯 Full Matrix | [💚][gh-discussions] |
 | 🎮️ [Discord Server][✉️discord-invite] | [![Live Chat on Discord][✉️discord-invite-img-ftb]][✉️discord-invite] | [Let's][✉️discord-invite] | [talk][✉️discord-invite] | [about][✉️discord-invite] | [this][✉️discord-invite] | [library!][✉️discord-invite] |
 
 </details>
 
-[gh-discussions]: https://github.com/kettle-rb/kettle-drift/discussions
+[gh-discussions]: https://github.com/kettle-dev/kettle-drift/discussions
 
 ### Enterprise Support [![Tidelift](https://tidelift.com/badges/package/rubygems/kettle-drift)](https://tidelift.com/subscription/pkg/rubygems-kettle-drift?utm_source=rubygems-kettle-drift&utm_medium=referral&utm_campaign=readme)
 
@@ -197,16 +197,16 @@ chat rooms and mailing lists agrees to follow the [![Contributor Covenant 2.1][�
 
 Made with [contributors-img][🖐contrib-rocks].
 
-Also see GitLab Contributors: [https://gitlab.com/kettle-rb/kettle-drift/-/graphs/main][🚎contributors-gl]
+Also see GitLab Contributors: [https://gitlab.com/kettle-dev/kettle-drift/-/graphs/main][🚎contributors-gl]
 
 <details>
  <summary>⭐️ Star History</summary>
 
-<a href="https://star-history.com/kettle-rb/kettle-drift&Date">
+<a href="https://star-history.com/kettle-dev/kettle-drift&Date">
  <picture>
- <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=kettle-rb/kettle-drift&type=Date&theme=dark" />
- <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=kettle-rb/kettle-drift&type=Date" />
- <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=kettle-rb/kettle-drift&type=Date" />
+ <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=kettle-dev/kettle-drift&type=Date&theme=dark" />
+ <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=kettle-dev/kettle-drift&type=Date" />
+ <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=kettle-dev/kettle-drift&type=Date" />
  </picture>
 </a>
 
@@ -271,7 +271,7 @@ To join the community or get help 👇️ Join the Discord.
 
 To say "thanks!" ☝️ Join the Discord or 👇️ send money.
 
-[![Sponsor kettle-rb/kettle-drift on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
+[![Sponsor kettle-dev/kettle-drift on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
 
 ### Please give the project a star ⭐ ♥.
 
@@ -282,17 +282,17 @@ Thanks for RTFM. ☺️
 [⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&color=a51611&style=flat
 [⛳liberapay-bottom-img]: https://img.shields.io/liberapay/goal/pboling.svg?style=for-the-badge&logo=liberapay&color=a51611
 [⛳liberapay]: https://liberapay.com/pboling/donate
-[🖇osc-all-img]: https://img.shields.io/opencollective/all/kettle-rb
-[🖇osc-sponsors-img]: https://img.shields.io/opencollective/sponsors/kettle-rb
-[🖇osc-backers-img]: https://img.shields.io/opencollective/backers/kettle-rb
-[🖇osc-backers]: https://opencollective.com/kettle-rb#backer
-[🖇osc-backers-i]: https://opencollective.com/kettle-rb/backers/badge.svg?style=flat
-[🖇osc-sponsors]: https://opencollective.com/kettle-rb#sponsor
-[🖇osc-sponsors-i]: https://opencollective.com/kettle-rb/sponsors/badge.svg?style=flat
-[🖇osc-all-bottom-img]: https://img.shields.io/opencollective/all/kettle-rb?style=for-the-badge
-[🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/kettle-rb?style=for-the-badge
-[🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/kettle-rb?style=for-the-badge
-[🖇osc]: https://opencollective.com/kettle-rb
+[🖇osc-all-img]: https://img.shields.io/opencollective/all/kettle-dev
+[🖇osc-sponsors-img]: https://img.shields.io/opencollective/sponsors/kettle-dev
+[🖇osc-backers-img]: https://img.shields.io/opencollective/backers/kettle-dev
+[🖇osc-backers]: https://opencollective.com/kettle-dev#backer
+[🖇osc-backers-i]: https://opencollective.com/kettle-dev/backers/badge.svg?style=flat
+[🖇osc-sponsors]: https://opencollective.com/kettle-dev#sponsor
+[🖇osc-sponsors-i]: https://opencollective.com/kettle-dev/sponsors/badge.svg?style=flat
+[🖇osc-all-bottom-img]: https://img.shields.io/opencollective/all/kettle-dev?style=for-the-badge
+[🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/kettle-dev?style=for-the-badge
+[🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/kettle-dev?style=for-the-badge
+[🖇osc]: https://opencollective.com/kettle-dev
 [🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
 [🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
 [🖇sponsor]: https://github.com/sponsors/pboling
@@ -316,12 +316,12 @@ Thanks for RTFM. ☺️
 [✉️ruby-friends]: https://app.daily.dev/squads/rubyfriends
 
 [✇bundle-group-pattern]: https://gist.github.com/pboling/4564780
-[⛳️gem-namespace]: https://github.com/kettle-rb/kettle-drift
+[⛳️gem-namespace]: https://github.com/kettle-dev/kettle-drift
 [⛳️namespace-img]: https://img.shields.io/badge/namespace-Kettle::Drift-3C2D2D.svg?style=square&logo=ruby&logoColor=white
 [⛳️gem-name]: https://bestgems.org/gems/kettle-drift
 [⛳️name-img]: https://img.shields.io/badge/name-kettle--drift-3C2D2D.svg?style=square&logo=rubygems&logoColor=red
-[⛳️tag-img]: https://img.shields.io/github/tag/kettle-rb/kettle-drift.svg
-[⛳️tag]: https://github.com/kettle-rb/kettle-drift/releases
+[⛳️tag-img]: https://img.shields.io/github/tag/kettle-dev/kettle-drift.svg
+[⛳️tag]: https://github.com/kettle-dev/kettle-drift/releases
 [🚂maint-blog]: http://www.railsbling.com/tags/kettle-drift
 [🚂maint-blog-img]: https://img.shields.io/badge/blog-railsbling-0093D0.svg?style=for-the-badge&logo=rubyonrails&logoColor=orange
 [🚂maint-contact]: http://www.railsbling.com/contact
@@ -356,52 +356,52 @@ Thanks for RTFM. ☺️
 [💁🏼‍♂️peterboling]: http://www.peterboling.com
 [🚂railsbling]: http://www.railsbling.com
 [📜src-gl-img]: https://img.shields.io/badge/GitLab-FBA326?style=for-the-badge&logo=Gitlab&logoColor=orange
-[📜src-gl]: https://gitlab.com/kettle-rb/kettle-drift
+[📜src-gl]: https://gitlab.com/kettle-dev/kettle-drift
 [📜src-cb-img]: https://img.shields.io/badge/CodeBerg-4893CC?style=for-the-badge&logo=CodeBerg&logoColor=blue
-[📜src-cb]: https://codeberg.org/kettle-rb/kettle-drift
+[📜src-cb]: https://codeberg.org/kettle-dev/kettle-drift
 [📜src-gh-img]: https://img.shields.io/badge/GitHub-238636?style=for-the-badge&logo=Github&logoColor=green
-[📜src-gh]: https://github.com/kettle-rb/kettle-drift
+[📜src-gh]: https://github.com/kettle-dev/kettle-drift
 [📜docs-cr-rd-img]: https://img.shields.io/badge/RubyDoc-Current_Release-943CD2?style=for-the-badge&logo=readthedocs&logoColor=white
 [📜docs-head-rd-img]: https://img.shields.io/badge/YARD_on_Galtzo.com-HEAD-943CD2?style=for-the-badge&logo=readthedocs&logoColor=white
-[📜gl-wiki]: https://gitlab.com/kettle-rb/kettle-drift/-/wikis/home
-[📜gh-wiki]: https://github.com/kettle-rb/kettle-drift/wiki
+[📜gl-wiki]: https://gitlab.com/kettle-dev/kettle-drift/-/wikis/home
+[📜gh-wiki]: https://github.com/kettle-dev/kettle-drift/wiki
 [📜gl-wiki-img]: https://img.shields.io/badge/wiki-gitlab-943CD2.svg?style=for-the-badge&logo=gitlab&logoColor=white
 [📜gh-wiki-img]: https://img.shields.io/badge/wiki-github-943CD2.svg?style=for-the-badge&logo=github&logoColor=white
 [👽dl-rank]: https://bestgems.org/gems/kettle-drift
 [👽dl-ranki]: https://img.shields.io/gem/rd/kettle-drift.svg
 [👽version]: https://bestgems.org/gems/kettle-drift
 [👽versioni]: https://img.shields.io/gem/v/kettle-drift.svg
-[🏀qlty-mnt]: https://qlty.sh/gh/kettle-rb/projects/kettle-drift
-[🏀qlty-mnti]: https://qlty.sh/gh/kettle-rb/projects/kettle-drift/maintainability.svg
-[🏀qlty-cov]: https://qlty.sh/gh/kettle-rb/projects/kettle-drift/metrics/code?sort=coverageRating
-[🏀qlty-covi]: https://qlty.sh/gh/kettle-rb/projects/kettle-drift/coverage.svg
-[🏀codecov]: https://codecov.io/gh/kettle-rb/kettle-drift
-[🏀codecovi]: https://codecov.io/gh/kettle-rb/kettle-drift/graph/badge.svg
-[🏀coveralls]: https://coveralls.io/github/kettle-rb/kettle-drift?branch=main
-[🏀coveralls-img]: https://coveralls.io/repos/github/kettle-rb/kettle-drift/badge.svg?branch=main
-[🚎ruby-3.2-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/ruby-3.2.yml
-[🚎ruby-3.3-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/ruby-3.3.yml
-[🚎ruby-3.4-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/ruby-3.4.yml
-[🚎truby-24.2-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/truffleruby-24.2.yml
-[🚎truby-25.0-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/truffleruby-25.0.yml
-[🚎2-cov-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/coverage.yml
-[🚎2-cov-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/coverage.yml/badge.svg
-[🚎3-hd-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/heads.yml
-[🚎3-hd-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/heads.yml/badge.svg
-[🚎5-st-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/style.yml
-[🚎5-st-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/style.yml/badge.svg
-[🚎9-t-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/truffle.yml
-[🚎9-t-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/truffle.yml/badge.svg
-[🚎10-j-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/jruby.yml
-[🚎10-j-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/jruby.yml/badge.svg
-[🚎11-c-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/current.yml
-[🚎11-c-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/current.yml/badge.svg
-[🚎12-crh-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/dep-heads.yml
-[🚎12-crh-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/dep-heads.yml/badge.svg
-[🚎13-🔒️-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/locked_deps.yml
-[🚎13-🔒️-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/locked_deps.yml/badge.svg
-[🚎14-🔓️-wf]: https://github.com/kettle-rb/kettle-drift/actions/workflows/unlocked_deps.yml
-[🚎14-🔓️-wfi]: https://github.com/kettle-rb/kettle-drift/actions/workflows/unlocked_deps.yml/badge.svg
+[🏀qlty-mnt]: https://qlty.sh/gh/kettle-dev/projects/kettle-drift
+[🏀qlty-mnti]: https://qlty.sh/gh/kettle-dev/projects/kettle-drift/maintainability.svg
+[🏀qlty-cov]: https://qlty.sh/gh/kettle-dev/projects/kettle-drift/metrics/code?sort=coverageRating
+[🏀qlty-covi]: https://qlty.sh/gh/kettle-dev/projects/kettle-drift/coverage.svg
+[🏀codecov]: https://codecov.io/gh/kettle-dev/kettle-drift
+[🏀codecovi]: https://codecov.io/gh/kettle-dev/kettle-drift/graph/badge.svg
+[🏀coveralls]: https://coveralls.io/github/kettle-dev/kettle-drift?branch=main
+[🏀coveralls-img]: https://coveralls.io/repos/github/kettle-dev/kettle-drift/badge.svg?branch=main
+[🚎ruby-3.2-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/ruby-3.2.yml
+[🚎ruby-3.3-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/ruby-3.3.yml
+[🚎ruby-3.4-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/ruby-3.4.yml
+[🚎truby-24.2-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/truffleruby-24.2.yml
+[🚎truby-25.0-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/truffleruby-25.0.yml
+[🚎2-cov-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/coverage.yml
+[🚎2-cov-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/coverage.yml/badge.svg
+[🚎3-hd-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/heads.yml
+[🚎3-hd-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/heads.yml/badge.svg
+[🚎5-st-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/style.yml
+[🚎5-st-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/style.yml/badge.svg
+[🚎9-t-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/truffle.yml
+[🚎9-t-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/truffle.yml/badge.svg
+[🚎10-j-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/jruby.yml
+[🚎10-j-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/jruby.yml/badge.svg
+[🚎11-c-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/current.yml
+[🚎11-c-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/current.yml/badge.svg
+[🚎12-crh-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/dep-heads.yml
+[🚎12-crh-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/dep-heads.yml/badge.svg
+[🚎13-🔒️-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/locked_deps.yml
+[🚎13-🔒️-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/locked_deps.yml/badge.svg
+[🚎14-🔓️-wf]: https://github.com/kettle-dev/kettle-drift/actions/workflows/unlocked_deps.yml
+[🚎14-🔓️-wfi]: https://github.com/kettle-dev/kettle-drift/actions/workflows/unlocked_deps.yml/badge.svg
 [💎ruby-3.2i]: https://img.shields.io/badge/Ruby-3.2-CC342D?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-3.3i]: https://img.shields.io/badge/Ruby-3.3-CC342D?style=for-the-badge&logo=ruby&logoColor=white
 [💎ruby-3.4i]: https://img.shields.io/badge/Ruby-3.4-CC342D?style=for-the-badge&logo=ruby&logoColor=white
@@ -413,34 +413,34 @@ Thanks for RTFM. ☺️
 [💎truby-c-i]: https://img.shields.io/badge/Truffle_Ruby-current-34BCB1?style=for-the-badge&logo=ruby&logoColor=green
 [💎jruby-c-i]: https://img.shields.io/badge/JRuby-current-FBE742?style=for-the-badge&logo=ruby&logoColor=green
 [💎jruby-headi]: https://img.shields.io/badge/JRuby-HEAD-FBE742?style=for-the-badge&logo=ruby&logoColor=blue
-[🤝gh-issues]: https://github.com/kettle-rb/kettle-drift/issues
-[🤝gh-pulls]: https://github.com/kettle-rb/kettle-drift/pulls
-[🤝gl-issues]: https://gitlab.com/kettle-rb/kettle-drift/-/issues
-[🤝gl-pulls]: https://gitlab.com/kettle-rb/kettle-drift/-/merge_requests
-[🤝cb-issues]: https://codeberg.org/kettle-rb/kettle-drift/issues
-[🤝cb-pulls]: https://codeberg.org/kettle-rb/kettle-drift/pulls
+[🤝gh-issues]: https://github.com/kettle-dev/kettle-drift/issues
+[🤝gh-pulls]: https://github.com/kettle-dev/kettle-drift/pulls
+[🤝gl-issues]: https://gitlab.com/kettle-dev/kettle-drift/-/issues
+[🤝gl-pulls]: https://gitlab.com/kettle-dev/kettle-drift/-/merge_requests
+[🤝cb-issues]: https://codeberg.org/kettle-dev/kettle-drift/issues
+[🤝cb-pulls]: https://codeberg.org/kettle-dev/kettle-drift/pulls
 [🤝cb-donate]: https://donate.codeberg.org/
-[🤝contributing]: https://github.com/kettle-rb/kettle-drift/blob/main/CONTRIBUTING.md
-[🏀codecov-g]: https://codecov.io/gh/kettle-rb/kettle-drift/graph/badge.svg
+[🤝contributing]: https://github.com/kettle-dev/kettle-drift/blob/main/CONTRIBUTING.md
+[🏀codecov-g]: https://codecov.io/gh/kettle-dev/kettle-drift/graph/badge.svg
 [🖐contrib-rocks]: https://contrib.rocks
-[🖐contributors]: https://github.com/kettle-rb/kettle-drift/graphs/contributors
-[🖐contributors-img]: https://contrib.rocks/image?repo=kettle-rb/kettle-drift
-[🚎contributors-gl]: https://gitlab.com/kettle-rb/kettle-drift/-/graphs/main
-[🪇conduct]: https://github.com/kettle-rb/kettle-drift/blob/main/CODE_OF_CONDUCT.md
+[🖐contributors]: https://github.com/kettle-dev/kettle-drift/graphs/contributors
+[🖐contributors-img]: https://contrib.rocks/image?repo=kettle-dev/kettle-drift
+[🚎contributors-gl]: https://gitlab.com/kettle-dev/kettle-drift/-/graphs/main
+[🪇conduct]: https://github.com/kettle-dev/kettle-drift/blob/main/CODE_OF_CONDUCT.md
 [🪇conduct-img]: https://img.shields.io/badge/Contributor_Covenant-2.1-259D6C.svg
 [📌pvc]: http://guides.rubygems.org/patterns/#pessimistic-version-constraint
 [📌semver]: https://semver.org/spec/v2.0.0.html
 [📌semver-img]: https://img.shields.io/badge/semver-2.0.0-259D6C.svg?style=flat
 [📌semver-breaking]: https://github.com/semver/semver/issues/716#issuecomment-869336139
 [📌major-versions-not-sacred]: https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html
-[📌changelog]: https://github.com/kettle-rb/kettle-drift/blob/main/CHANGELOG.md
+[📌changelog]: https://github.com/kettle-dev/kettle-drift/blob/main/CHANGELOG.md
 [📗keep-changelog]: https://keepachangelog.com/en/1.0.0/
 [📗keep-changelog-img]: https://img.shields.io/badge/keep--a--changelog-1.0.0-34495e.svg?style=flat
 [📌gitmoji]: https://gitmoji.dev
 [📌gitmoji-img]: https://img.shields.io/badge/gitmoji_commits-%20%F0%9F%98%9C%20%F0%9F%98%8D-34495e.svg?style=flat-square
 [🧮kloc]: https://www.youtube.com/watch?v=dQw4w9WgXcQ
 [🧮kloc-img]: https://img.shields.io/badge/KLOC-0.512-FFDD67.svg?style=for-the-badge&logo=YouTube&logoColor=blue
-[🔐security]: https://github.com/kettle-rb/kettle-drift/blob/main/SECURITY.md
+[🔐security]: https://github.com/kettle-dev/kettle-drift/blob/main/SECURITY.md
 [🔐security-img]: https://img.shields.io/badge/security-policy-259D6C.svg?style=flat
 [📄copyright-notice-explainer]: https://opensource.stackexchange.com/questions/5778/why-do-licenses-such-as-the-mit-license-specify-a-single-year
 [📄license]: LICENSE.md
@@ -454,7 +454,7 @@ Thanks for RTFM. ☺️
 [🚎yard-current]: http://rubydoc.info/gems/kettle-drift
 [🚎yard-head]: https://kettle-drift.galtzo.com
 [💎stone_checksums]: https://github.com/galtzo-floss/stone_checksums
-[💎SHA_checksums]: https://gitlab.com/kettle-rb/kettle-drift/-/tree/main/checksums
+[💎SHA_checksums]: https://gitlab.com/kettle-dev/kettle-drift/-/tree/main/checksums
 [💎rlts]: https://github.com/rubocop-lts/rubocop-lts
 [💎rlts-img]: https://img.shields.io/badge/code_style_&_linting-rubocop--lts-34495e.svg?plastic&logo=ruby&logoColor=white
 [💎appraisal2]: https://github.com/appraisal-rb/appraisal2
@@ -466,8 +466,8 @@ Thanks for RTFM. ☺️
 |---|---|
 | Package | kettle-drift |
 | Description | 🍲 Kettle::Drift tracks repeated adjacent-line chunks that usually signal template drift or copy/paste corruption. |
-| Homepage | https://github.com/kettle-rb/kettle-drift |
-| Source | https://github.com/kettle-rb/kettle-drift/tree/v1.0.1 |
+| Homepage | https://github.com/kettle-dev/kettle-drift |
+| Source | https://github.com/kettle-dev/kettle-drift/tree/v1.0.2 |
 | License | `AGPL-3.0-only` |
-| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-rb, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-drift, https://www.buymeacoffee.com/pboling |
+| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-dev, https://opencollective.com/kettle-rb, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-drift, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
