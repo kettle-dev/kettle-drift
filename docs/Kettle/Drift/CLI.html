@@ -165,6 +165,7 @@
       <pre class="lines">
 
 
+8
 9
 10
 11
@@ -186,11 +187,10 @@
 27
 28
 29
-30
-31</pre>
+30</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/cli.rb', line 9</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/cli.rb', line 8</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_argv'>argv</span> <span class='op'>=</span> <span class='const'>ARGV</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_argv'>argv</span><span class='rparen'>)</span>
@@ -203,7 +203,7 @@
     <span class='label'>min_chars:</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:min_chars</span><span class='rparen'>)</span><span class='comma'>,</span>
     <span class='label'>json_path:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:json_path</span><span class='rbracket'>]</span><span class='comma'>,</span>
     <span class='label'>lock_path:</span> <span class='id identifier rubyid_options'>options</span><span class='lbracket'>[</span><span class='symbol'>:lock_path</span><span class='rbracket'>]</span><span class='comma'>,</span>
-    <span class='label'>mode:</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:mode</span><span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='label'>mode:</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:mode</span><span class='rparen'>)</span>
   <span class='rparen'>)</span>
 
   <span class='kw'>if</span> <span class='id identifier rubyid_outcome'>outcome</span><span class='period'>.</span><span class='id identifier rubyid_clean?'>clean?</span> <span class='op'>||</span> <span class='id identifier rubyid_outcome'>outcome</span><span class='period'>.</span><span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span> <span class='op'>==</span> <span class='symbol'>:no_changes</span>
@@ -225,7 +225,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jun  3 04:44:26 2026 by
+  Generated on Wed Jun 10 01:53:12 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>

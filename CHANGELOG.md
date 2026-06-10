@@ -28,11 +28,20 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [1.0.3] - 2026-06-10
+
+- TAG: [v1.0.3][1.0.3t]
+- COVERAGE: 83.89% -- 427/509 lines in 13 files
+- BRANCH COVERAGE: 65.84% -- 133/202 branches in 13 files
+- 33.01% documented
+
+### Fixed
+
 - Updated generated project metadata links to use the migrated `kettle-dev`
   GitHub organization.
 - Restored `docs/CNAME` so the generated documentation site keeps its custom domain.
-
-### Security
 
 ## [1.0.2] - 2026-06-03
 
@@ -71,7 +80,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.2...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.3...HEAD
+[1.0.3]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.2...v1.0.3
+[1.0.3t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.3
 [1.0.2]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.1...v1.0.2
 [1.0.2t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.2
 [1.0.1]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.0...v1.0.1

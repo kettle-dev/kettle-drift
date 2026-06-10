@@ -183,7 +183,7 @@ duplication drift or template corruption.</p>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>### Deprecated</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>### Removed</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>### Fixed</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
-  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>### Security</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>### Security</span><span class='tstring_end'>&quot;</span></span>
 <span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
       
     </dl>
@@ -527,6 +527,7 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+137
 138
 139
 140
@@ -535,18 +536,17 @@ duplication drift or template corruption.</p>
 143
 144
 145
-146
-147</pre>
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 138</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 137</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_baseline'>baseline</span><span class='lparen'>(</span><span class='label'>template_dir:</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='label'>min_chars:</span> <span class='const'><span class='object_link'><a href="#DEFAULT_MIN_CHARS-constant" title="Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS (constant)">DEFAULT_MIN_CHARS</a></span></span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>unless</span> <span class='id identifier rubyid_template_dir'>template_dir</span> <span class='op'>&amp;&amp;</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_directory?'>directory?</span><span class='lparen'>(</span><span class='id identifier rubyid_template_dir'>template_dir</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_template_files'>template_files</span> <span class='op'>=</span> <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span>
     <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_template_dir'>template_dir</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
-    <span class='const'>File</span><span class='op'>::</span><span class='const'>FNM_DOTMATCH</span><span class='comma'>,</span>
+    <span class='const'>File</span><span class='op'>::</span><span class='const'>FNM_DOTMATCH</span>
   <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_file?'>file?</span><span class='lparen'>(</span><span class='id identifier rubyid_f'>f</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 
   <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='label'>files:</span> <span class='id identifier rubyid_template_files'>template_files</span><span class='comma'>,</span> <span class='label'>min_chars:</span> <span class='id identifier rubyid_min_chars'>min_chars</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span><span class='rparen'>)</span>
@@ -594,6 +594,7 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+223
 224
 225
 226
@@ -604,11 +605,10 @@ duplication drift or template corruption.</p>
 231
 232
 233
-234
-235</pre>
+234</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 224</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 223</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_binary_content?'>binary_content?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_raw'>raw</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="#BINARY_EXTENSIONS-constant" title="Kettle::Drift::DuplicateLineValidator::BINARY_EXTENSIONS (constant)">BINARY_EXTENSIONS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='rparen'>)</span>
@@ -642,6 +642,7 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+109
 110
 111
 112
@@ -662,11 +663,10 @@ duplication drift or template corruption.</p>
 127
 128
 129
-130
-131</pre>
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 110</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 109</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_compute_fence_lines'>compute_fence_lines</span><span class='lparen'>(</span><span class='id identifier rubyid_content'>content</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_in_fence'>in_fence</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -733,6 +733,7 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+92
 93
 94
 95
@@ -747,11 +748,10 @@ duplication drift or template corruption.</p>
 104
 105
 106
-107
-108</pre>
+107</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 92</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_ignored_duplicate_chunk?'>ignored_duplicate_chunk?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='comma'>,</span> <span class='id identifier rubyid_line1'>line1</span><span class='comma'>,</span> <span class='id identifier rubyid_line2'>line2</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_basename'>basename</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span>
@@ -789,6 +789,7 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+211
 212
 213
 214
@@ -798,11 +799,10 @@ duplication drift or template corruption.</p>
 218
 219
 220
-221
-222</pre>
+221</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 212</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 211</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_read_text_content'>read_text_content</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raw'>raw</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_binread'>binread</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
@@ -812,7 +812,7 @@ duplication drift or template corruption.</p>
   <span class='kw'>return</span> <span class='id identifier rubyid_content'>content</span> <span class='kw'>if</span> <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_valid_encoding?'>valid_encoding?</span>
 
   <span class='id identifier rubyid_content'>content</span><span class='period'>.</span><span class='id identifier rubyid_scrub'>scrub</span>
-<span class='kw'>rescue</span> <span class='const'>StandardError</span>
+<span class='kw'>rescue</span>
   <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -835,6 +835,7 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+187
 188
 189
 190
@@ -856,11 +857,10 @@ duplication drift or template corruption.</p>
 206
 207
 208
-209
-210</pre>
+209</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 188</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 187</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_report_summary'>report_summary</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='comma'>,</span> <span class='label'>project_root:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No duplicate lines detected.\n</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -905,6 +905,7 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+54
 55
 56
 57
@@ -940,11 +941,10 @@ duplication drift or template corruption.</p>
 87
 88
 89
-90
-91</pre>
+90</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 55</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 54</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scan'>scan</span><span class='lparen'>(</span><span class='label'>files:</span><span class='comma'>,</span> <span class='label'>min_chars:</span> <span class='const'><span class='object_link'><a href="#DEFAULT_MIN_CHARS-constant" title="Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS (constant)">DEFAULT_MIN_CHARS</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_duplicates'>duplicates</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
@@ -976,7 +976,7 @@ duplication drift or template corruption.</p>
       <span class='id identifier rubyid_duplicates'>duplicates</span><span class='lbracket'>[</span><span class='id identifier rubyid_chunk_content'>chunk_content</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
       <span class='id identifier rubyid_duplicates'>duplicates</span><span class='lbracket'>[</span><span class='id identifier rubyid_chunk_content'>chunk_content</span><span class='rbracket'>]</span> <span class='op'>&lt;&lt;</span> <span class='lbrace'>{</span>
         <span class='label'>file:</span> <span class='id identifier rubyid_path'>path</span><span class='comma'>,</span>
-        <span class='label'>lines:</span> <span class='id identifier rubyid_start_lines'>start_lines</span><span class='comma'>,</span>
+        <span class='label'>lines:</span> <span class='id identifier rubyid_start_lines'>start_lines</span>
       <span class='rbrace'>}</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
@@ -1003,13 +1003,13 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+132
 133
 134
-135
-136</pre>
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 133</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 132</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_scan_template_results'>scan_template_results</span><span class='lparen'>(</span><span class='label'>template_results:</span><span class='comma'>,</span> <span class='label'>min_chars:</span> <span class='const'><span class='object_link'><a href="#DEFAULT_MIN_CHARS-constant" title="Kettle::Drift::DuplicateLineValidator::DEFAULT_MIN_CHARS (constant)">DEFAULT_MIN_CHARS</a></span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_written_files'>written_files</span> <span class='op'>=</span> <span class='id identifier rubyid_template_results'>template_results</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid__path'>_path</span><span class='comma'>,</span> <span class='id identifier rubyid_rec'>rec</span><span class='op'>|</span> <span class='qsymbols_beg'>%i[</span><span class='tstring_content'>create</span><span class='words_sep'> </span><span class='tstring_content'>replace</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_rec'>rec</span><span class='lbracket'>[</span><span class='symbol'>:action</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_keys'>keys</span>
@@ -1035,12 +1035,12 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+148
 149
-150
-151</pre>
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 149</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 148</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_subtract_baseline'>subtract_baseline</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='comma'>,</span> <span class='label'>baseline_set:</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_reject'>reject</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line_content'>line_content</span><span class='comma'>,</span> <span class='id identifier rubyid__'>_</span><span class='op'>|</span> <span class='id identifier rubyid_baseline_set'>baseline_set</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_line_content'>line_content</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -1065,6 +1065,7 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+152
 153
 154
 155
@@ -1081,11 +1082,10 @@ duplication drift or template corruption.</p>
 166
 167
 168
-169
-170</pre>
+169</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 153</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_template_managed_files'>template_managed_files</span><span class='lparen'>(</span><span class='label'>project_root:</span><span class='comma'>,</span> <span class='label'>template_dir:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_template_dir'>template_dir</span> <span class='op'>||=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_project_root'>project_root</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>template</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -1125,14 +1125,14 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+175
 176
 177
 178
-179
-180</pre>
+179</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 176</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 175</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_json'>to_json</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span>
   <span class='const'>JSON</span><span class='period'>.</span><span class='id identifier rubyid_pretty_generate'>pretty_generate</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_transform_values'>transform_values</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_entries'>entries</span><span class='op'>|</span>
@@ -1159,12 +1159,12 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+171
 172
-173
-174</pre>
+173</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 172</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 171</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_warning_count'>warning_count</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
@@ -1189,14 +1189,14 @@ duplication drift or template corruption.</p>
       <pre class="lines">
 
 
+181
 182
 183
 184
-185
-186</pre>
+185</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 182</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift/duplicate_line_validator.rb', line 181</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_json'>write_json</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='comma'>,</span> <span class='id identifier rubyid_json_path'>json_path</span><span class='rparen'>)</span>
   <span class='const'>FileUtils</span><span class='period'>.</span><span class='id identifier rubyid_mkdir_p'>mkdir_p</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_dirname'>dirname</span><span class='lparen'>(</span><span class='id identifier rubyid_json_path'>json_path</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -1213,7 +1213,7 @@ duplication drift or template corruption.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu May 28 00:32:52 2026 by
+  Generated on Wed Jun 10 01:53:12 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>

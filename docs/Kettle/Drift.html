@@ -385,14 +385,14 @@
       <pre class="lines">
 
 
+63
 64
 65
 66
-67
-68</pre>
+67</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 64</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 63</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_path'>display_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_path'>path</span> <span class='kw'>if</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -419,14 +419,14 @@
       <pre class="lines">
 
 
+69
 70
 71
 72
-73
-74</pre>
+73</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 69</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_text'>display_text</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_text'>text</span> <span class='kw'>if</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -453,12 +453,12 @@
       <pre class="lines">
 
 
+75
 76
-77
-78</pre>
+77</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 75</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_install_tasks'>install_tasks</span>
   <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kettle/drift/tasks.rb</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -483,12 +483,12 @@
       <pre class="lines">
 
 
+79
 80
-81
-82</pre>
+81</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 80</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 79</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register_kettle_jem_plugin'>register_kettle_jem_plugin</span><span class='lparen'>(</span><span class='id identifier rubyid_registrar'>registrar</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/Plugin.html" title="Kettle::Drift::Plugin (module)">Plugin</a></span></span><span class='period'>.</span><span class='id identifier rubyid_register!'><span class='object_link'><a href="Drift/Plugin.html#register!-class_method" title="Kettle::Drift::Plugin.register! (method)">register!</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_registrar'>registrar</span><span class='rparen'>)</span>
@@ -513,6 +513,7 @@
       <pre class="lines">
 
 
+96
 97
 98
 99
@@ -561,11 +562,10 @@
 142
 143
 144
-145
-146</pre>
+145</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span>
   <span class='label'>project_root:</span><span class='comma'>,</span>
@@ -591,7 +591,7 @@
     <span class='label'>lock_path:</span> <span class='id identifier rubyid_expanded_lock_path'>expanded_lock_path</span><span class='comma'>,</span>
     <span class='label'>mode:</span> <span class='id identifier rubyid_mode'>mode</span><span class='comma'>,</span>
     <span class='label'>results:</span> <span class='id identifier rubyid_results'>results</span><span class='comma'>,</span>
-    <span class='label'>printer_class:</span> <span class='id identifier rubyid_printer_class'>printer_class</span><span class='comma'>,</span>
+    <span class='label'>printer_class:</span> <span class='id identifier rubyid_printer_class'>printer_class</span>
   <span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_run'><span class='object_link'><a href="Drift/Process.html#run-instance_method" title="Kettle::Drift::Process#run (method)">run</a></span></span>
   <span class='id identifier rubyid_expanded_json_path'>expanded_json_path</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_write_json_report?'>write_json_report?</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='comma'>,</span> <span class='id identifier rubyid_process_result'>process_result</span><span class='period'>.</span><span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span>
@@ -614,7 +614,7 @@
     <span class='label'>lock_path:</span> <span class='id identifier rubyid_expanded_lock_path'>expanded_lock_path</span><span class='comma'>,</span>
     <span class='label'>mode:</span> <span class='id identifier rubyid_mode'>mode</span><span class='comma'>,</span>
     <span class='label'>diff:</span> <span class='id identifier rubyid_process_result'>process_result</span><span class='period'>.</span><span class='id identifier rubyid_diff'>diff</span><span class='comma'>,</span>
-    <span class='label'>exit_code:</span> <span class='id identifier rubyid_process_result'>process_result</span><span class='period'>.</span><span class='id identifier rubyid_exit_code'>exit_code</span><span class='comma'>,</span>
+    <span class='label'>exit_code:</span> <span class='id identifier rubyid_process_result'>process_result</span><span class='period'>.</span><span class='id identifier rubyid_exit_code'>exit_code</span>
   <span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -637,6 +637,7 @@
       <pre class="lines">
 
 
+83
 84
 85
 86
@@ -647,11 +648,10 @@
 91
 92
 93
-94
-95</pre>
+94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 84</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target_files'>target_files</span><span class='lparen'>(</span><span class='label'>project_root:</span><span class='comma'>,</span> <span class='label'>template_dir:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_template_managed_files'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#template_managed_files-class_method" title="Kettle::Drift::DuplicateLineValidator.template_managed_files (method)">template_managed_files</a></span></span><span class='lparen'>(</span><span class='label'>project_root:</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='comma'>,</span> <span class='label'>template_dir:</span> <span class='id identifier rubyid_template_dir'>template_dir</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_template_dir'>template_dir</span>
@@ -708,12 +708,12 @@
       <pre class="lines">
 
 
+147
 148
-149
-150</pre>
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 148</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 147</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_json_report?'>write_json_report?</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='comma'>,</span> <span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span>
   <span class='op'>!</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span> <span class='op'>!=</span> <span class='symbol'>:no_changes</span>
@@ -728,7 +728,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jun  3 04:44:26 2026 by
+  Generated on Wed Jun 10 01:53:12 2026 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.44 (ruby-4.0.5).
 </div>
