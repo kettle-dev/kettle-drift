@@ -9,7 +9,6 @@ if smorg_remote
 end
 
 if kettle_remote
-  # Template/plugin checks for released installs.
 end
 
 # Set SMORG_RB_DEV=/path/to/structuredmerge/ruby/gems for local development with path-based dependencies.
