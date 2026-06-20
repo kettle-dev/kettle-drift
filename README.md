@@ -287,7 +287,7 @@ To join the community or get help 👇️ Join the Discord.
 
 To say "thanks!" ☝️ Join the Discord or 👇️ send money.
 
-[![Sponsor kettle-rb/kettle-drift on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
+[![Sponsor kettle-dev/kettle-drift on Open Source Collective][🖇osc-all-bottom-img]][🖇osc] 💌 [![Sponsor me on GitHub Sponsors][🖇sponsor-bottom-img]][🖇sponsor] 💌 [![Sponsor me on Liberapay][⛳liberapay-bottom-img]][⛳liberapay] 💌 [![Donate on PayPal][🖇paypal-bottom-img]][🖇paypal]
 
 ### Please give the project a star ⭐ ♥.
 
@@ -298,17 +298,17 @@ Thanks for RTFM. ☺️
 [⛳liberapay-img]: https://img.shields.io/liberapay/goal/pboling.svg?logo=liberapay&color=a51611&style=flat
 [⛳liberapay-bottom-img]: https://img.shields.io/liberapay/goal/pboling.svg?style=for-the-badge&logo=liberapay&color=a51611
 [⛳liberapay]: https://liberapay.com/pboling/donate
-[🖇osc-all-img]: https://img.shields.io/opencollective/all/kettle-rb
-[🖇osc-sponsors-img]: https://img.shields.io/opencollective/sponsors/kettle-rb
-[🖇osc-backers-img]: https://img.shields.io/opencollective/backers/kettle-rb
-[🖇osc-backers]: https://opencollective.com/kettle-rb#backer
-[🖇osc-backers-i]: https://opencollective.com/kettle-rb/backers/badge.svg?style=flat
-[🖇osc-sponsors]: https://opencollective.com/kettle-rb#sponsor
-[🖇osc-sponsors-i]: https://opencollective.com/kettle-rb/sponsors/badge.svg?style=flat
-[🖇osc-all-bottom-img]: https://img.shields.io/opencollective/all/kettle-rb?style=for-the-badge
-[🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/kettle-rb?style=for-the-badge
-[🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/kettle-rb?style=for-the-badge
-[🖇osc]: https://opencollective.com/kettle-rb
+[🖇osc-all-img]: https://img.shields.io/opencollective/all/kettle-dev
+[🖇osc-sponsors-img]: https://img.shields.io/opencollective/sponsors/kettle-dev
+[🖇osc-backers-img]: https://img.shields.io/opencollective/backers/kettle-dev
+[🖇osc-backers]: https://opencollective.com/kettle-dev#backer
+[🖇osc-backers-i]: https://opencollective.com/kettle-dev/backers/badge.svg?style=flat
+[🖇osc-sponsors]: https://opencollective.com/kettle-dev#sponsor
+[🖇osc-sponsors-i]: https://opencollective.com/kettle-dev/sponsors/badge.svg?style=flat
+[🖇osc-all-bottom-img]: https://img.shields.io/opencollective/all/kettle-dev?style=for-the-badge
+[🖇osc-sponsors-bottom-img]: https://img.shields.io/opencollective/sponsors/kettle-dev?style=for-the-badge
+[🖇osc-backers-bottom-img]: https://img.shields.io/opencollective/backers/kettle-dev?style=for-the-badge
+[🖇osc]: https://opencollective.com/kettle-dev
 [🖇sponsor-img]: https://img.shields.io/badge/Sponsor_Me!-pboling.svg?style=social&logo=github
 [🖇sponsor-bottom-img]: https://img.shields.io/badge/Sponsor_Me!-pboling-blue?style=for-the-badge&logo=github
 [🖇sponsor]: https://github.com/sponsors/pboling
@@ -489,5 +489,5 @@ Thanks for RTFM. ☺️
 | Homepage | https://github.com/kettle-dev/kettle-drift |
 | Source | https://github.com/kettle-dev/kettle-drift |
 | License | `AGPL-3.0-only` |
-| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-rb, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-drift, https://www.buymeacoffee.com/pboling |
+| Funding | https://github.com/sponsors/pboling, https://issuehunt.io/u/pboling, https://ko-fi.com/pboling, https://liberapay.com/pboling/donate, https://opencollective.com/kettle-dev, https://opencollective.com/kettle-rb, https://patreon.com/galtzo, https://polar.sh/pboling, https://thanks.dev/u/gh/pboling, https://tidelift.com/funding/github/rubygems/kettle-drift, https://www.buymeacoffee.com/pboling |
 <!-- kettle-jem:metadata:end -->
