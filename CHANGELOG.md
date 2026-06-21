@@ -91,9 +91,9 @@ Please file a bug if you notice a violation of semantic versioning.
 [Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.3...HEAD
 [1.0.3]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.2...v1.0.3
 [1.0.3t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.3
-[1.0.2]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.1...v1.0.2
-[1.0.2t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.2
-[1.0.1]: https://github.com/kettle-rb/kettle-drift/compare/v1.0.0...v1.0.1
-[1.0.1t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.1
-[1.0.0]: https://github.com/kettle-rb/kettle-drift/compare/bd038cd14dc083203b58f8fee359e63d6feeaaca...v1.0.0
-[1.0.0t]: https://github.com/kettle-rb/kettle-drift/releases/tag/v1.0.0
+[1.0.2]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.1...v1.0.2
+[1.0.2t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.2
+[1.0.1]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.0...v1.0.1
+[1.0.1t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.1
+[1.0.0]: https://github.com/kettle-dev/kettle-drift/compare/bd038cd14dc083203b58f8fee359e63d6feeaaca...v1.0.0
+[1.0.0t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.0
