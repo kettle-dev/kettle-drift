@@ -41,7 +41,7 @@ module Kettle
       KETTLE_JEM_CONFIG_RE = /\A(?:strategy|recipe|preference|add_missing|freeze_token|file_type|max_recursion_depth):\s/
       RAKEFILE_ENV_ASSIGNMENT_RE = /\AENV\[["']/
       RESCUE_LOAD_ERROR_RE = /\Arescue\s+LoadError/
-      NOCOV_MARKER_RE = /\A# :nocov:\z/
+      COVERAGE_MARKER_RE = /\A# (?:simplecov:(?:disable|enable)|:nocov:)\z/
       CHANGELOG_SUBHEADINGS = Set.new([
         "### Added",
         "### Changed",
@@ -99,7 +99,7 @@ module Kettle
 
         return true if basename == "CHANGELOG.md" && CHANGELOG_METRIC_RE.match?(line1) && CHANGELOG_METRIC_RE.match?(line2)
         return true if basename == "Rakefile" && RAKEFILE_ENV_ASSIGNMENT_RE.match?(line1) && RAKEFILE_ENV_ASSIGNMENT_RE.match?(line2)
-        return true if RESCUE_LOAD_ERROR_RE.match?(line1) && NOCOV_MARKER_RE.match?(line2)
+        return true if RESCUE_LOAD_ERROR_RE.match?(line1) && COVERAGE_MARKER_RE.match?(line2)
         return true if File.extname(path.to_s) == ".md" && line1.start_with?("|") && line2.start_with?("|")
         return true if basename == ".kettle-jem.yml" && KETTLE_JEM_CONFIG_RE.match?(line1) && KETTLE_JEM_CONFIG_RE.match?(line2)
 
