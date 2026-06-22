@@ -1,5 +1,0 @@
-{
-  "lib/kettle/drift/duplicate_line_validator.rb:4062346303": [
-    [149, 17, 64, "Style/HashExcept: Use `except(*baseline_set)` instead.", 182473909]
-  ]
-}

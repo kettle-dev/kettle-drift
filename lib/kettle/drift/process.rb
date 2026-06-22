@@ -6,7 +6,7 @@ require_relative "process/printer"
 module Kettle
   module Drift
     class Process
-      Result = Struct.new(:diff, :exit_code, keyword_init: true)
+      Result = Struct.new(:diff, :exit_code)
 
       attr_reader :project_root, :lock_file, :old_results, :new_results, :mode, :printer_class
 

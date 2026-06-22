@@ -146,7 +146,7 @@ module Kettle
       end
 
       def subtract_baseline(results, baseline_set:)
-        results.reject { |line_content, _| baseline_set.include?(line_content) }
+        results.except(*baseline_set)
       end
 
       def template_managed_files(project_root:, template_dir: nil)
