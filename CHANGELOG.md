@@ -20,11 +20,7 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- Added support for JRuby 10.1 and TruffleRuby 34.0.
-
 ### Changed
-
-- Retemplated project metadata and CI/development automation with `kettle-jem` v7.0.0.
 
 ### Deprecated
 
@@ -32,11 +28,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [1.0.4] - 2026-06-22
+
+- TAG: [v1.0.4][1.0.4t]
+- COVERAGE: 81.02% -- 427/527 lines in 14 files
+- BRANCH COVERAGE: 63.94% -- 133/208 branches in 14 files
+- 33.01% documented
+
+### Added
+
+- Added support for JRuby 10.1 and TruffleRuby 34.0.
+
+### Changed
+
+- Retemplated project metadata and CI/development automation with `kettle-jem` v7.0.0.
+
+### Fixed
+
 - Corrected RubyGems homepage metadata to point at the gem documentation site.
 - Corrected persisted Open Collective metadata to use the `kettle-dev`
   collective.
-
-### Security
 
 ## [1.0.3] - 2026-06-10
 
@@ -88,7 +101,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.3...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.4...HEAD
+[1.0.4]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.3...v1.0.4
+[1.0.4t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.4
 [1.0.3]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.2...v1.0.3
 [1.0.3t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.3
 [1.0.2]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.1...v1.0.2
