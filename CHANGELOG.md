@@ -29,6 +29,8 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 - Package configured license files in gem release file lists.
+- Corrected the generated stdlib modular Gemfile selector so Ruby 3.1 uses the
+  existing Ruby 3 stdlib bundle instead of a missing `r3.1` file.
 
 ### Security
 
