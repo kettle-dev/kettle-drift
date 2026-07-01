@@ -28,11 +28,20 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [1.0.5] - 2026-07-01
+
+- TAG: [v1.0.5][1.0.5t]
+- COVERAGE: 81.02% -- 427/527 lines in 14 files
+- BRANCH COVERAGE: 63.94% -- 133/208 branches in 14 files
+- 33.01% documented
+
+### Fixed
+
 - Package configured license files in gem release file lists.
 - Corrected the generated stdlib modular Gemfile selector so Ruby 3.1 uses the
   existing Ruby 3 stdlib bundle instead of a missing `r3.1` file.
-
-### Security
 
 ## [1.0.4] - 2026-06-22
 
@@ -105,7 +114,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.4...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.5...HEAD
+[1.0.5]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.4...v1.0.5
+[1.0.5t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.5
 [1.0.4]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.3...v1.0.4
 [1.0.4t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.4
 [1.0.3]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.2...v1.0.3
