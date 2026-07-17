@@ -176,12 +176,12 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
     it "produces valid JSON with normalized file paths" do
       json = described_class.to_json(
         "dup" => [
-          {file: "/var/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md", lines: [10, 20]}
+          {file: "/var/home/pboling/src/kettle-dev/tree_haver/CHANGELOG.md", lines: [10, 20]}
         ]
       )
 
       parsed = JSON.parse(json)
-      expect(parsed["dup"].first["file"]).to eq("/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md")
+      expect(parsed["dup"].first["file"]).to eq("/home/pboling/src/kettle-dev/tree_haver/CHANGELOG.md")
     end
   end
 
@@ -211,13 +211,13 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
       summary = described_class.report_summary(
         {
           "alpha\nbeta" => [
-            {file: "/var/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md", lines: [782, 785]}
+            {file: "/var/home/pboling/src/kettle-dev/tree_haver/CHANGELOG.md", lines: [782, 785]}
           ]
         }
       )
 
-      expect(summary).to include("/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md")
-      expect(summary).not_to include("/var/home/pboling/src/kettle-rb/tree_haver/CHANGELOG.md")
+      expect(summary).to include("/home/pboling/src/kettle-dev/tree_haver/CHANGELOG.md")
+      expect(summary).not_to include("/var/home/pboling/src/kettle-dev/tree_haver/CHANGELOG.md")
     end
   end
 
