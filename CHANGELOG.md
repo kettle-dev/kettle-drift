@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.6] - 2026-07-21
+
+- TAG: [v1.0.6][1.0.6t]
+- COVERAGE: 81.02% -- 427/527 lines in 14 files
+- BRANCH COVERAGE: 65.84% -- 133/202 branches in 14 files
+- 33.01% documented
+
+### Changed
+
 - kettle-jem-template-20260716-001 - Shim gemspec manifests now include
   `LICENSE.md` instead of nonexistent `LICENSE.txt`.
 - kettle-jem-template-20260716-002 - Generated gemspec manifests now ship fewer
@@ -37,14 +54,6 @@ Please file a bug if you notice a violation of semantic versioning.
   omit JRuby and TruffleRuby jobs when project config declares MRI-only engines.
 - kettle-jem-template-20260720-005 - Generated README Support & Community rows
   now include a RubyForum help badge.
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [1.0.5] - 2026-07-01
 
@@ -130,7 +139,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.5...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.6...HEAD
+[1.0.6]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.5...v1.0.6
+[1.0.6t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.6
 [1.0.5]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.4...v1.0.5
 [1.0.5t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.5
 [1.0.4]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.3...v1.0.4
