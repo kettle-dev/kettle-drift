@@ -25,6 +25,11 @@ Please file a bug if you notice a violation of semantic versioning.
 - The `kettle-drift` executable now supports `-v` / `--version` and prints a
   standard startup header on normal runs.
 
+- kettle-jem-template-20260725-001 - Generated JRuby and TruffleRuby workflow
+  files now run when pull request head branches start with `feature/release`,
+  so release CI monitoring does not report intentionally skipped engine
+  workflows as failures.
+
 ### Deprecated
 
 ### Removed
