@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.7] - 2026-07-25
+
+- TAG: [v1.0.7][1.0.7t]
+- COVERAGE: 81.02% -- 427/527 lines in 14 files
+- BRANCH COVERAGE: 65.84% -- 133/202 branches in 14 files
+- 33.01% documented
+
+### Changed
+
 - The `kettle-drift` executable now supports `-v` / `--version` and prints a
   standard startup header on normal runs.
 
@@ -30,16 +47,10 @@ Please file a bug if you notice a violation of semantic versioning.
   so release CI monitoring does not report intentionally skipped engine
   workflows as failures.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - The `kettle-drift` executable now uses normal `require` loading for its version
   file, avoiding `require_relative` lint drift in shipped executables.
-
-### Security
 
 ## [1.0.6] - 2026-07-21
 
@@ -150,7 +161,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.6...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.7...HEAD
+[1.0.7]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.6...v1.0.7
+[1.0.7t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.7
 [1.0.6]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.5...v1.0.6
 [1.0.6t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.6
 [1.0.5]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.4...v1.0.5
