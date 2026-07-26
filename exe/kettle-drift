@@ -13,6 +13,6 @@ end
 
 require "kettle/drift"
 
-puts "== #{script_basename} v#{Kettle::Drift::Version::VERSION} =="
+puts "== #{script_basename} v#{Kettle::Drift::Version::VERSION} ==" if ARGV.delete("--verbose")
 
 exit(Kettle::Drift::CLI.new.run(ARGV))
