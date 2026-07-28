@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.8] - 2026-07-28
+
+- TAG: [v1.0.8][1.0.8t]
+- COVERAGE: 81.02% -- 427/527 lines in 14 files
+- BRANCH COVERAGE: 65.84% -- 133/202 branches in 14 files
+- 34.95% documented
+
+### Added
+
 - kettle-jem-template-20260726-001 - Projects now include YARD lint
   configuration and documentation dependencies so documentation issues fail
   before generated docs are refreshed.
@@ -41,10 +60,6 @@ Please file a bug if you notice a violation of semantic versioning.
   setup-ruby-flash planning and can prepare appraisal-only jobs without
   installing the main Gemfile bundle.
 
-### Deprecated
-
-### Removed
-
 ### Fixed
 
 - kettle-jem-template-20260726-002 - Generated version files now document their
@@ -59,8 +74,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260728-003 - Generated dep-heads workflows now run
   TruffleRuby jobs with current RubyGems and Bundler, avoiding setup failures
   before the test suite starts.
-
-### Security
 
 ## [1.0.7] - 2026-07-25
 
@@ -193,7 +206,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.7...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.8...HEAD
+[1.0.8]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.7...v1.0.8
+[1.0.8t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.8
 [1.0.7]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.6...v1.0.7
 [1.0.7t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.7
 [1.0.6]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.5...v1.0.6
