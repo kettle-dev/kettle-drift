@@ -70,7 +70,7 @@ and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semant
 and <a href="https://tom.preston-werner.com/2022/05/23/major-version-numbers-are-not-sacred.html">yes</a>, platform and engine support are part of the <a href="https://github.com/semver/semver/issues/716#issuecomment-869336139">public API</a>.<br>
 Please file a bug if you notice a violation of semantic versioning.</p>
 
-<h2 id="unreleased"><a href="https://github.com/kettle-dev/kettle-drift/compare/v1.0.8...HEAD">Unreleased</a></h2>
+<h2 id="unreleased"><a href="https://github.com/kettle-dev/kettle-drift/compare/v1.0.9...HEAD">Unreleased</a></h2>
 
 <h3 id="added">Added</h3>
 
@@ -84,6 +84,49 @@ Please file a bug if you notice a violation of semantic versioning.</p>
 
 <h3 id="security">Security</h3>
 
+<h2 id="109---2026-07-30">
+<a href="https://github.com/kettle-dev/kettle-drift/compare/v1.0.8...v1.0.9">1.0.9</a> - 2026-07-30</h2>
+
+<ul>
+  <li>TAG: <a href="https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.9">v1.0.9</a>
+</li>
+  <li>COVERAGE: 81.02% – 427/527 lines in 14 files</li>
+  <li>BRANCH COVERAGE: 65.84% – 133/202 branches in 14 files</li>
+  <li>34.95% documented</li>
+</ul>
+
+<h3 id="added-1">Added</h3>
+
+<ul>
+  <li>kettle-jem-template-20260729-005 - Gemspec metadata now publishes this<br>
+project’s RubyForum tag as <code>mailing_list_uri</code>, and support docs link to the<br>
+tagged RubyForum community alongside Discord.</li>
+</ul>
+
+<h3 id="fixed-1">Fixed</h3>
+
+<ul>
+  <li>kettle-jem-template-20260728-004 - Generated dep-heads workflows now use the<br>
+setup-ruby Bundler install path for direct appraisal Gemfiles, avoiding rv<br>
+lockfile parser failures on Git and path dependencies.</li>
+  <li>kettle-jem-template-20260728-005 - VersionGem bootstrap now creates the<br>
+missing canonical version spec when a project only has shim namespace version<br>
+specs.</li>
+  <li>kettle-jem-template-20260729-001 - Generated JRuby 9.4 workflows now use the<br>
+legacy manual bundle install path, avoiding setup-time Bundler full-index<br>
+failures against <code>gem.coop</code>.</li>
+  <li>kettle-jem-template-20260729-002 - VersionGem bootstrap now preserves<br>
+and templates dedicated <code>version_gem.rb</code> entrypoints even when the gemspec<br>
+dependency is intentionally omitted, and generated anonymous-loader specs<br>
+cover both <code>version.rb</code> and <code>version_gem.rb</code>.</li>
+  <li>kettle-jem-template-20260729-003 - Old-Ruby gems below the VersionGem runtime<br>
+floor now get managed minimal <code>version.rb</code> files and anonymous-loader version<br>
+specs without adding <code>version_gem</code>.</li>
+  <li>kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs<br>
+relative to the gemspec directory, so release package contents stay correct<br>
+even when the gemspec is loaded from another working directory.</li>
+</ul>
+
 <h2 id="108---2026-07-28">
 <a href="https://github.com/kettle-dev/kettle-drift/compare/v1.0.7...v1.0.8">1.0.8</a> - 2026-07-28</h2>
 
@@ -95,7 +138,7 @@ Please file a bug if you notice a violation of semantic versioning.</p>
   <li>34.95% documented</li>
 </ul>
 
-<h3 id="added-1">Added</h3>
+<h3 id="added-2">Added</h3>
 
 <ul>
   <li>
@@ -129,7 +172,7 @@ installing the main Gemfile bundle.</p>
   </li>
 </ul>
 
-<h3 id="fixed-1">Fixed</h3>
+<h3 id="fixed-2">Fixed</h3>
 
 <ul>
   <li>
@@ -173,7 +216,7 @@ workflows as failures.</p>
   </li>
 </ul>
 
-<h3 id="fixed-2">Fixed</h3>
+<h3 id="fixed-3">Fixed</h3>
 
 <ul>
   <li>The <code>kettle-drift</code> executable now uses normal <code>require</code> loading for its version<br>
@@ -223,7 +266,7 @@ now include a RubyForum help badge.</li>
   <li>33.01% documented</li>
 </ul>
 
-<h3 id="fixed-3">Fixed</h3>
+<h3 id="fixed-4">Fixed</h3>
 
 <ul>
   <li>Package configured license files in gem release file lists.</li>
@@ -242,7 +285,7 @@ existing Ruby 3 stdlib bundle instead of a missing <code>r3.1</code> file.</li>
   <li>33.01% documented</li>
 </ul>
 
-<h3 id="added-2">Added</h3>
+<h3 id="added-3">Added</h3>
 
 <ul>
   <li>Added support for JRuby 10.1 and TruffleRuby 34.0.</li>
@@ -254,7 +297,7 @@ existing Ruby 3 stdlib bundle instead of a missing <code>r3.1</code> file.</li>
   <li>Retemplated project metadata and CI/development automation with <code>kettle-jem</code> v7.0.0.</li>
 </ul>
 
-<h3 id="fixed-4">Fixed</h3>
+<h3 id="fixed-5">Fixed</h3>
 
 <ul>
   <li>Corrected RubyGems homepage metadata to point at the gem documentation site.</li>
@@ -273,7 +316,7 @@ collective.</li>
   <li>33.01% documented</li>
 </ul>
 
-<h3 id="fixed-5">Fixed</h3>
+<h3 id="fixed-6">Fixed</h3>
 
 <ul>
   <li>Updated generated project metadata links to use the migrated <code>kettle-dev</code><br>
@@ -292,7 +335,7 @@ GitHub organization.</li>
   <li>33.01% documented</li>
 </ul>
 
-<h3 id="fixed-6">Fixed</h3>
+<h3 id="fixed-7">Fixed</h3>
 
 <ul>
   <li>Suppressed warning/report output when current duplicate drift exactly matches<br>
@@ -310,7 +353,7 @@ the checked-in lockfile baseline.</li>
   <li>32.35% documented</li>
 </ul>
 
-<h3 id="fixed-7">Fixed</h3>
+<h3 id="fixed-8">Fixed</h3>
 
 <ul>
   <li>Prevented the Rakefile template hook from adding a second trailing newline<br>
@@ -330,7 +373,7 @@ when refreshing the kettle-drift task block.</li>
   <li>30.93% documented</li>
 </ul>
 
-<h3 id="added-3">Added</h3>
+<h3 id="added-4">Added</h3>
 
 <ul>
   <li>Initial release</li>

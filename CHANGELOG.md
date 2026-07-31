@@ -20,15 +20,28 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
-- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
-  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
-  tagged RubyForum community alongside Discord.
-
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.9] - 2026-07-30
+
+- TAG: [v1.0.9][1.0.9t]
+- COVERAGE: 81.02% -- 427/527 lines in 14 files
+- BRANCH COVERAGE: 65.84% -- 133/202 branches in 14 files
+- 34.95% documented
+
+### Added
+
+- kettle-jem-template-20260729-005 - Gemspec metadata now publishes this
+  project's RubyForum tag as `mailing_list_uri`, and support docs link to the
+  tagged RubyForum community alongside Discord.
 
 ### Fixed
 
@@ -51,8 +64,6 @@ Please file a bug if you notice a violation of semantic versioning.
 - kettle-jem-template-20260730-001 - Gemspec package file enumeration now runs
   relative to the gemspec directory, so release package contents stay correct
   even when the gemspec is loaded from another working directory.
-
-### Security
 
 ## [1.0.8] - 2026-07-28
 
@@ -230,7 +241,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.8...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.9...HEAD
+[1.0.9]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.8...v1.0.9
+[1.0.9t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.9
 [1.0.8]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.7...v1.0.8
 [1.0.8t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.8
 [1.0.7]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.6...v1.0.7
