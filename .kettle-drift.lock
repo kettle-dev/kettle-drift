@@ -3,8 +3,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        149,
-        182
+        171,
+        204
       ]
     }
   ],
@@ -12,8 +12,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        150,
-        183
+        172,
+        205
       ]
     }
   ],
@@ -21,8 +21,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        148,
-        181
+        170,
+        203
       ]
     }
   ],
@@ -30,8 +30,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        239,
-        280
+        261,
+        302
       ]
     }
   ],
@@ -39,8 +39,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        231,
-        272
+        253,
+        294
       ]
     }
   ],
@@ -48,8 +48,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        232,
-        273
+        254,
+        295
       ]
     }
   ],
@@ -57,8 +57,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        152,
-        185
+        174,
+        207
       ]
     }
   ],
@@ -66,8 +66,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        151,
-        184
+        173,
+        206
       ]
     }
   ],
@@ -75,8 +75,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        134,
-        174
+        156,
+        196
       ]
     }
   ],
@@ -84,12 +84,48 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        130,
-        170
+        152,
+        192
       ]
     }
   ],
   "#   howto: basic usage\n#   options: configuration": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        268,
+        309
+      ]
+    }
+  ],
+  "#   modern       — Ruby-only matrix (default when absent)\n#   framework    — Ruby × framework-version matrix": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        151,
+        191
+      ]
+    }
+  ],
+  "#   summary → synopsis, usage → basic usage,\n#   configuration options → configuration, setup → basic usage": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        247,
+        288
+      ]
+    }
+  ],
+  "# ActiveRecord, ActiveSupport, etc.), this section configures how\n# kettle-jem generates the CI matrix strategy and gemfile references.": [
+    {
+      "file": ".structuredmerge/kettle-jem.yml",
+      "lines": [
+        147,
+        187
+      ]
+    }
+  ],
+  "# Built-in aliases (destination → template):\n#   summary → synopsis, usage → basic usage,": [
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
@@ -98,48 +134,12 @@
       ]
     }
   ],
-  "#   modern       — Ruby-only matrix (default when absent)\n#   framework    — Ruby × framework-version matrix": [
-    {
-      "file": ".structuredmerge/kettle-jem.yml",
-      "lines": [
-        129,
-        169
-      ]
-    }
-  ],
-  "#   summary → synopsis, usage → basic usage,\n#   configuration options → configuration, setup → basic usage": [
-    {
-      "file": ".structuredmerge/kettle-jem.yml",
-      "lines": [
-        225,
-        266
-      ]
-    }
-  ],
-  "# ActiveRecord, ActiveSupport, etc.), this section configures how\n# kettle-jem generates the CI matrix strategy and gemfile references.": [
-    {
-      "file": ".structuredmerge/kettle-jem.yml",
-      "lines": [
-        125,
-        165
-      ]
-    }
-  ],
-  "# Built-in aliases (destination → template):\n#   summary → synopsis, usage → basic usage,": [
-    {
-      "file": ".structuredmerge/kettle-jem.yml",
-      "lines": [
-        224,
-        265
-      ]
-    }
-  ],
   "# Custom section aliases (destination heading → canonical template heading).\n# Merged with built-in aliases above.": [
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        242,
-        283
+        264,
+        305
       ]
     }
   ],
@@ -147,8 +147,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        123,
-        163
+        145,
+        185
       ]
     }
   ],
@@ -156,8 +156,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        235,
-        276
+        257,
+        298
       ]
     }
   ],
@@ -165,8 +165,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        217,
-        258
+        239,
+        280
       ]
     }
   ],
@@ -174,8 +174,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        218,
-        259
+        240,
+        281
       ]
     }
   ],
@@ -183,8 +183,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        124,
-        164
+        146,
+        186
       ]
     }
   ],
@@ -192,8 +192,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        133,
-        173
+        155,
+        195
       ]
     }
   ],
@@ -201,8 +201,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        219,
-        260
+        241,
+        282
       ]
     }
   ],
@@ -210,8 +210,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        238,
-        279
+        260,
+        301
       ]
     }
   ],
@@ -219,8 +219,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        228,
-        269
+        250,
+        291
       ]
     }
   ],
@@ -228,8 +228,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        128,
-        168
+        150,
+        190
       ]
     }
   ],
@@ -237,8 +237,8 @@
     {
       "file": ".structuredmerge/kettle-jem.yml",
       "lines": [
-        245,
-        286
+        267,
+        308
       ]
     }
   ],
@@ -247,8 +247,8 @@
       "file": ".github/workflows/dep-heads.yml",
       "lines": [
         43,
-        97,
-        151
+        100,
+        157
       ]
     }
   ],
@@ -267,8 +267,8 @@
       "file": ".github/workflows/dep-heads.yml",
       "lines": [
         44,
-        98,
-        152
+        101,
+        158
       ]
     }
   ],
