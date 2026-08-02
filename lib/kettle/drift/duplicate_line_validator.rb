@@ -118,7 +118,7 @@ module Kettle
 
         matrix_key = line1.delete_prefix("- ")
         return true if matrix_key.start_with?("appraisal: ") && line2.start_with?("exec_cmd: ")
-        return true if line1.start_with?("exec_cmd: ") && (line2.start_with?("rubygems: ") || line2.start_with?("# Run directly from the generated appraisal Gemfile"))
+        return true if line1.start_with?("exec_cmd: ") && (line2.start_with?("rubygems: ", "# Run directly from the generated appraisal Gemfile"))
 
         line1 == "if: ${{ !env.ACT }}" && line2.start_with?("uses: appraisal-rb/setup-ruby-flash@")
       end

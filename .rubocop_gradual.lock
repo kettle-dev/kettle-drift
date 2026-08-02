@@ -1,0 +1,5 @@
+{
+  "lib/kettle/drift/duplicate_line_validator.rb:3564714916": [
+    [121, 59, 88, "Style/RedundantParentheses: Don't use parentheses around a method call.", 1557392925]
+  ]
+}
