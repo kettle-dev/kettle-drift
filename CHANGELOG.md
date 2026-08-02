@@ -41,6 +41,8 @@ Please file a bug if you notice a violation of semantic versioning.
   use GitHub's stable organization avatar endpoint instead of assuming a
   matching Galtzo-hosted asset exists.
 
+- Duplicate-drift checks now ignore repeated generated CI matrix fields and Dependabot schedules while continuing to report duplicated workflow steps.
+
 ### Security
 
 ## [1.0.9] - 2026-07-31

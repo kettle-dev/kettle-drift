@@ -94,6 +94,53 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
       end
     end
 
+    it "suppresses repeated generated heads workflow matrix fields" do
+      Dir.mktmpdir do |dir|
+        path = File.join(dir, ".github", "workflows", "heads.yml")
+        FileUtils.mkdir_p(File.dirname(path))
+        File.write(path, <<~YAML)
+          include:
+            - appraisal: "head"
+              exec_cmd: "kettle-test"
+            - appraisal: "head"
+              exec_cmd: "kettle-test"
+        YAML
+
+        expect(described_class.scan(files: [path])).to be_empty
+      end
+    end
+
+    it "suppresses repeated Dependabot schedule mappings" do
+      Dir.mktmpdir do |dir|
+        path = File.join(dir, ".github", "dependabot.yml")
+        FileUtils.mkdir_p(File.dirname(path))
+        File.write(path, <<~YAML)
+          updates:
+            - schedule:
+                interval: daily
+            - schedule:
+                interval: daily
+        YAML
+
+        expect(described_class.scan(files: [path])).to be_empty
+      end
+    end
+
+    it "continues to report duplicated non-matrix workflow content" do
+      Dir.mktmpdir do |dir|
+        path = File.join(dir, ".github", "workflows", "heads.yml")
+        FileUtils.mkdir_p(File.dirname(path))
+        File.write(path, <<~YAML)
+          - name: broken duplicate
+            run: bundle exec rake
+          - name: broken duplicate
+            run: bundle exec rake
+        YAML
+
+        expect(described_class.scan(files: [path])).to have_key("- name: broken duplicate\nrun: bundle exec rake")
+      end
+    end
+
     it "flags duplicate eval_gemfile chunks in non-Appraisals files" do
       Dir.mktmpdir do |dir|
         path = File.join(dir, "Gemfile")

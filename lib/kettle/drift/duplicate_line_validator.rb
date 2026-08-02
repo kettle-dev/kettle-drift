@@ -92,6 +92,9 @@ module Kettle
       def ignored_duplicate_chunk?(path, line1, line2)
         basename = File.basename(path.to_s)
 
+        return true if generated_workflow_matrix_chunk?(path, line1, line2)
+        return true if dependabot_schedule_chunk?(path, line1, line2)
+
         if basename == "Appraisals"
           return true if APPRAISALS_DEP_LINE_RE.match?(line1) && APPRAISALS_DEP_LINE_RE.match?(line2)
           return true if line1.start_with?("#") && APPRAISALS_DEP_LINE_RE.match?(line2)
@@ -104,6 +107,28 @@ module Kettle
         return true if basename == ".kettle-jem.yml" && KETTLE_JEM_CONFIG_RE.match?(line1) && KETTLE_JEM_CONFIG_RE.match?(line2)
 
         false
+      end
+
+      # These generated workflows repeat the same matrix-field pairs once for
+      # every Ruby/engine job. Limit the exemption to those exact pairs so a
+      # duplicated step or an unrelated workflow regression is still reported.
+      def generated_workflow_matrix_chunk?(path, line1, line2)
+        return false unless %w[dep-heads.yml heads.yml].include?(File.basename(path.to_s))
+        return false unless File.dirname(path.to_s).end_with?(".github/workflows")
+
+        matrix_key = line1.delete_prefix("- ")
+        return true if matrix_key.start_with?("appraisal: ") && line2.start_with?("exec_cmd: ")
+        return true if line1.start_with?("exec_cmd: ") && (line2.start_with?("rubygems: ") || line2.start_with?("# Run directly from the generated appraisal Gemfile"))
+
+        line1 == "if: ${{ !env.ACT }}" && line2.start_with?("uses: appraisal-rb/setup-ruby-flash@")
+      end
+
+      # Dependabot intentionally has one schedule mapping per ecosystem entry.
+      # This exact pair has no independent behavior to de-duplicate.
+      def dependabot_schedule_chunk?(path, line1, line2)
+        File.basename(path.to_s) == "dependabot.yml" &&
+          File.dirname(path.to_s).end_with?(".github") &&
+          line1.delete_prefix("- ") == "schedule:" && line2.start_with?("interval:")
       end
 
       def compute_fence_lines(content)
