@@ -28,10 +28,19 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+### Security
+
+## [1.0.11] - 2026-08-02
+
+- TAG: [v1.0.11][1.0.11t]
+- COVERAGE: 81.41% -- 438/538 lines in 14 files
+- BRANCH COVERAGE: 66.82% -- 143/214 branches in 14 files
+- 36.19% documented
+
+### Fixed
+
 - kettle-jem-template-20260802-001 - Devcontainer JSON files now merge as JSONC,
   preserving comments and trailing commas during template updates.
-
-### Security
 
 ## [1.0.10] - 2026-08-01
 
@@ -250,7 +259,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.10...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.11...HEAD
+[1.0.11]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.10...v1.0.11
+[1.0.11t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.11
 [1.0.10]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.9...v1.0.10
 [1.0.10t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.10
 [1.0.9]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.8...v1.0.9
