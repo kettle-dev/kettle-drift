@@ -22,12 +22,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
-- kettle-jem-template-20260801-001 - Generated README gem dashboard links now
-  use ClickGems instead of BestGems.
-
 ### Deprecated
 
 ### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.10] - 2026-08-01
+
+- TAG: [v1.0.10][1.0.10t]
+- COVERAGE: 81.41% -- 438/538 lines in 14 files
+- BRANCH COVERAGE: 66.82% -- 143/214 branches in 14 files
+- 36.19% documented
+
+### Changed
+
+- kettle-jem-template-20260801-001 - Generated README gem dashboard links now
+  use ClickGems instead of BestGems.
 
 ### Fixed
 
@@ -42,8 +55,6 @@ Please file a bug if you notice a violation of semantic versioning.
   matching Galtzo-hosted asset exists.
 
 - Duplicate-drift checks now ignore repeated generated CI matrix fields and Dependabot schedules while continuing to report duplicated workflow steps.
-
-### Security
 
 ## [1.0.9] - 2026-07-31
 
@@ -256,7 +267,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.9...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.10...HEAD
+[1.0.10]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.9...v1.0.10
+[1.0.10t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.10
 [1.0.9]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.8...v1.0.9
 [1.0.9t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.9
 [1.0.8]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.7...v1.0.8
