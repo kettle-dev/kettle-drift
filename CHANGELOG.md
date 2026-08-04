@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Exclude dependency lockfiles and generated logs/results from duplicate-drift scans.
+
 ### Security
 
 ## [1.0.11] - 2026-08-02

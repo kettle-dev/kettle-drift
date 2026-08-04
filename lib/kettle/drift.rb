@@ -23,8 +23,10 @@ module Kettle
       .idea
       coverage
       docs
+      log
       node_modules
       pkg
+      results
       tmp
       vendor
     ]).freeze
@@ -83,11 +85,17 @@ module Kettle
         Dir.glob(File.join(project_root, "**", "*"), File::FNM_DOTMATCH).select do |path|
           next false unless File.file?(path)
           next false if EXCLUDED_FILE_EXTENSIONS.include?(File.extname(path).downcase)
+          next false if dependency_lockfile?(path)
 
           relative = path.delete_prefix("#{project_root}/")
           segments = relative.split("/")
           segments.none? { |segment| segment.start_with?(".") || EXCLUDED_PATH_SEGMENTS.include?(segment) }
         end
+      end
+
+      def dependency_lockfile?(path)
+        basename = File.basename(path)
+        basename == "Gemfile.lock" || basename.end_with?(".gemfile.lock") || basename == "package-lock.json"
       end
 
       def run(

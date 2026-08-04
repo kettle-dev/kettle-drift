@@ -38,14 +38,21 @@ RSpec.describe Kettle::Drift do
   end
 
   describe ".target_files" do
-    it "excludes hidden paths, temp content, and package artifacts" do
+    it "excludes hidden paths, generated content, dependency locks, and package artifacts" do
       Dir.mktmpdir do |dir|
         FileUtils.mkdir_p(File.join(dir, ".git", "objects"))
         FileUtils.mkdir_p(File.join(dir, "tmp"))
+        FileUtils.mkdir_p(File.join(dir, "results"))
+        FileUtils.mkdir_p(File.join(dir, "log"))
         FileUtils.mkdir_p(File.join(dir, "lib"))
 
         File.write(File.join(dir, ".git", "objects", "abc123"), "git object\n")
         File.write(File.join(dir, "tmp", "scratch.txt"), "temporary\n")
+        File.write(File.join(dir, "results", "test_results.html"), "generated\n")
+        File.write(File.join(dir, "log", "development.log"), "generated\n")
+        File.write(File.join(dir, "Gemfile.lock"), "lock\n")
+        FileUtils.mkdir_p(File.join(dir, "gemfiles"))
+        File.write(File.join(dir, "gemfiles", "ruby_4_0.gemfile.lock"), "lock\n")
         File.binwrite(File.join(dir, "example-0.1.0.gem"), "\x1F\x8B\x08binary payload".b)
         kept = File.join(dir, "lib", "kept.rb")
         File.write(kept, "puts :ok\n")
