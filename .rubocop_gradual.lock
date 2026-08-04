@@ -1,4 +1,7 @@
 {
+  "gemfiles/modular/templating.gemfile:1245067229": [
+    [14, 3, 47, "Bundler/DuplicatedGem: Gem `tree_sitter_language_pack` requirements already given on line 10 of the Gemfile.", 3843603197]
+  ],
   "lib/kettle/drift/duplicate_line_validator.rb:3564714916": [
     [121, 59, 88, "Style/RedundantParentheses: Don't use parentheses around a method call.", 1557392925]
   ]
