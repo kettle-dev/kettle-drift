@@ -123,8 +123,10 @@
 </span><span class='words_sep'>  </span><span class='tstring_content'>.idea</span><span class='words_sep'>
 </span><span class='words_sep'>  </span><span class='tstring_content'>coverage</span><span class='words_sep'>
 </span><span class='words_sep'>  </span><span class='tstring_content'>docs</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>log</span><span class='words_sep'>
 </span><span class='words_sep'>  </span><span class='tstring_content'>node_modules</span><span class='words_sep'>
 </span><span class='words_sep'>  </span><span class='tstring_content'>pkg</span><span class='words_sep'>
+</span><span class='words_sep'>  </span><span class='tstring_content'>results</span><span class='words_sep'>
 </span><span class='words_sep'>  </span><span class='tstring_content'>tmp</span><span class='words_sep'>
 </span><span class='words_sep'>  </span><span class='tstring_content'>vendor</span><span class='words_sep'>
 </span><span class='tstring_end'>]</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
@@ -198,6 +200,29 @@
     </h2>
 
     <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dependency_lockfile%3F-class_method" title="dependency_lockfile? (class method)">.<strong>dependency_lockfile?</strong>(path)  &#x21d2; Boolean </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+</div></span>
+  
+</li>
+
       
         <li class="public ">
   <span class="summary_signature">
@@ -371,7 +396,62 @@
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="display_path-class_method">
+  <h3 class="signature first" id="dependency_lockfile?-class_method">
+  
+    .<strong>dependency_lockfile?</strong>(path)  &#x21d2; <tt>Boolean</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 96</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dependency_lockfile?'>dependency_lockfile?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_basename'>basename</span> <span class='op'>=</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_basename'>basename</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_basename'>basename</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Gemfile.lock</span><span class='tstring_end'>&quot;</span></span> <span class='op'>||</span> <span class='id identifier rubyid_basename'>basename</span><span class='period'>.</span><span class='id identifier rubyid_end_with?'>end_with?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.gemfile.lock</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_basename'>basename</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>package-lock.json</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="display_path-class_method">
   
     .<strong>display_path</strong>(path)  &#x21d2; <tt>Object</tt> 
   
@@ -385,14 +465,14 @@
       <pre class="lines">
 
 
+62
 63
 64
 65
-66
-67</pre>
+66</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 63</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_path'>display_path</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_path'>path</span> <span class='kw'>if</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -419,14 +499,14 @@
       <pre class="lines">
 
 
+68
 69
 70
 71
-72
-73</pre>
+72</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 69</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 68</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_display_text'>display_text</span><span class='lparen'>(</span><span class='id identifier rubyid_text'>text</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_text'>text</span> <span class='kw'>if</span> <span class='id identifier rubyid_text'>text</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
@@ -453,12 +533,12 @@
       <pre class="lines">
 
 
+74
 75
-76
-77</pre>
+76</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 75</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 74</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_install_tasks'>install_tasks</span>
   <span class='id identifier rubyid_load'>load</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>kettle/drift/tasks.rb</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -483,12 +563,12 @@
       <pre class="lines">
 
 
+78
 79
-80
-81</pre>
+80</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 78</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_register_kettle_jem_plugin'>register_kettle_jem_plugin</span><span class='lparen'>(</span><span class='id identifier rubyid_registrar'>registrar</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/Plugin.html" title="Kettle::Drift::Plugin (module)">Plugin</a></span></span><span class='period'>.</span><span class='id identifier rubyid_register!'><span class='object_link'><a href="Drift/Plugin.html#register!-class_method" title="Kettle::Drift::Plugin.register! (method)">register!</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_registrar'>registrar</span><span class='rparen'>)</span>
@@ -513,11 +593,6 @@
       <pre class="lines">
 
 
-96
-97
-98
-99
-100
 101
 102
 103
@@ -562,10 +637,15 @@
 142
 143
 144
-145</pre>
+145
+146
+147
+148
+149
+150</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 96</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span>
   <span class='label'>project_root:</span><span class='comma'>,</span>
@@ -637,6 +717,7 @@
       <pre class="lines">
 
 
+82
 83
 84
 85
@@ -651,7 +732,7 @@
 94</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 83</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 82</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_target_files'>target_files</span><span class='lparen'>(</span><span class='label'>project_root:</span><span class='comma'>,</span> <span class='label'>template_dir:</span> <span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='const'><span class='object_link'><a href="../Kettle.html" title="Kettle (module)">Kettle</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="Kettle::Drift (module)">Drift</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Drift/DuplicateLineValidator.html" title="Kettle::Drift::DuplicateLineValidator (module)">DuplicateLineValidator</a></span></span><span class='period'>.</span><span class='id identifier rubyid_template_managed_files'><span class='object_link'><a href="Drift/DuplicateLineValidator.html#template_managed_files-class_method" title="Kettle::Drift::DuplicateLineValidator.template_managed_files (method)">template_managed_files</a></span></span><span class='lparen'>(</span><span class='label'>project_root:</span> <span class='id identifier rubyid_project_root'>project_root</span><span class='comma'>,</span> <span class='label'>template_dir:</span> <span class='id identifier rubyid_template_dir'>template_dir</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_template_dir'>template_dir</span>
@@ -659,6 +740,7 @@
   <span class='const'>Dir</span><span class='period'>.</span><span class='id identifier rubyid_glob'>glob</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='id identifier rubyid_project_root'>project_root</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>**</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>*</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span> <span class='const'>File</span><span class='op'>::</span><span class='const'>FNM_DOTMATCH</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='op'>|</span>
     <span class='kw'>next</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_file?'>file?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
     <span class='kw'>next</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="#EXCLUDED_FILE_EXTENSIONS-constant" title="Kettle::Drift::EXCLUDED_FILE_EXTENSIONS (constant)">EXCLUDED_FILE_EXTENSIONS</a></span></span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_extname'>extname</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_downcase'>downcase</span><span class='rparen'>)</span>
+    <span class='kw'>next</span> <span class='kw'>false</span> <span class='kw'>if</span> <span class='id identifier rubyid_dependency_lockfile?'>dependency_lockfile?</span><span class='lparen'>(</span><span class='id identifier rubyid_path'>path</span><span class='rparen'>)</span>
 
     <span class='id identifier rubyid_relative'>relative</span> <span class='op'>=</span> <span class='id identifier rubyid_path'>path</span><span class='period'>.</span><span class='id identifier rubyid_delete_prefix'>delete_prefix</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_project_root'>project_root</span><span class='embexpr_end'>}</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
     <span class='id identifier rubyid_segments'>segments</span> <span class='op'>=</span> <span class='id identifier rubyid_relative'>relative</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -708,12 +790,12 @@
       <pre class="lines">
 
 
-147
-148
-149</pre>
+152
+153
+154</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 147</span>
+      <pre class="code"><span class="info file"># File 'lib/kettle/drift.rb', line 152</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_write_json_report?'>write_json_report?</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='comma'>,</span> <span class='id identifier rubyid_diff'>diff</span><span class='rparen'>)</span>
   <span class='op'>!</span><span class='id identifier rubyid_results'>results</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_diff'>diff</span><span class='period'>.</span><span class='id identifier rubyid_state'>state</span> <span class='op'>!=</span> <span class='symbol'>:no_changes</span>
