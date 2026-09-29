@@ -82,14 +82,16 @@ module Kettle
       def target_files(project_root:, template_dir: nil)
         return Kettle::Drift::DuplicateLineValidator.template_managed_files(project_root: project_root, template_dir: template_dir) if template_dir
 
-        Dir.glob(File.join(project_root, "**", "*"), File::FNM_DOTMATCH).select do |path|
-          next false unless File.file?(path)
-          next false if EXCLUDED_FILE_EXTENSIONS.include?(File.extname(path).downcase)
-          next false if dependency_lockfile?(path)
+        Dir.glob("**/*", File::FNM_DOTMATCH, base: project_root).filter_map do |relative|
+          path = File.join(project_root, relative)
+          next unless File.file?(path)
+          next if EXCLUDED_FILE_EXTENSIONS.include?(File.extname(path).downcase)
+          next if dependency_lockfile?(path)
 
-          relative = path.delete_prefix("#{project_root}/")
-          segments = relative.split("/")
-          segments.none? { |segment| segment.start_with?(".") || EXCLUDED_PATH_SEGMENTS.include?(segment) }
+          segments = relative.tr("\\", "/").split("/")
+          next unless segments.none? { |segment| segment.start_with?(".") || EXCLUDED_PATH_SEGMENTS.include?(segment) }
+
+          path
         end
       end
 

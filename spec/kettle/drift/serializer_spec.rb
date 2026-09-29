@@ -24,6 +24,21 @@ RSpec.describe Kettle::Drift::Serializer do
       expect(parsed.keys).to eq(["alpha\nbeta", "beta\nalpha"])
       expect(parsed["alpha\nbeta"].map { |entry| entry["file"] }).to eq(["lib/a.rb", "lib/c.rb"])
     end
+
+    it "derives relative paths from existing filesystem paths" do
+      Dir.mktmpdir do |root|
+        file = File.join(root, "lib", "kept.rb")
+        FileUtils.mkdir_p(File.dirname(file))
+        File.write(file, "puts :ok\n")
+
+        json = described_class.serialize(
+          {"duplicate" => [{file: file, lines: [1, 3]}]},
+          project_root: root
+        )
+
+        expect(JSON.parse(json).fetch("duplicate").first.fetch("file")).to eq("lib/kept.rb")
+      end
+    end
   end
 
   describe ".deserialize" do

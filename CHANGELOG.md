@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Keep drift lockfile paths project-relative across filesystem path aliases.
+
 ### Security
 
 ## [1.0.15] - 2026-09-28

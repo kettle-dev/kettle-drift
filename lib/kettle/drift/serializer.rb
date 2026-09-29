@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "json"
+require "pathname"
 
 module Kettle
   module Drift
@@ -74,11 +75,20 @@ module Kettle
           file = path.to_s
           return file if project_root.to_s.strip.empty?
 
-          root = File.expand_path(project_root.to_s)
-          absolute_file = File.expand_path(file)
-          return file unless absolute_file == root || absolute_file.start_with?("#{root}/")
+          root = canonical_path(project_root)
+          absolute_file = canonical_path(file)
+          relative = Pathname(absolute_file).relative_path_from(Pathname(root))
+          return file if relative.each_filename.first == ".."
 
-          absolute_file.delete_prefix("#{root}/").delete_prefix(root)
+          relative.to_s.tr("\\", "/").delete_prefix("./")
+        rescue ArgumentError
+          file
+        end
+
+        def canonical_path(path)
+          File.realpath(path.to_s)
+        rescue SystemCallError
+          File.expand_path(path.to_s)
         end
       end
     end
