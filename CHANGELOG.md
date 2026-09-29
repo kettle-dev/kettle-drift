@@ -28,6 +28,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
+- Handle Windows path spellings when identifying template-managed drift files.
+
 ### Security
 
 ## [1.0.15] - 2026-09-28

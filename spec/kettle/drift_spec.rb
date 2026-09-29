@@ -5,6 +5,7 @@ require "tmpdir"
 require "fileutils"
 require "open3"
 require "rbconfig"
+require "kettle/dev"
 
 RSpec.describe Kettle::Drift do
   it "has a version number" do
@@ -57,7 +58,9 @@ RSpec.describe Kettle::Drift do
         kept = File.join(dir, "lib", "kept.rb")
         File.write(kept, "puts :ok\n")
 
-        expect(described_class.target_files(project_root: dir)).to eq([kept])
+        expect(described_class.target_files(project_root: dir)).to contain_exactly(
+          satisfy { |path| Kettle::Dev::Paths.same?(path, kept) }
+        )
       end
     end
 
@@ -71,7 +74,9 @@ RSpec.describe Kettle::Drift do
         File.write(managed, "puts :managed\n")
         File.write(File.join(dir, "lib", "ignored.rb"), "puts :ignored\n")
 
-        expect(described_class.target_files(project_root: dir, template_dir: template_dir)).to eq([managed])
+        expect(described_class.target_files(project_root: dir, template_dir: template_dir)).to contain_exactly(
+          satisfy { |path| Kettle::Dev::Paths.same?(path, managed) }
+        )
       end
     end
   end

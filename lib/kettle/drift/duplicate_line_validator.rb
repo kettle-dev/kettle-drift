@@ -179,11 +179,11 @@ module Kettle
         return [] unless File.directory?(template_dir)
 
         managed = []
-        Dir.glob(File.join(template_dir, "**", "*"), File::FNM_DOTMATCH).each do |src|
+        Dir.glob("**/*", File::FNM_DOTMATCH, base: template_dir).each do |rel|
+          src = File.join(template_dir, rel)
           next unless File.file?(src)
 
-          rel = src.sub(%r{^#{Regexp.escape(template_dir)}/?}, "")
-          rel = rel.sub(/\.example\z/, "")
+          rel = rel.delete_suffix(".example")
           next if rel.include?(".no-osc")
 
           dest = File.join(project_root, rel)

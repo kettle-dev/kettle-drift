@@ -2,6 +2,7 @@
 
 require "tmpdir"
 require "fileutils"
+require "kettle/dev"
 require "kettle/drift/duplicate_line_validator"
 
 RSpec.describe Kettle::Drift::DuplicateLineValidator do
@@ -315,7 +316,7 @@ RSpec.describe Kettle::Drift::DuplicateLineValidator do
         File.write(File.join(proj_dir, "Rakefile"), "# actual rake\n")
 
         files = described_class.template_managed_files(project_root: proj_dir, template_dir: tpl_dir)
-        expect(files).to include(File.join(proj_dir, "Rakefile"))
+        expect(files).to include(satisfy { |path| Kettle::Dev::Paths.same?(path, File.join(proj_dir, "Rakefile")) })
         expect(files).not_to include(File.join(proj_dir, "missing.yml"))
       end
     end
