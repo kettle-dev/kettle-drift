@@ -20,6 +20,25 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.15] - 2026-09-28
+
+- TAG: [v1.0.15][1.0.15t]
+- COVERAGE: 81.55% -- 442/542 lines in 14 files
+- BRANCH COVERAGE: 67.13% -- 145/216 branches in 14 files
+- 36.79% documented
+
+### Added
+
 - kettle-jem-template-20260913-001 - Templating now also surfaces a review
   entry in `dependency_conflicts.resolve` when a direct development
   dependency doesn't support one or more of this project's declared
@@ -37,14 +56,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - dependencies (1)
   - other (1)
   - workflows (18)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [1.0.14] - 2026-09-14
 
@@ -323,7 +334,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.14...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.15...HEAD
+[1.0.15]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.14...v1.0.15
+[1.0.15t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.15
 [1.0.14]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.13...v1.0.14
 [1.0.14t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.14
 [1.0.13]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.12...v1.0.13
