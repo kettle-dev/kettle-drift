@@ -39,6 +39,25 @@ RSpec.describe Kettle::Drift::Serializer do
         expect(JSON.parse(json).fetch("duplicate").first.fetch("file")).to eq("lib/kept.rb")
       end
     end
+
+    it "derives relative paths for missing files below an aliased project root" do
+      Dir.mktmpdir do |dir|
+        root = File.join(dir, "project")
+        alias_root = File.join(dir, "project-alias")
+        FileUtils.mkdir_p(root)
+        File.symlink(root, alias_root)
+        file = File.join(alias_root, "lib", "generated.rb")
+
+        json = described_class.serialize(
+          {"duplicate" => [{file: file, lines: [1, 3]}]},
+          project_root: root
+        )
+
+        expect(JSON.parse(json).fetch("duplicate").first.fetch("file")).to eq("lib/generated.rb")
+      end
+    rescue NotImplementedError, SystemCallError
+      skip "filesystem symlinks are unavailable"
+    end
   end
 
   describe ".deserialize" do

@@ -86,9 +86,20 @@ module Kettle
         end
 
         def canonical_path(path)
-          File.realpath(path.to_s)
+          expanded = File.expand_path(path.to_s)
+          existing = expanded
+          suffix = []
+          until File.exist?(existing) || File.symlink?(existing)
+            parent = File.dirname(existing)
+            return expanded if parent == existing
+
+            suffix.unshift(File.basename(existing))
+            existing = parent
+          end
+
+          suffix.reduce(File.realpath(existing)) { |resolved, component| File.join(resolved, component) }
         rescue SystemCallError
-          File.expand_path(path.to_s)
+          expanded
         end
       end
     end

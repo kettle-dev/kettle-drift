@@ -30,6 +30,8 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Keep drift lockfile paths project-relative across filesystem path aliases.
 
+- Resolve existing ancestor aliases when serializing paths for files not yet created.
+
 ### Security
 
 ## [1.0.15] - 2026-09-28
