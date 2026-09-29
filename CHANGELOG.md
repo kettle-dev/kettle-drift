@@ -28,17 +28,13 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Fixed
 
-- Keep drift lockfile paths project-relative across filesystem path aliases.
-
-- Resolve existing ancestor aliases when serializing paths for files not yet created.
-
 ### Security
 
 ## [1.0.15] - 2026-09-28
 
 - TAG: [v1.0.15][1.0.15t]
-- COVERAGE: 81.55% -- 442/542 lines in 14 files
-- BRANCH COVERAGE: 67.13% -- 145/216 branches in 14 files
+- COVERAGE: 81.69% -- 455/557 lines in 14 files
+- BRANCH COVERAGE: 67.42% -- 149/221 branches in 14 files
 - 36.79% documented
 
 ### Added
@@ -64,6 +60,10 @@ Please file a bug if you notice a violation of semantic versioning.
 ### Fixed
 
 - Handle Windows path spellings when identifying template-managed drift files.
+
+- Keep drift lockfile paths project-relative across filesystem path aliases.
+
+- Resolve existing ancestor aliases when serializing paths for files not yet created.
 
 ## [1.0.14] - 2026-09-14
 
