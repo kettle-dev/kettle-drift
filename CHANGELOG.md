@@ -22,6 +22,23 @@ Please file a bug if you notice a violation of semantic versioning.
 
 ### Changed
 
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Security
+
+## [1.0.20] - 2026-11-27
+
+- TAG: [v1.0.20][1.0.20t]
+- COVERAGE: 81.69% -- 455/557 lines in 14 files
+- BRANCH COVERAGE: 67.42% -- 149/221 branches in 14 files
+- 36.79% documented
+
+### Changed
+
 - [kc] kettle-jem/prepare: updated 17 project files since the last release:
   - dependencies (17)
 
@@ -30,14 +47,6 @@ Please file a bug if you notice a violation of semantic versioning.
   - dependencies (8)
   - other (3)
   - workflows (3)
-
-### Deprecated
-
-### Removed
-
-### Fixed
-
-### Security
 
 ## [1.0.19] - 2026-10-28
 
@@ -428,7 +437,9 @@ Please file a bug if you notice a violation of semantic versioning.
 
 - Initial release
 
-[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.19...HEAD
+[Unreleased]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.20...HEAD
+[1.0.20]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.19...v1.0.20
+[1.0.20t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.20
 [1.0.19]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.18...v1.0.19
 [1.0.19t]: https://github.com/kettle-dev/kettle-drift/releases/tag/v1.0.19
 [1.0.18]: https://github.com/kettle-dev/kettle-drift/compare/v1.0.17...v1.0.18
